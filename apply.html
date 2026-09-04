@@ -2,351 +2,863 @@
 <html lang="ur" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<title>Info24 Jobs - Apply</title>
 
-<title>Apply Free — INFO24 JOBS</title>
+<style>
 
-<link rel="stylesheet" href="style.css">
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f5f8;
+    color:#17202a;
+}
+
+header{
+    background:#111827;
+    color:white;
+    padding:18px 15px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+    font-size:26px;
+}
+
+header p{
+    margin:6px 0 0;
+    color:#d1d5db;
+}
+
+.container{
+    max-width:850px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.card{
+    background:white;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.job-box{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:20px;
+}
+
+.job-box h2{
+    margin-top:0;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+.field.full{
+    grid-column:1 / -1;
+}
+
+label{
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#2563eb;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:9px;
+    background:#2563eb;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+button:disabled{
+    background:#94a3b8;
+    cursor:not-allowed;
+}
+
+.note{
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:18px;
+    line-height:1.7;
+}
+
+.success{
+    display:none;
+    background:#ecfdf5;
+    border:1px solid #86efac;
+    color:#166534;
+    padding:18px;
+    border-radius:10px;
+    line-height:1.8;
+}
+
+.error{
+    display:none;
+    background:#fef2f2;
+    border:1px solid #fca5a5;
+    color:#991b1b;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.small{
+    font-size:13px;
+    color:#64748b;
+    margin-top:5px;
+}
+
+@media(max-width:650px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .card{
+        padding:16px;
+    }
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header class="site-header">
+<header>
 
-<div class="container header-inner">
+<h1>Info24 Jobs</h1>
 
-<a href="index.html" class="logo">
-
-<span class="logo-box">I24</span>
-
-<span>
-<strong>INFO24 JOBS</strong>
-<small>Jobs & Opportunities</small>
-</span>
-
-</a>
-
-</div>
+<p>Job Application Form</p>
 
 </header>
 
 
-<main class="container page-space">
+<div class="container">
 
-<section class="form-card">
+<div class="card">
 
-<div class="form-heading">
+<div class="job-box">
 
-<h1>Free Job Application</h1>
+<h2 id="jobTitle">Job Details</h2>
 
 <p>
-ملازمت کے لیے اپنی معلومات درج کریں۔
+<strong>Company:</strong>
+<span id="jobCompany">Loading...</span>
+</p>
+
+<p>
+<strong>Location:</strong>
+<span id="jobLocation">Loading...</span>
+</p>
+
+<p>
+<strong>Category:</strong>
+<span id="jobCategory">Loading...</span>
+</p>
+
+<p>
+<strong>Job Type:</strong>
+<span id="jobType">Loading...</span>
 </p>
 
 </div>
 
 
-<div class="application-job">
+<div class="note">
 
-<strong>Applied Job:</strong>
+<strong>اہم ہدایت:</strong><br>
 
-<span id="selectedJob">
-Job Opportunity
-</span>
+براہِ کرم اپنی درست معلومات درج کریں۔ غلط یا نامکمل معلومات کی صورت میں
+آپ کی درخواست کمپنی کو forward ہونے میں مسئلہ ہو سکتا ہے۔
 
 </div>
+
+
+<div id="errorBox" class="error"></div>
 
 
 <form id="applicationForm">
 
+<div class="grid">
 
-<label>
-نام *
+
+<div class="field">
+
+<label for="applicantName">
+Applicant Name *
 </label>
 
 <input
-    type="text"
-    id="candidateName"
-    required
-    placeholder="اپنا مکمل نام"
+type="text"
+id="applicantName"
+required
+placeholder="اپنا مکمل نام"
 >
 
+</div>
 
-<label>
-والد کا نام
+
+<div class="field">
+
+<label for="fatherName">
+Father Name *
 </label>
 
 <input
-    type="text"
-    id="fatherName"
-    placeholder="والد کا نام"
+type="text"
+id="fatherName"
+required
+placeholder="والد کا نام"
 >
 
+</div>
 
-<label>
-موبائل نمبر *
+
+<div class="field">
+
+<label for="phone">
+Mobile Number *
 </label>
 
 <input
-    type="tel"
-    id="mobile"
-    required
-    placeholder="03XXXXXXXXX"
+type="tel"
+id="phone"
+required
+placeholder="03001234567"
 >
 
+</div>
 
-<label>
-WhatsApp نمبر
+
+<div class="field">
+
+<label for="whatsapp">
+WhatsApp Number
 </label>
 
 <input
-    type="tel"
-    id="whatsapp"
-    placeholder="03XXXXXXXXX"
+type="tel"
+id="whatsapp"
+placeholder="03001234567"
 >
 
+</div>
 
-<label>
+
+<div class="field">
+
+<label for="email">
 Email
 </label>
 
 <input
-    type="email"
-    id="email"
-    placeholder="example@gmail.com"
+type="email"
+id="email"
+placeholder="example@gmail.com"
 >
 
+</div>
 
-<label>
-شہر *
+
+<div class="field">
+
+<label for="cnic">
+CNIC
 </label>
 
 <input
-    type="text"
-    id="city"
-    required
-    placeholder="مثلاً لاہور"
+type="text"
+id="cnic"
+placeholder="xxxxx-xxxxxxx-x"
 >
 
+</div>
 
-<label>
-تعلیم
+
+<div class="field">
+
+<label for="city">
+City *
 </label>
 
 <input
-    type="text"
-    id="education"
-    placeholder="مثلاً Matric / DAE / Graduation"
+type="text"
+id="city"
+required
+placeholder="مثلاً Sargodha"
 >
 
+</div>
 
-<label>
-تجربہ
+
+<div class="field">
+
+<label for="education">
+Education *
+</label>
+
+<select id="education" required>
+
+<option value="">Select Education</option>
+
+<option>Primary</option>
+<option>Middle</option>
+<option>Matric</option>
+<option>Intermediate</option>
+<option>Diploma</option>
+<option>DAE</option>
+<option>Bachelor</option>
+<option>Master</option>
+<option>MPhil</option>
+<option>PhD</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label for="experience">
+Experience *
+</label>
+
+<input
+type="text"
+id="experience"
+required
+placeholder="مثلاً 2 Years"
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="cv">
+CV / Resume
+</label>
+
+<input
+type="file"
+id="cv"
+accept=".pdf,.doc,.docx"
+>
+
+<div class="small">
+PDF, DOC یا DOCX فائل
+</div>
+
+</div>
+
+
+<div class="field full">
+
+<label for="message">
+Additional Information
 </label>
 
 <textarea
-    id="experience"
-    rows="4"
-    placeholder="اپنے کام کا تجربہ مختصر لکھیں"
+id="message"
+placeholder="اپنے متعلق اضافی معلومات یہاں لکھیں..."
 ></textarea>
 
-
-<div class="cv-placeholder">
-
-<h3>📄 CV Upload</h3>
-
-<p>
-CV Upload کا محفوظ نظام اگلے مرحلے میں activate کیا جائے گا۔
-</p>
-
-<p>
-فی الحال اس Demo میں کوئی CV upload نہیں کی جا رہی۔
-</p>
-
 </div>
 
 
-<div class="declaration">
+<div class="field full">
 
-<label class="check-line">
-
-<input
-    type="checkbox"
-    id="declaration"
-    required
->
-
-<span>
-میں تصدیق کرتا/کرتی ہوں کہ میری فراہم کردہ معلومات
-درست ہیں۔
-</span>
-
-</label>
-
-
-<label class="check-line">
+<label>
 
 <input
-    type="checkbox"
-    id="freeDeclaration"
-    required
+type="checkbox"
+id="confirmation"
+required
+style="width:auto;margin-left:7px;"
 >
 
-<span>
-میں سمجھتا/سمجھتی ہوں کہ Info24 Jobs کی طرف سے
-Job Application، Registration یا CV submission
-کی کوئی فیس نہیں ہے۔
-</span>
-
-</label>
-
-
-<label class="check-line">
-
-<input
-    type="checkbox"
-    id="jobGuarantee"
-    required
->
-
-<span>
-میں سمجھتا/سمجھتی ہوں کہ Job کی حتمی selection
-متعلقہ کمپنی کرے گی اور Info24 Jobs ملازمت کی
-ضمانت نہیں دیتا۔
-</span>
+میں تصدیق کرتا/کرتی ہوں کہ فراہم کردہ معلومات درست ہیں۔
 
 </label>
 
 </div>
 
+
+<div class="field full">
 
 <button
-    type="submit"
-    class="btn btn-primary submit-btn"
+type="submit"
+id="submitBtn"
 >
-    SUBMIT APPLICATION
+
+Submit Application
+
 </button>
 
+</div>
+
+</div>
 
 </form>
 
-</section>
 
-</main>
+<div id="successBox" class="success">
 
-
-<footer class="site-footer">
-
-<div class="container">
-
-<h3>INFO24 JOBS</h3>
+<h3>Application Successfully Submitted! ✅</h3>
 
 <p>
-Application ہمیشہ مفت ہے۔
+آپ کی application کامیابی سے Info24 Jobs میں محفوظ ہو گئی ہے۔
 </p>
 
-<p class="copyright">
-© 2026 INFO24 JOBS
+<p>
+<strong>Application ID:</strong>
+<span id="applicationId"></span>
+</p>
+
+<p>
+آپ کی درخواست ابتدائی review کے بعد متعلقہ کمپنی کو forward کی جا سکتی ہے۔
 </p>
 
 </div>
 
-</footer>
+</div>
+
+</div>
 
 
-<script>
+<script type="module">
+
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    addDoc,
+    collection,
+    serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+import {
+    INFO24_FIREBASE_CONFIG
+}
+from "./firebase-config.js";
+
+
+const app = initializeApp(INFO24_FIREBASE_CONFIG);
+
+const db = getFirestore(app);
+
+
+// --------------------------------------------------
+// URL PARAMETERS
+// --------------------------------------------------
+
+const params = new URLSearchParams(window.location.search);
+
+const companyId = params.get("company");
+const jobId = params.get("job");
+
+
+// --------------------------------------------------
+// ELEMENTS
+// --------------------------------------------------
+
+const jobTitle =
+    document.getElementById("jobTitle");
+
+const jobCompany =
+    document.getElementById("jobCompany");
+
+const jobLocation =
+    document.getElementById("jobLocation");
+
+const jobCategory =
+    document.getElementById("jobCategory");
+
+const jobType =
+    document.getElementById("jobType");
 
 const form =
-document.getElementById("applicationForm");
+    document.getElementById("applicationForm");
 
-form.addEventListener("submit", function(event){
+const submitBtn =
+    document.getElementById("submitBtn");
 
-    event.preventDefault();
+const errorBox =
+    document.getElementById("errorBox");
 
-    const applicationId =
-        "JT-OPP-" +
-        Math.floor(
-            100000 +
-            Math.random() * 900000
+const successBox =
+    document.getElementById("successBox");
+
+
+// --------------------------------------------------
+// HTML ESCAPE
+// --------------------------------------------------
+
+function escapeHTML(value){
+
+    if(value === undefined || value === null){
+        return "";
+    }
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+// --------------------------------------------------
+// ERROR
+// --------------------------------------------------
+
+function showError(message){
+
+    errorBox.textContent = message;
+
+    errorBox.style.display = "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+// --------------------------------------------------
+// LOAD JOB
+// --------------------------------------------------
+
+async function loadJob(){
+
+    if(!companyId || !jobId){
+
+        showError(
+            "Job information نہیں ملی۔ براہِ کرم Job کے Apply button سے دوبارہ آئیں۔"
         );
 
-    const application = {
+        form.style.display = "none";
 
-        applicationId:
+        return;
+    }
 
-            applicationId,
 
-        name:
+    try{
+
+        const jobRef =
+            doc(
+                db,
+                "companies",
+                companyId,
+                "opportunities",
+                jobId
+            );
+
+
+        const jobSnap =
+            await getDoc(jobRef);
+
+
+        if(!jobSnap.exists()){
+
+            showError(
+                "یہ Job موجود نہیں ہے یا remove ہو چکی ہے۔"
+            );
+
+            form.style.display = "none";
+
+            return;
+        }
+
+
+        const job =
+            jobSnap.data();
+
+
+        jobTitle.textContent =
+            job.title || "Job Application";
+
+
+        jobCompany.textContent =
+            job.company || companyId;
+
+
+        jobLocation.textContent =
+            job.location || "-";
+
+
+        jobCategory.textContent =
+            job.category || "-";
+
+
+        jobType.textContent =
+            job.job_type || "-";
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showError(
+            "Job information load نہیں ہو سکی۔ براہِ کرم دوبارہ کوشش کریں۔"
+        );
+
+    }
+
+}
+
+
+// --------------------------------------------------
+// SUBMIT APPLICATION
+// --------------------------------------------------
+
+form.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        errorBox.style.display = "none";
+
+
+        submitBtn.disabled = true;
+
+        submitBtn.textContent =
+            "Submitting...";
+
+
+        try{
+
+            const cvFile =
+                document.getElementById("cv").files[0];
+
+
+            let cvFileName = "";
+
+
+            if(cvFile){
+
+                cvFileName =
+                    cvFile.name;
+
+            }
+
+
+            const applicationData = {
+
+                job_id: jobId,
+
+                company_id: companyId,
+
+                applicant_name:
+                    document
+                    .getElementById("applicantName")
+                    .value
+                    .trim(),
+
+                father_name:
+                    document
+                    .getElementById("fatherName")
+                    .value
+                    .trim(),
+
+                phone:
+                    document
+                    .getElementById("phone")
+                    .value
+                    .trim(),
+
+                whatsapp:
+                    document
+                    .getElementById("whatsapp")
+                    .value
+                    .trim(),
+
+                email:
+                    document
+                    .getElementById("email")
+                    .value
+                    .trim(),
+
+                cnic:
+                    document
+                    .getElementById("cnic")
+                    .value
+                    .trim(),
+
+                city:
+                    document
+                    .getElementById("city")
+                    .value
+                    .trim(),
+
+                education:
+                    document
+                    .getElementById("education")
+                    .value,
+
+                experience:
+                    document
+                    .getElementById("experience")
+                    .value
+                    .trim(),
+
+                cv_file_name:
+                    cvFileName,
+
+                additional_message:
+                    document
+                    .getElementById("message")
+                    .value
+                    .trim(),
+
+                status:
+                    "pending",
+
+                applied_at:
+                    serverTimestamp()
+
+            };
+
+
+            const applicationsRef =
+                collection(
+                    db,
+                    "companies",
+                    companyId,
+                    "opportunities",
+                    jobId,
+                    "applications"
+                );
+
+
+            const newApplication =
+                await addDoc(
+                    applicationsRef,
+                    applicationData
+                );
+
 
             document
-            .getElementById("candidateName")
-            .value,
-
-        fatherName:
-
-            document
-            .getElementById("fatherName")
-            .value,
-
-        mobile:
-
-            document
-            .getElementById("mobile")
-            .value,
-
-        whatsapp:
-
-            document
-            .getElementById("whatsapp")
-            .value,
-
-        email:
-
-            document
-            .getElementById("email")
-            .value,
-
-        city:
-
-            document
-            .getElementById("city")
-            .value,
-
-        education:
-
-            document
-            .getElementById("education")
-            .value,
-
-        experience:
-
-            document
-            .getElementById("experience")
-            .value,
-
-        date:
-
-            new Date()
-            .toLocaleDateString("en-GB")
-
-    };
+                .getElementById("applicationId")
+                .textContent =
+                newApplication.id;
 
 
-    sessionStorage.setItem(
-        "info24Application",
-        JSON.stringify(application)
-    );
+            form.style.display =
+                "none";
 
 
-    window.location.href =
-        "receipt.html";
+            successBox.style.display =
+                "block";
 
-});
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+
+        }
+        catch(error){
+
+            console.error(error);
+
+            showError(
+                "Application submit نہیں ہو سکی۔ براہِ کرم دوبارہ کوشش کریں۔"
+            );
+
+
+            submitBtn.disabled =
+                false;
+
+
+            submitBtn.textContent =
+                "Submit Application";
+
+        }
+
+    }
+);
+
+
+// --------------------------------------------------
+// START
+// --------------------------------------------------
+
+loadJob();
 
 </script>
 
