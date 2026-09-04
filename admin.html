@@ -37,7 +37,7 @@
 }
 
 .login-box label,
-.company-form label{
+.form-box label{
     display:block;
     font-weight:bold;
     font-size:13px;
@@ -45,9 +45,9 @@
 }
 
 .login-box input,
-.company-form input,
-.company-form select,
-.company-form textarea{
+.form-box input,
+.form-box select,
+.form-box textarea{
 
     width:100%;
     padding:12px;
@@ -60,15 +60,15 @@
 
 }
 
-.company-form textarea{
-    min-height:90px;
+.form-box textarea{
+    min-height:100px;
     resize:vertical;
 }
 
 .login-box input:focus,
-.company-form input:focus,
-.company-form select:focus,
-.company-form textarea:focus{
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus{
     border-color:#0b66a3;
 }
 
@@ -92,6 +92,7 @@
     margin-top:15px;
 
     font-size:13px;
+
 }
 
 .success-message{
@@ -174,7 +175,7 @@
     color:#071d49;
 }
 
-.company-form{
+.form-box{
 
     display:none;
 
@@ -215,7 +216,7 @@
 
 }
 
-.company-list{
+.list-box{
 
     display:grid;
 
@@ -223,7 +224,7 @@
 
 }
 
-.company-item{
+.item-box{
 
     border:1px solid #e1e6ed;
 
@@ -235,7 +236,7 @@
 
 }
 
-.company-top{
+.item-top{
 
     display:flex;
 
@@ -249,7 +250,7 @@
 
 }
 
-.company-name{
+.item-name{
 
     font-size:18px;
 
@@ -259,7 +260,7 @@
 
 }
 
-.company-meta{
+.item-meta{
 
     color:#687386;
 
@@ -271,7 +272,7 @@
 
 }
 
-.status-badge{
+.badge{
 
     display:inline-block;
 
@@ -283,37 +284,41 @@
 
     font-weight:bold;
 
+    margin:2px;
+
 }
 
-.status-active{
-
+.badge-active{
     background:#e8f7ee;
     color:#18794e;
-
 }
 
-.status-inactive{
-
+.badge-inactive{
     background:#fff0f0;
     color:#b42318;
-
 }
 
-.status-verified{
-
+.badge-verified{
     background:#eaf2ff;
     color:#155eef;
-
 }
 
-.status-pending{
-
+.badge-pending{
     background:#fff7df;
     color:#946200;
-
 }
 
-.company-actions{
+.badge-fee{
+    background:#fff3e0;
+    color:#a15c00;
+}
+
+.badge-free{
+    background:#e8f7ee;
+    color:#18794e;
+}
+
+.actions{
 
     display:flex;
 
@@ -368,6 +373,40 @@
 
     color:#687386;
 
+}
+
+.fee-box{
+
+    margin-top:20px;
+
+    padding:18px;
+
+    background:#fff8eb;
+
+    border:1px solid #f1d39a;
+
+    border-radius:12px;
+
+}
+
+.fee-box h3{
+    margin-top:0;
+}
+
+.checkbox-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+.checkbox-row input{
+    width:auto;
 }
 
 @media(max-width:700px){
@@ -565,14 +604,17 @@ Companies کو add، verify اور manage کریں۔
 </div>
 
 
-<div class="job-card admin-card">
+<div
+    class="job-card admin-card"
+    onclick="showJobs()"
+>
 
 <h2>
 📋 Opportunities
 </h2>
 
 <p>
-Job opportunities یہاں manage ہوں گی۔
+Jobs، CV اور Application settings manage کریں۔
 </p>
 
 </div>
@@ -634,7 +676,7 @@ Referral اور commission records۔
 
 
 
-<!-- COMPANIES MANAGEMENT -->
+<!-- COMPANIES -->
 
 <section
     id="companiesSection"
@@ -660,11 +702,9 @@ Referral اور commission records۔
 
 
 
-<!-- COMPANY FORM -->
-
 <div
     id="companyFormBox"
-    class="company-form"
+    class="form-box"
 >
 
 
@@ -674,7 +714,6 @@ Add New Company
 
 
 <form id="companyForm">
-
 
 <input
     type="hidden"
@@ -687,138 +726,104 @@ Add New Company
 
 <div>
 
-<label>
-Company Name *
-</label>
+<label>Company Name *</label>
 
 <input
     type="text"
     id="companyName"
     required
-    placeholder="Company Name"
 >
 
 </div>
 
 
-
 <div>
 
-<label>
-Industry
-</label>
+<label>Industry</label>
 
 <input
     type="text"
     id="industry"
-    placeholder="e.g. Construction"
 >
 
 </div>
 
 
-
 <div>
 
-<label>
-City
-</label>
+<label>City</label>
 
 <input
     type="text"
     id="city"
-    placeholder="Lahore"
 >
 
 </div>
 
 
-
 <div>
 
-<label>
-Official Phone
-</label>
+<label>Official Phone</label>
 
 <input
     type="tel"
     id="officialPhone"
-    placeholder="03001234567"
 >
 
 </div>
 
 
-
 <div>
 
-<label>
-Official Email
-</label>
+<label>Official Email</label>
 
 <input
     type="email"
     id="officialEmail"
-    placeholder="company@example.com"
 >
 
 </div>
 
 
-
 <div>
 
-<label>
-Website
-</label>
+<label>Website</label>
 
 <input
     type="url"
     id="website"
-    placeholder="https://example.com"
 >
 
 </div>
 
 
-
 <div>
 
-<label>
-Registration Number
-</label>
+<label>Registration Number</label>
 
 <input
     type="text"
     id="registrationNumber"
-    placeholder="Registration Number"
 >
 
 </div>
 
 
-
 <div>
 
-<label>
-Licence Number
-</label>
+<label>Licence Number</label>
 
 <input
     type="text"
     id="licenceNumber"
-    placeholder="Licence Number"
 >
 
 </div>
 
 
-
 <div>
 
-<label>
-Licence Expiry
-</label>
+<label>Licence Expiry</label>
 
 <input
     type="date"
@@ -828,17 +833,14 @@ Licence Expiry
 </div>
 
 
-
 <div>
 
-<label>
-Legal Status
-</label>
+<label>Legal Status</label>
 
 <select id="legalStatus">
 
 <option value="">
-Select Legal Status
+Select
 </option>
 
 <option value="Registered">
@@ -858,12 +860,9 @@ Pending
 </div>
 
 
-
 <div>
 
-<label>
-Verification Status
-</label>
+<label>Verification Status</label>
 
 <select id="verificationStatus">
 
@@ -884,12 +883,9 @@ Rejected
 </div>
 
 
-
 <div>
 
-<label>
-Active Status
-</label>
+<label>Active Status</label>
 
 <select id="active">
 
@@ -906,7 +902,6 @@ Inactive
 </div>
 
 
-
 <div class="form-full">
 
 <label>
@@ -915,7 +910,6 @@ Verification Notes
 
 <textarea
     id="verificationNotes"
-    placeholder="Verification notes"
 ></textarea>
 
 </div>
@@ -938,34 +932,28 @@ Verification Notes
 
 <div class="form-buttons">
 
-
 <button
     type="submit"
     class="btn btn-primary"
 >
-    SAVE COMPANY
+SAVE COMPANY
 </button>
-
 
 <button
     type="button"
     id="cancelCompanyBtn"
     class="btn"
 >
-    CANCEL
+CANCEL
 </button>
 
-
 </div>
-
 
 </form>
 
 </div>
 
 
-
-<!-- COMPANY LIST -->
 
 <div
     id="companiesLoading"
@@ -977,7 +965,507 @@ Loading Companies...
 
 <div
     id="companiesList"
-    class="company-list"
+    class="list-box"
+></div>
+
+
+</section>
+
+
+
+<!-- JOBS -->
+
+<section
+    id="jobsSection"
+    class="management-section"
+>
+
+
+<div class="section-header">
+
+<h2>
+📋 Opportunities / Jobs
+</h2>
+
+
+<button
+    id="addJobBtn"
+    class="btn btn-primary"
+>
+    + Add Job
+</button>
+
+</div>
+
+
+
+<div
+    id="jobFormBox"
+    class="form-box"
+>
+
+
+<h3 id="jobFormTitle">
+Add New Job
+</h3>
+
+
+<form id="jobForm">
+
+
+<input
+    type="hidden"
+    id="editJobCompanyId"
+>
+
+
+<input
+    type="hidden"
+    id="editJobId"
+>
+
+
+<div class="form-grid">
+
+
+<div>
+
+<label>
+Company *
+</label>
+
+<select
+    id="jobCompany"
+    required
+>
+
+<option value="">
+Select Company
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+Job Title *
+</label>
+
+<input
+    type="text"
+    id="jobTitle"
+    required
+    placeholder="Electrician Required"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Category *
+</label>
+
+<input
+    type="text"
+    id="jobCategory"
+    required
+    placeholder="Electrical"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Location *
+</label>
+
+<input
+    type="text"
+    id="jobLocation"
+    required
+    placeholder="Lahore"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Job Type
+</label>
+
+<select id="jobType">
+
+<option value="">
+Select
+</option>
+
+<option value="Full Time">
+Full Time
+</option>
+
+<option value="Part Time">
+Part Time
+</option>
+
+<option value="Contract">
+Contract
+</option>
+
+<option value="Temporary">
+Temporary
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+Salary
+</label>
+
+<input
+    type="text"
+    id="jobSalary"
+    placeholder="Rs. 40,000 - 50,000"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Experience
+</label>
+
+<input
+    type="text"
+    id="jobExperience"
+    placeholder="2 Years"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Education
+</label>
+
+<input
+    type="text"
+    id="jobEducation"
+    placeholder="Matric / Diploma"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Application Deadline
+</label>
+
+<input
+    type="date"
+    id="applicationDeadline"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Application Status
+</label>
+
+<select id="jobStatus">
+
+<option value="active">
+Active / Published
+</option>
+
+<option value="inactive">
+Inactive / Draft
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+Verification Status
+</label>
+
+<select id="jobVerification">
+
+<option value="pending">
+Pending
+</option>
+
+<option value="verified">
+Verified
+</option>
+
+<option value="rejected">
+Rejected
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+Application Method
+</label>
+
+<select id="applicationMethod">
+
+<option value="Info24 Jobs">
+Info24 Jobs
+</option>
+
+<option value="Company">
+Company
+</option>
+
+<option value="External Link">
+External Link
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+Application Link
+</label>
+
+<input
+    type="url"
+    id="applicationLink"
+    placeholder="https://..."
+>
+
+</div>
+
+
+<div class="form-full">
+
+<label>
+Job Description
+</label>
+
+<textarea
+    id="jobDescription"
+    placeholder="Job کی مکمل تفصیل"
+></textarea>
+
+</div>
+
+
+<div class="form-full">
+
+<label>
+Fee Type
+</label>
+
+<select id="feeType">
+
+<option value="free">
+No Fee — FREE
+</option>
+
+<option value="required">
+Fee Required
+</option>
+
+<option value="government">
+Government / Test Fee
+</option>
+
+<option value="company_pays">
+Company Pays
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+Fee Amount
+</label>
+
+<input
+    type="number"
+    id="feeAmount"
+    min="0"
+    placeholder="0"
+>
+
+</div>
+
+
+<div>
+
+<label>
+Currency
+</label>
+
+<select id="feeCurrency">
+
+<option value="PKR">
+PKR
+</option>
+
+<option value="AED">
+AED
+</option>
+
+<option value="USD">
+USD
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-full">
+
+<label>
+Fee Details
+</label>
+
+<textarea
+    id="feeDetails"
+    placeholder="فیس کس مرحلے پر ہے، کس مقصد کے لیے ہے وغیرہ"
+></textarea>
+
+</div>
+
+
+<div class="form-full">
+
+<label>
+Payment Instructions
+</label>
+
+<textarea
+    id="paymentInstructions"
+    placeholder="ادائیگی کا طریقہ / سرکاری لنک / بینک معلومات"
+></textarea>
+
+</div>
+
+
+<div class="form-full">
+
+<label>
+CV / Application Instructions
+</label>
+
+<textarea
+    id="cvInstructions"
+    placeholder="CV کہاں جمع ہوگی، کمپنی کو کب Forward ہوگی وغیرہ"
+></textarea>
+
+</div>
+
+
+<div class="form-full">
+
+<label>
+Verification Notes
+</label>
+
+<textarea
+    id="jobVerificationNotes"
+></textarea>
+
+</div>
+
+
+</div>
+
+
+<div
+    id="jobSuccess"
+    class="success-message"
+></div>
+
+
+<div
+    id="jobError"
+    class="error-message"
+></div>
+
+
+<div class="form-buttons">
+
+<button
+    type="submit"
+    class="btn btn-primary"
+>
+SAVE JOB
+</button>
+
+
+<button
+    type="button"
+    id="cancelJobBtn"
+    class="btn"
+>
+CANCEL
+</button>
+
+</div>
+
+
+</form>
+
+</div>
+
+
+
+<div
+    id="jobsLoading"
+    class="loading-box"
+>
+Loading Jobs...
+</div>
+
+
+<div
+    id="jobsList"
+    class="list-box"
 ></div>
 
 
@@ -1017,7 +1505,7 @@ INFO24 JOBS
 Admin Management System
 </p>
 
-<p class="copyright">
+<p>
 © 2026 INFO24 JOBS
 </p>
 
@@ -1026,8 +1514,6 @@ Admin Management System
 </footer>
 
 
-
-<!-- FIREBASE -->
 
 <script type="module">
 
@@ -1067,9 +1553,6 @@ from
 "./firebase-config.js";
 
 
-
-/* FIREBASE INITIALIZE */
-
 const app =
 initializeApp(
     INFO24_FIREBASE_CONFIG
@@ -1085,94 +1568,26 @@ getFirestore(app);
 
 
 
-/* ELEMENTS */
+/* LOGIN */
 
 const loginSection =
-document.getElementById(
-    "loginSection"
-);
-
+document.getElementById("loginSection");
 
 const dashboard =
-document.getElementById(
-    "dashboard"
-);
-
+document.getElementById("dashboard");
 
 const loginForm =
-document.getElementById(
-    "loginForm"
-);
-
+document.getElementById("loginForm");
 
 const loginError =
-document.getElementById(
-    "loginError"
-);
-
+document.getElementById("loginError");
 
 const loggedInEmail =
-document.getElementById(
-    "loggedInEmail"
-);
-
+document.getElementById("loggedInEmail");
 
 const logoutBtn =
-document.getElementById(
-    "logoutBtn"
-);
+document.getElementById("logoutBtn");
 
-
-const companyFormBox =
-document.getElementById(
-    "companyFormBox"
-);
-
-
-const companyForm =
-document.getElementById(
-    "companyForm"
-);
-
-
-const companiesList =
-document.getElementById(
-    "companiesList"
-);
-
-
-const companiesLoading =
-document.getElementById(
-    "companiesLoading"
-);
-
-
-const addCompanyBtn =
-document.getElementById(
-    "addCompanyBtn"
-);
-
-
-const cancelCompanyBtn =
-document.getElementById(
-    "cancelCompanyBtn"
-);
-
-
-const companySuccess =
-document.getElementById(
-    "companySuccess"
-);
-
-
-const companyError =
-document.getElementById(
-    "companyError"
-);
-
-
-
-/* LOGIN */
 
 loginForm.addEventListener(
     "submit",
@@ -1180,26 +1595,18 @@ loginForm.addEventListener(
 
         event.preventDefault();
 
-        loginError.style.display =
-            "none";
-
+        loginError.style.display="none";
 
         const email =
             document
-            .getElementById(
-                "adminEmail"
-            )
+            .getElementById("adminEmail")
             .value
             .trim();
 
-
         const password =
             document
-            .getElementById(
-                "adminPassword"
-            )
+            .getElementById("adminPassword")
             .value;
-
 
         try{
 
@@ -1228,7 +1635,7 @@ loginForm.addEventListener(
 
 
 
-/* AUTH CHECK */
+/* AUTH */
 
 onAuthStateChanged(
     auth,
@@ -1236,31 +1643,25 @@ onAuthStateChanged(
 
         if(user){
 
-            loginSection.style.display =
-                "none";
+            loginSection.style.display="none";
 
-
-            dashboard.style.display =
-                "block";
-
+            dashboard.style.display="block";
 
             loggedInEmail.textContent =
                 "Logged in: " +
                 user.email;
 
-
             await loadCompanies();
+
+            await loadAllJobs();
 
         }
 
         else{
 
-            loginSection.style.display =
-                "block";
+            loginSection.style.display="block";
 
-
-            dashboard.style.display =
-                "none";
+            dashboard.style.display="none";
 
         }
 
@@ -1282,20 +1683,58 @@ logoutBtn.addEventListener(
 
 
 
-/* SHOW COMPANIES */
+/* NAVIGATION */
 
 window.showCompanies =
 function(){
 
     document
-    .getElementById(
-        "companiesSection"
-    )
+    .getElementById("companiesSection")
     .scrollIntoView({
         behavior:"smooth"
     });
 
 };
+
+
+window.showJobs =
+function(){
+
+    document
+    .getElementById("jobsSection")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+};
+
+
+
+/* COMPANY ELEMENTS */
+
+const companyFormBox =
+document.getElementById("companyFormBox");
+
+const companyForm =
+document.getElementById("companyForm");
+
+const companiesList =
+document.getElementById("companiesList");
+
+const companiesLoading =
+document.getElementById("companiesLoading");
+
+const addCompanyBtn =
+document.getElementById("addCompanyBtn");
+
+const cancelCompanyBtn =
+document.getElementById("cancelCompanyBtn");
+
+const companySuccess =
+document.getElementById("companySuccess");
+
+const companyError =
+document.getElementById("companyError");
 
 
 
@@ -1308,31 +1747,15 @@ addCompanyBtn.addEventListener(
         companyForm.reset();
 
         document
-        .getElementById(
-            "editCompanyId"
-        )
-        .value = "";
-
+        .getElementById("editCompanyId")
+        .value="";
 
         document
-        .getElementById(
-            "companyFormTitle"
-        )
+        .getElementById("companyFormTitle")
         .textContent =
             "Add New Company";
 
-
-        companySuccess.style.display =
-            "none";
-
-
-        companyError.style.display =
-            "none";
-
-
-        companyFormBox.style.display =
-            "block";
-
+        companyFormBox.style.display="block";
 
         companyFormBox.scrollIntoView({
             behavior:"smooth"
@@ -1343,14 +1766,13 @@ addCompanyBtn.addEventListener(
 
 
 
-/* CANCEL */
+/* CANCEL COMPANY */
 
 cancelCompanyBtn.addEventListener(
     "click",
     function(){
 
-        companyFormBox.style.display =
-            "none";
+        companyFormBox.style.display="none";
 
         companyForm.reset();
 
@@ -1367,168 +1789,108 @@ companyForm.addEventListener(
 
         event.preventDefault();
 
-
-        companySuccess.style.display =
-            "none";
-
-
-        companyError.style.display =
-            "none";
-
+        companySuccess.style.display="none";
+        companyError.style.display="none";
 
         const editId =
             document
-            .getElementById(
-                "editCompanyId"
-            )
+            .getElementById("editCompanyId")
             .value
             .trim();
-
 
         const companyName =
             document
-            .getElementById(
-                "companyName"
-            )
+            .getElementById("companyName")
             .value
             .trim();
-
 
         if(!companyName){
 
             companyError.textContent =
                 "Company Name لازمی ہے۔";
 
-            companyError.style.display =
-                "block";
+            companyError.style.display="block";
 
             return;
 
         }
 
-
         try{
 
-            let companyId =
-                editId;
+            const companyId =
+                editId ||
+                "COMP" +
+                Date.now();
 
+            const data = {
 
-            if(!companyId){
-
-                companyId =
-                    "COMP" +
-                    String(
-                        Date.now()
-                    );
-
-            }
-
-
-            const companyData = {
-
-                companyName:
-                    companyName,
+                companyName,
 
                 industry:
                     document
-                    .getElementById(
-                        "industry"
-                    )
-                    .value
-                    .trim(),
+                    .getElementById("industry")
+                    .value.trim(),
 
                 city:
                     document
-                    .getElementById(
-                        "city"
-                    )
-                    .value
-                    .trim(),
+                    .getElementById("city")
+                    .value.trim(),
 
                 officialPhone:
                     document
-                    .getElementById(
-                        "officialPhone"
-                    )
-                    .value
-                    .trim(),
+                    .getElementById("officialPhone")
+                    .value.trim(),
 
                 officialEmail:
                     document
-                    .getElementById(
-                        "officialEmail"
-                    )
-                    .value
-                    .trim(),
+                    .getElementById("officialEmail")
+                    .value.trim(),
 
                 website:
                     document
-                    .getElementById(
-                        "website"
-                    )
-                    .value
-                    .trim(),
+                    .getElementById("website")
+                    .value.trim(),
 
                 registrationNumber:
                     document
-                    .getElementById(
-                        "registrationNumber"
-                    )
-                    .value
-                    .trim(),
+                    .getElementById("registrationNumber")
+                    .value.trim(),
 
                 licenceNumber:
                     document
-                    .getElementById(
-                        "licenceNumber"
-                    )
-                    .value
-                    .trim(),
+                    .getElementById("licenceNumber")
+                    .value.trim(),
 
                 licenceExpiry:
                     document
-                    .getElementById(
-                        "licenceExpiry"
-                    )
+                    .getElementById("licenceExpiry")
                     .value,
 
                 legalStatus:
                     document
-                    .getElementById(
-                        "legalStatus"
-                    )
+                    .getElementById("legalStatus")
                     .value,
 
                 verificationStatus:
                     document
-                    .getElementById(
-                        "verificationStatus"
-                    )
+                    .getElementById("verificationStatus")
                     .value,
 
                 active:
                     document
-                    .getElementById(
-                        "active"
-                    )
+                    .getElementById("active")
                     .value === "true",
 
                 verificationNotes:
                     document
-                    .getElementById(
-                        "verificationNotes"
-                    )
-                    .value
-                    .trim(),
+                    .getElementById("verificationNotes")
+                    .value.trim(),
 
                 verificationDate:
                     new Date()
-                    .toLocaleDateString(
-                        "en-GB"
-                    )
+                    .toLocaleDateString("en-GB")
 
             };
-
 
             await setDoc(
                 doc(
@@ -1536,50 +1898,24 @@ companyForm.addEventListener(
                     "companies",
                     companyId
                 ),
-                companyData,
-                {
-                    merge:true
-                }
+                data,
+                {merge:true}
             );
-
 
             companySuccess.textContent =
                 "Company کامیابی سے Save ہو گئی۔";
 
-
-            companySuccess.style.display =
-                "block";
-
+            companySuccess.style.display="block";
 
             companyForm.reset();
 
-
-            document
-            .getElementById(
-                "editCompanyId"
-            )
-            .value = "";
-
-
-            document
-            .getElementById(
-                "companyFormTitle"
-            )
-            .textContent =
-                "Add New Company";
-
-
             await loadCompanies();
-
 
             setTimeout(
                 function(){
-
-                    companyFormBox.style.display =
-                        "none";
-
+                    companyFormBox.style.display="none";
                 },
-                1200
+                1000
             );
 
         }
@@ -1589,10 +1925,9 @@ companyForm.addEventListener(
             console.error(error);
 
             companyError.textContent =
-                "Company Save نہیں ہوئی۔ Firebase Rules یا connection چیک کریں۔";
+                "Company Save نہیں ہوئی۔ Firebase permission چیک کریں۔";
 
-            companyError.style.display =
-                "block";
+            companyError.style.display="block";
 
         }
 
@@ -1605,12 +1940,9 @@ companyForm.addEventListener(
 
 async function loadCompanies(){
 
-    companiesLoading.style.display =
-        "block";
+    companiesLoading.style.display="block";
 
-
-    companiesList.innerHTML = "";
-
+    companiesList.innerHTML="";
 
     try{
 
@@ -1622,27 +1954,18 @@ async function loadCompanies(){
                 )
             );
 
+        companiesLoading.style.display="none";
 
-        companiesLoading.style.display =
-            "none";
+        fillCompanySelect(snapshot);
 
-
-        if(
-            snapshot.empty
-        ){
+        if(snapshot.empty){
 
             companiesList.innerHTML =
-
-                '<div class="empty-box">' +
-
-                'ابھی کوئی Company موجود نہیں۔' +
-
-                '</div>';
+                '<div class="empty-box">ابھی کوئی Company موجود نہیں۔</div>';
 
             return;
 
         }
-
 
         snapshot.forEach(
             function(companyDoc){
@@ -1650,179 +1973,81 @@ async function loadCompanies(){
                 const company =
                     companyDoc.data();
 
-
-                const companyId =
+                const id =
                     companyDoc.id;
 
-
                 const item =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("div");
 
-
-                item.className =
-                    "company-item";
-
-
-                const activeBadge =
-                    company.active === true
-
-                    ?
-
-                    '<span class="status-badge status-active">Active</span>'
-
-                    :
-
-                    '<span class="status-badge status-inactive">Inactive</span>';
-
-
-                let verificationBadge = "";
-
-
-                if(
-                    company.verificationStatus ===
-                    "verified"
-                ){
-
-                    verificationBadge =
-                        '<span class="status-badge status-verified">Verified</span>';
-
-                }
-
-                else if(
-                    company.verificationStatus ===
-                    "rejected"
-                ){
-
-                    verificationBadge =
-                        '<span class="status-badge status-inactive">Rejected</span>';
-
-                }
-
-                else{
-
-                    verificationBadge =
-                        '<span class="status-badge status-pending">Pending</span>';
-
-                }
-
+                item.className="item-box";
 
                 item.innerHTML =
 
-                    '<div class="company-top">' +
+                    '<div class="item-top">' +
 
-                        '<div>' +
+                    '<div>' +
 
-                            '<div class="company-name">' +
+                    '<div class="item-name">' +
 
-                                escapeHtml(
-                                    company.companyName ||
-                                    "Unnamed Company"
-                                ) +
-
-                            '</div>' +
-
-                            '<div class="company-meta">' +
-
-                                '🏭 Industry: ' +
-
-                                escapeHtml(
-                                    company.industry ||
-                                    "-"
-                                ) +
-
-                                '<br>' +
-
-                                '📍 City: ' +
-
-                                escapeHtml(
-                                    company.city ||
-                                    "-"
-                                ) +
-
-                                '<br>' +
-
-                                '📞 Phone: ' +
-
-                                escapeHtml(
-                                    company.officialPhone ||
-                                    "-"
-                                ) +
-
-                                '<br>' +
-
-                                '✉️ Email: ' +
-
-                                escapeHtml(
-                                    company.officialEmail ||
-                                    "-"
-                                ) +
-
-                                '<br>' +
-
-                                '🆔 Company ID: ' +
-
-                                escapeHtml(
-                                    companyId
-                                ) +
-
-                            '</div>' +
-
-                        '</div>' +
-
-
-                        '<div>' +
-
-                            activeBadge +
-
-                            ' ' +
-
-                            verificationBadge +
-
-                        '</div>' +
+                    escapeHtml(
+                        company.companyName ||
+                        "Unnamed Company"
+                    ) +
 
                     '</div>' +
 
+                    '<div class="item-meta">' +
 
-                    '<div class="company-actions">' +
+                    '🏭 Industry: ' +
+                    escapeHtml(company.industry || "-") +
 
-                        '<button ' +
+                    '<br>' +
 
-                            'class="small-btn edit-btn" ' +
+                    '📍 City: ' +
+                    escapeHtml(company.city || "-") +
 
-                            'data-edit="' +
+                    '<br>' +
 
-                            escapeHtml(
-                                companyId
-                            ) +
+                    '📞 Phone: ' +
+                    escapeHtml(company.officialPhone || "-") +
 
-                            '">' +
+                    '<br>' +
 
-                            '✏️ Edit' +
+                    '🆔 ID: ' +
+                    escapeHtml(id) +
 
-                        '</button>' +
+                    '</div>' +
+
+                    '</div>' +
+
+                    '<div>' +
+
+                    (company.active === true
+                    ?
+                    '<span class="badge badge-active">Active</span>'
+                    :
+                    '<span class="badge badge-inactive">Inactive</span>') +
+
+                    '</div>' +
+
+                    '</div>' +
+
+                    '<div class="actions">' +
+
+                    '<button class="small-btn edit-btn">✏️ Edit</button>' +
 
                     '</div>';
 
+                companiesList.appendChild(item);
 
-                companiesList.appendChild(
-                    item
-                );
-
-
-                const editButton =
-                    item.querySelector(
-                        "[data-edit]"
-                    );
-
-
-                editButton.addEventListener(
+                item
+                .querySelector(".edit-btn")
+                .addEventListener(
                     "click",
                     function(){
 
                         editCompany(
-                            companyId,
+                            id,
                             company
                         );
 
@@ -1838,20 +2063,47 @@ async function loadCompanies(){
 
         console.error(error);
 
-
-        companiesLoading.style.display =
-            "none";
-
+        companiesLoading.style.display="none";
 
         companiesList.innerHTML =
-
-            '<div class="empty-box">' +
-
-            'Companies load نہیں ہو سکیں۔ Firebase Rules / connection چیک کریں۔' +
-
-            '</div>';
+            '<div class="empty-box">Companies load نہیں ہو سکیں۔</div>';
 
     }
+
+}
+
+
+
+/* COMPANY SELECT */
+
+function fillCompanySelect(snapshot){
+
+    const select =
+        document.getElementById("jobCompany");
+
+    select.innerHTML =
+        '<option value="">Select Company</option>';
+
+    snapshot.forEach(
+        function(companyDoc){
+
+            const company =
+                companyDoc.data();
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                companyDoc.id;
+
+            option.textContent =
+                company.companyName ||
+                companyDoc.id;
+
+            select.appendChild(option);
+
+        }
+    );
 
 }
 
@@ -1860,149 +2112,87 @@ async function loadCompanies(){
 /* EDIT COMPANY */
 
 function editCompany(
-    companyId,
+    id,
     company
 ){
 
     document
-    .getElementById(
-        "editCompanyId"
-    )
-    .value =
-        companyId;
-
+    .getElementById("editCompanyId")
+    .value=id;
 
     document
-    .getElementById(
-        "companyName"
-    )
+    .getElementById("companyName")
     .value =
-        company.companyName ||
-        "";
-
+        company.companyName || "";
 
     document
-    .getElementById(
-        "industry"
-    )
+    .getElementById("industry")
     .value =
-        company.industry ||
-        "";
-
+        company.industry || "";
 
     document
-    .getElementById(
-        "city"
-    )
+    .getElementById("city")
     .value =
-        company.city ||
-        "";
-
+        company.city || "";
 
     document
-    .getElementById(
-        "officialPhone"
-    )
+    .getElementById("officialPhone")
     .value =
-        company.officialPhone ||
-        "";
-
+        company.officialPhone || "";
 
     document
-    .getElementById(
-        "officialEmail"
-    )
+    .getElementById("officialEmail")
     .value =
-        company.officialEmail ||
-        "";
-
+        company.officialEmail || "";
 
     document
-    .getElementById(
-        "website"
-    )
+    .getElementById("website")
     .value =
-        company.website ||
-        "";
-
+        company.website || "";
 
     document
-    .getElementById(
-        "registrationNumber"
-    )
+    .getElementById("registrationNumber")
     .value =
-        company.registrationNumber ||
-        "";
-
+        company.registrationNumber || "";
 
     document
-    .getElementById(
-        "licenceNumber"
-    )
+    .getElementById("licenceNumber")
     .value =
-        company.licenceNumber ||
-        "";
-
+        company.licenceNumber || "";
 
     document
-    .getElementById(
-        "licenceExpiry"
-    )
+    .getElementById("licenceExpiry")
     .value =
-        company.licenceExpiry ||
-        "";
-
+        company.licenceExpiry || "";
 
     document
-    .getElementById(
-        "legalStatus"
-    )
+    .getElementById("legalStatus")
     .value =
-        company.legalStatus ||
-        "";
-
+        company.legalStatus || "";
 
     document
-    .getElementById(
-        "verificationStatus"
-    )
+    .getElementById("verificationStatus")
     .value =
-        company.verificationStatus ||
-        "pending";
-
+        company.verificationStatus || "pending";
 
     document
-    .getElementById(
-        "active"
-    )
+    .getElementById("active")
     .value =
         company.active === false
-        ?
-        "false"
-        :
-        "true";
-
+        ? "false"
+        : "true";
 
     document
-    .getElementById(
-        "verificationNotes"
-    )
+    .getElementById("verificationNotes")
     .value =
-        company.verificationNotes ||
-        "";
-
+        company.verificationNotes || "";
 
     document
-    .getElementById(
-        "companyFormTitle"
-    )
+    .getElementById("companyFormTitle")
     .textContent =
         "Edit Company";
 
-
-    companyFormBox.style.display =
-        "block";
-
+    companyFormBox.style.display="block";
 
     companyFormBox.scrollIntoView({
         behavior:"smooth"
@@ -2012,35 +2202,712 @@ function editCompany(
 
 
 
-/* ESCAPE HTML */
+/* JOB ELEMENTS */
 
-function escapeHtml(
-    value
+const jobFormBox =
+document.getElementById("jobFormBox");
+
+const jobForm =
+document.getElementById("jobForm");
+
+const jobsList =
+document.getElementById("jobsList");
+
+const jobsLoading =
+document.getElementById("jobsLoading");
+
+const addJobBtn =
+document.getElementById("addJobBtn");
+
+const cancelJobBtn =
+document.getElementById("cancelJobBtn");
+
+const jobSuccess =
+document.getElementById("jobSuccess");
+
+const jobError =
+document.getElementById("jobError");
+
+
+
+/* ADD JOB */
+
+addJobBtn.addEventListener(
+    "click",
+    function(){
+
+        jobForm.reset();
+
+        document
+        .getElementById("editJobCompanyId")
+        .value="";
+
+        document
+        .getElementById("editJobId")
+        .value="";
+
+        document
+        .getElementById("jobFormTitle")
+        .textContent =
+            "Add New Job";
+
+        jobFormBox.style.display="block";
+
+        jobFormBox.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+
+/* CANCEL JOB */
+
+cancelJobBtn.addEventListener(
+    "click",
+    function(){
+
+        jobFormBox.style.display="none";
+
+        jobForm.reset();
+
+    }
+);
+
+
+
+/* SAVE JOB */
+
+jobForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+        jobSuccess.style.display="none";
+        jobError.style.display="none";
+
+        const companyId =
+            document
+            .getElementById("jobCompany")
+            .value;
+
+        const editCompanyId =
+            document
+            .getElementById("editJobCompanyId")
+            .value;
+
+        const editJobId =
+            document
+            .getElementById("editJobId")
+            .value;
+
+        if(!companyId){
+
+            jobError.textContent =
+                "Company منتخب کریں۔";
+
+            jobError.style.display="block";
+
+            return;
+
+        }
+
+        try{
+
+            const jobId =
+                editJobId ||
+                "JOB" +
+                Date.now();
+
+            const data = {
+
+                title:
+                    document
+                    .getElementById("jobTitle")
+                    .value.trim(),
+
+                company:
+                    document
+                    .getElementById("jobCompany")
+                    .options[
+                        document
+                        .getElementById("jobCompany")
+                        .selectedIndex
+                    ]
+                    .textContent,
+
+                category:
+                    document
+                    .getElementById("jobCategory")
+                    .value.trim(),
+
+                location:
+                    document
+                    .getElementById("jobLocation")
+                    .value.trim(),
+
+                job_type:
+                    document
+                    .getElementById("jobType")
+                    .value,
+
+                salary:
+                    document
+                    .getElementById("jobSalary")
+                    .value.trim(),
+
+                experience:
+                    document
+                    .getElementById("jobExperience")
+                    .value.trim(),
+
+                education:
+                    document
+                    .getElementById("jobEducation")
+                    .value.trim(),
+
+                description:
+                    document
+                    .getElementById("jobDescription")
+                    .value.trim(),
+
+                application_link:
+                    document
+                    .getElementById("applicationLink")
+                    .value.trim(),
+
+                application_method:
+                    document
+                    .getElementById("applicationMethod")
+                    .value,
+
+                application_deadline:
+                    document
+                    .getElementById("applicationDeadline")
+                    .value,
+
+                status:
+                    document
+                    .getElementById("jobStatus")
+                    .value,
+
+                verification_status:
+                    document
+                    .getElementById("jobVerification")
+                    .value,
+
+                fee_type:
+                    document
+                    .getElementById("feeType")
+                    .value,
+
+                fee_amount:
+                    document
+                    .getElementById("feeAmount")
+                    .value,
+
+                fee_currency:
+                    document
+                    .getElementById("feeCurrency")
+                    .value,
+
+                fee_details:
+                    document
+                    .getElementById("feeDetails")
+                    .value.trim(),
+
+                payment_instructions:
+                    document
+                    .getElementById("paymentInstructions")
+                    .value.trim(),
+
+                cv_instructions:
+                    document
+                    .getElementById("cvInstructions")
+                    .value.trim(),
+
+                verification_notes:
+                    document
+                    .getElementById("jobVerificationNotes")
+                    .value.trim(),
+
+                updated_at:
+                    new Date()
+                    .toISOString()
+
+            };
+
+
+            await setDoc(
+
+                doc(
+                    db,
+                    "companies",
+                    companyId,
+                    "opportunities",
+                    jobId
+                ),
+
+                data,
+
+                {merge:true}
+
+            );
+
+
+            jobSuccess.textContent =
+                "Job کامیابی سے Save ہو گئی۔";
+
+            jobSuccess.style.display="block";
+
+
+            jobForm.reset();
+
+
+            await loadAllJobs();
+
+
+            setTimeout(
+                function(){
+
+                    jobFormBox.style.display="none";
+
+                },
+                1200
+            );
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            jobError.textContent =
+                "Job Save نہیں ہوئی۔ Firebase Rules میں write permission درکار ہے۔";
+
+            jobError.style.display="block";
+
+        }
+
+    }
+);
+
+
+
+/* LOAD ALL JOBS */
+
+async function loadAllJobs(){
+
+    jobsLoading.style.display="block";
+
+    jobsList.innerHTML="";
+
+    try{
+
+        const companiesSnapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "companies"
+                )
+            );
+
+
+        if(companiesSnapshot.empty){
+
+            jobsLoading.style.display="none";
+
+            jobsList.innerHTML =
+                '<div class="empty-box">پہلے Company بنائیں۔</div>';
+
+            return;
+
+        }
+
+
+        let totalJobs = 0;
+
+
+        for(
+            const companyDoc
+            of companiesSnapshot.docs
+        ){
+
+            const company =
+                companyDoc.data();
+
+
+            const companyId =
+                companyDoc.id;
+
+
+            const jobsSnapshot =
+                await getDocs(
+                    collection(
+                        db,
+                        "companies",
+                        companyId,
+                        "opportunities"
+                    )
+                );
+
+
+            jobsSnapshot.forEach(
+                function(jobDoc){
+
+                    totalJobs++;
+
+                    const job =
+                        jobDoc.data();
+
+                    const item =
+                        document.createElement("div");
+
+                    item.className="item-box";
+
+
+                    const feeBadge =
+                        job.fee_type === "free"
+
+                        ?
+
+                        '<span class="badge badge-free">FREE</span>'
+
+                        :
+
+                        '<span class="badge badge-fee">FEE</span>';
+
+
+                    const activeBadge =
+                        job.status === "active"
+
+                        ?
+
+                        '<span class="badge badge-active">Published</span>'
+
+                        :
+
+                        '<span class="badge badge-inactive">Inactive</span>';
+
+
+                    item.innerHTML =
+
+                        '<div class="item-top">' +
+
+                        '<div>' +
+
+                        '<div class="item-name">' +
+
+                        escapeHtml(
+                            job.title ||
+                            "Untitled Job"
+                        ) +
+
+                        '</div>' +
+
+                        '<div class="item-meta">' +
+
+                        '🏢 Company: ' +
+                        escapeHtml(
+                            company.companyName ||
+                            job.company ||
+                            "-"
+                        ) +
+
+                        '<br>' +
+
+                        '🏷️ Category: ' +
+                        escapeHtml(
+                            job.category || "-"
+                        ) +
+
+                        '<br>' +
+
+                        '📍 Location: ' +
+                        escapeHtml(
+                            job.location || "-"
+                        ) +
+
+                        '<br>' +
+
+                        '💰 Salary: ' +
+                        escapeHtml(
+                            job.salary || "-"
+                        ) +
+
+                        '<br>' +
+
+                        '🎓 Education: ' +
+                        escapeHtml(
+                            job.education || "-"
+                        ) +
+
+                        '<br>' +
+
+                        '🔧 Experience: ' +
+                        escapeHtml(
+                            job.experience || "-"
+                        ) +
+
+                        '<br>' +
+
+                        '💳 Fee: ' +
+                        escapeHtml(
+                            job.fee_type === "free"
+                            ? "FREE"
+                            :
+                            (
+                                (job.fee_amount || "0") +
+                                " " +
+                                (job.fee_currency || "PKR")
+                            )
+                        ) +
+
+                        '<br>' +
+
+                        '🆔 Job ID: ' +
+                        escapeHtml(
+                            jobDoc.id
+                        ) +
+
+                        '</div>' +
+
+                        '</div>' +
+
+                        '<div>' +
+
+                        feeBadge +
+
+                        activeBadge +
+
+                        '</div>' +
+
+                        '</div>' +
+
+                        '<div class="actions">' +
+
+                        '<button class="small-btn edit-btn">' +
+
+                        '✏️ Edit Job' +
+
+                        '</button>' +
+
+                        '</div>';
+
+
+                    jobsList.appendChild(item);
+
+
+                    item
+                    .querySelector(".edit-btn")
+                    .addEventListener(
+                        "click",
+                        function(){
+
+                            editJob(
+                                companyId,
+                                jobDoc.id,
+                                job
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+        jobsLoading.style.display="none";
+
+
+        if(totalJobs === 0){
+
+            jobsList.innerHTML =
+                '<div class="empty-box">ابھی کوئی Job موجود نہیں۔</div>';
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        jobsLoading.style.display="none";
+
+        jobsList.innerHTML =
+            '<div class="empty-box">Jobs load نہیں ہو سکیں۔</div>';
+
+    }
+
+}
+
+
+
+/* EDIT JOB */
+
+function editJob(
+    companyId,
+    jobId,
+    job
 ){
+
+    document
+    .getElementById("editJobCompanyId")
+    .value =
+        companyId;
+
+    document
+    .getElementById("editJobId")
+    .value =
+        jobId;
+
+    document
+    .getElementById("jobCompany")
+    .value =
+        companyId;
+
+    document
+    .getElementById("jobTitle")
+    .value =
+        job.title || "";
+
+    document
+    .getElementById("jobCategory")
+    .value =
+        job.category || "";
+
+    document
+    .getElementById("jobLocation")
+    .value =
+        job.location || "";
+
+    document
+    .getElementById("jobType")
+    .value =
+        job.job_type || "";
+
+    document
+    .getElementById("jobSalary")
+    .value =
+        job.salary || "";
+
+    document
+    .getElementById("jobExperience")
+    .value =
+        job.experience || "";
+
+    document
+    .getElementById("jobEducation")
+    .value =
+        job.education || "";
+
+    document
+    .getElementById("jobDescription")
+    .value =
+        job.description || "";
+
+    document
+    .getElementById("applicationLink")
+    .value =
+        job.application_link || "";
+
+    document
+    .getElementById("applicationMethod")
+    .value =
+        job.application_method ||
+        "Info24 Jobs";
+
+    document
+    .getElementById("applicationDeadline")
+    .value =
+        job.application_deadline || "";
+
+    document
+    .getElementById("jobStatus")
+    .value =
+        job.status ||
+        "active";
+
+    document
+    .getElementById("jobVerification")
+    .value =
+        job.verification_status ||
+        "pending";
+
+    document
+    .getElementById("feeType")
+    .value =
+        job.fee_type ||
+        "free";
+
+    document
+    .getElementById("feeAmount")
+    .value =
+        job.fee_amount ||
+        "";
+
+    document
+    .getElementById("feeCurrency")
+    .value =
+        job.fee_currency ||
+        "PKR";
+
+    document
+    .getElementById("feeDetails")
+    .value =
+        job.fee_details ||
+        "";
+
+    document
+    .getElementById("paymentInstructions")
+    .value =
+        job.payment_instructions ||
+        "";
+
+    document
+    .getElementById("cvInstructions")
+    .value =
+        job.cv_instructions ||
+        "";
+
+    document
+    .getElementById("jobVerificationNotes")
+    .value =
+        job.verification_notes ||
+        "";
+
+    document
+    .getElementById("jobFormTitle")
+    .textContent =
+        "Edit Job";
+
+    jobFormBox.style.display="block";
+
+    jobFormBox.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+
+/* ESCAPE */
+
+function escapeHtml(value){
 
     return String(
         value ?? ""
     )
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-    .replace(
-        /</g,
-        "&lt;"
-    )
-    .replace(
-        />/g,
-        "&gt;"
-    )
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-    .replace(
-        /'/g,
-        "&#039;"
-    );
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
