@@ -6,3 +6,5 @@ const INFO24_FIREBASE_CONFIG = {
     messagingSenderId: "912591600762",
     appId: "1:912591600762:web:b1e3cf99ef8caee8c8cfc3"
 };
+
+export { INFO24_FIREBASE_CONFIG };
