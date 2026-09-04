@@ -5,427 +5,421 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<title>Admin Dashboard — INFO24 JOBS</title>
-
-<link rel="stylesheet" href="style.css">
+<title>Info24 Jobs - Admin Panel</title>
 
 <style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f5f8;
+    color:#17202a;
+}
+
+header{
+    background:#17202a;
+    color:#fff;
+    padding:20px;
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+header h1{
+    margin:0;
+    font-size:25px;
+}
+
+header p{
+    margin:5px 0 0;
+    color:#d7dde3;
+}
+
+.container{
+    max-width:1200px;
+    margin:25px auto;
+    padding:0 15px;
+}
 
 .login-box{
     max-width:450px;
     margin:60px auto;
-    background:white;
+    background:#fff;
     padding:30px;
-    border-radius:18px;
+    border-radius:14px;
     box-shadow:0 5px 25px rgba(0,0,0,.08);
 }
 
-.login-box h1{
+.login-box h2{
+    margin-top:0;
     text-align:center;
-    color:#071d49;
-    margin-bottom:5px;
 }
 
-.login-subtitle{
-    text-align:center;
-    color:#687386;
-    font-size:13px;
-    margin-bottom:25px;
+.form-group{
+    margin-bottom:15px;
 }
 
-.login-box label,
-.form-box label{
+.form-group label{
     display:block;
     font-weight:bold;
-    font-size:13px;
-    margin:14px 0 5px;
+    margin-bottom:7px;
 }
 
-.login-box input,
-.form-box input,
-.form-box select,
-.form-box textarea{
-
+input,
+select,
+textarea{
     width:100%;
-    padding:12px;
-
-    border:1px solid #d7dee8;
-    border-radius:9px;
-
-    font-size:14px;
-    outline:none;
-
+    padding:11px;
+    border:1px solid #ccd2d8;
+    border-radius:8px;
+    font-size:15px;
+    background:#fff;
 }
 
-.form-box textarea{
-    min-height:100px;
+textarea{
+    min-height:110px;
     resize:vertical;
 }
 
-.login-box input:focus,
-.form-box input:focus,
-.form-box select:focus,
-.form-box textarea:focus{
-    border-color:#0b66a3;
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:11px 17px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
 }
 
-.login-btn{
-    width:100%;
-    margin-top:20px;
+.btn-primary{
+    background:#1769aa;
+    color:#fff;
+}
+
+.btn-success{
+    background:#198754;
+    color:#fff;
+}
+
+.btn-danger{
+    background:#dc3545;
+    color:#fff;
+}
+
+.btn-secondary{
+    background:#6c757d;
+    color:#fff;
+}
+
+.btn-light{
+    background:#eef1f4;
+    color:#17202a;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.hidden{
+    display:none !important;
 }
 
 .error-message{
-
-    display:none;
-
     background:#fff0f0;
     color:#b42318;
-
-    border:1px solid #f3b5b5;
-
-    padding:10px;
-    border-radius:9px;
-
-    margin-top:15px;
-
-    font-size:13px;
-
+    padding:12px;
+    border-radius:8px;
+    margin:10px 0;
+    display:none;
 }
 
 .success-message{
-
+    background:#ecfdf3;
+    color:#067647;
+    padding:12px;
+    border-radius:8px;
+    margin:10px 0;
     display:none;
-
-    background:#effaf3;
-    color:#18794e;
-
-    border:1px solid #b7e4c7;
-
-    padding:10px;
-    border-radius:9px;
-
-    margin-top:15px;
-
-    font-size:13px;
-
 }
 
 .dashboard{
-    display:none;
-}
-
-.logout-btn{
-    background:#b42318;
-    color:white;
-}
-
-.admin-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:18px;
-
-    margin-top:25px;
-
+    margin-bottom:25px;
 }
 
 .admin-card{
+    background:#fff;
+    padding:22px;
+    border-radius:14px;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
     cursor:pointer;
+    transition:.2s;
+}
+
+.admin-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 7px 22px rgba(0,0,0,.1);
+}
+
+.admin-card h2{
+    margin:0 0 8px;
+    font-size:20px;
+}
+
+.admin-card p{
+    margin:0;
+    color:#667085;
 }
 
 .management-section{
-
-    margin-top:30px;
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    box-shadow:
-    0 5px 25px rgba(0,0,0,.06);
-
+    background:#fff;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:25px;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
 }
 
 .section-header{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
+    gap:10px;
     margin-bottom:20px;
-
+    flex-wrap:wrap;
 }
 
 .section-header h2{
     margin:0;
-    color:#071d49;
-}
-
-.form-box{
-
-    display:none;
-
-    background:#f8fafc;
-
-    padding:20px;
-
-    border-radius:14px;
-
-    margin-bottom:25px;
-
 }
 
 .form-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:15px;
-
 }
 
-.form-full{
+.full-width{
     grid-column:1/-1;
 }
 
-.form-buttons{
-
+.form-actions{
     display:flex;
-
     gap:10px;
-
     flex-wrap:wrap;
-
-    margin-top:20px;
-
+    margin-top:15px;
 }
 
 .list-box{
-
-    display:grid;
-
-    gap:15px;
-
+    margin-top:20px;
 }
 
-.item-box{
-
-    border:1px solid #e1e6ed;
-
-    border-radius:14px;
-
-    padding:18px;
-
+.item-card{
+    border:1px solid #e1e5e9;
+    border-radius:12px;
+    padding:17px;
+    margin-bottom:12px;
     background:#fff;
-
 }
 
-.item-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
-}
-
-.item-name{
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    color:#071d49;
-
+.item-card h3{
+    margin:0 0 8px;
 }
 
 .item-meta{
-
-    color:#687386;
-
-    font-size:13px;
-
+    color:#667085;
     line-height:1.8;
-
-    margin-top:8px;
-
+    font-size:14px;
 }
 
-.badge{
+.item-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:14px;
+}
 
-    display:inline-block;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    font-size:12px;
-
+.small-btn{
+    border:0;
+    border-radius:7px;
+    padding:8px 12px;
+    cursor:pointer;
+    font-size:13px;
     font-weight:bold;
-
-    margin:2px;
-
 }
 
-.badge-active{
-    background:#e8f7ee;
-    color:#18794e;
+.edit-btn{
+    background:#e7f1ff;
+    color:#1769aa;
 }
 
-.badge-inactive{
+.view-btn{
+    background:#eef1f4;
+    color:#17202a;
+}
+
+.shortlist-btn{
+    background:#ecfdf3;
+    color:#067647;
+}
+
+.forward-btn{
+    background:#fff7e6;
+    color:#9a6700;
+}
+
+.reject-btn{
     background:#fff0f0;
     color:#b42318;
 }
 
-.badge-verified{
-    background:#eaf2ff;
-    color:#155eef;
-}
-
-.badge-pending{
-    background:#fff7df;
-    color:#946200;
-}
-
-.badge-fee{
-    background:#fff3e0;
-    color:#a15c00;
-}
-
-.badge-free{
-    background:#e8f7ee;
-    color:#18794e;
-}
-
-.actions{
-
-    display:flex;
-
-    gap:8px;
-
-    margin-top:15px;
-
-    flex-wrap:wrap;
-
-}
-
-.small-btn{
-
-    border:none;
-
-    border-radius:8px;
-
-    padding:9px 14px;
-
-    cursor:pointer;
-
-    font-size:13px;
-
-}
-
-.edit-btn{
-
-    background:#eaf2ff;
-    color:#155eef;
-
+.loading-box{
+    padding:20px;
+    text-align:center;
+    color:#667085;
 }
 
 .empty-box{
-
-    text-align:center;
-
-    padding:30px;
-
-    color:#687386;
-
-    background:#f8fafc;
-
-    border-radius:12px;
-
-}
-
-.loading-box{
-
-    text-align:center;
-
     padding:25px;
-
-    color:#687386;
-
+    text-align:center;
+    background:#f8fafc;
+    border-radius:10px;
+    color:#667085;
 }
 
-.fee-box{
+.badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    margin:2px;
+}
 
+.badge-pending{
+    background:#fff7e6;
+    color:#9a6700;
+}
+
+.badge-shortlisted{
+    background:#ecfdf3;
+    color:#067647;
+}
+
+.badge-forwarded{
+    background:#e7f1ff;
+    color:#1769aa;
+}
+
+.badge-rejected{
+    background:#fff0f0;
+    color:#b42318;
+}
+
+.badge-other{
+    background:#eef1f4;
+    color:#475467;
+}
+
+.warning-box{
+    background:#fff8e1;
+    border:1px solid #f5d77a;
+    color:#6b5200;
+    padding:15px;
+    border-radius:10px;
     margin-top:20px;
-
-    padding:18px;
-
-    background:#fff8eb;
-
-    border:1px solid #f1d39a;
-
-    border-radius:12px;
-
 }
 
-.fee-box h3{
-    margin-top:0;
-}
-
-.checkbox-row{
-
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
     display:flex;
-
     align-items:center;
-
-    gap:10px;
-
-    margin-top:15px;
-
+    justify-content:center;
+    padding:15px;
+    z-index:9999;
 }
 
-.checkbox-row input{
-    width:auto;
+.modal-content{
+    background:#fff;
+    width:100%;
+    max-width:700px;
+    max-height:90vh;
+    overflow:auto;
+    border-radius:14px;
+    padding:25px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.modal-header h2{
+    margin:0;
+}
+
+.close-btn{
+    border:0;
+    background:#eef1f4;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.detail-row{
+    border-bottom:1px solid #edf0f2;
+    padding:10px 0;
+}
+
+.detail-label{
+    font-weight:bold;
+    margin-bottom:4px;
+}
+
+.logout-btn{
+    background:#dc3545;
+    color:#fff;
 }
 
 @media(max-width:700px){
-
-    .admin-grid{
-        grid-template-columns:1fr;
-    }
 
     .form-grid{
         grid-template-columns:1fr;
     }
 
-    .login-box{
-        margin:30px auto;
-        padding:20px;
+    .full-width{
+        grid-column:auto;
+    }
+
+    .header-inner{
+        align-items:flex-start;
+        flex-direction:column;
     }
 
     .management-section{
-        padding:18px;
+        padding:15px;
     }
 
 }
@@ -438,154 +432,99 @@
 <body>
 
 
-<header class="site-header">
+<!-- HEADER -->
 
-<div class="container header-inner">
+<header>
 
-<div class="logo">
+<div class="header-inner">
 
-<span class="logo-box">I24</span>
+<div>
 
-<span>
+<h1>Info24 Jobs - Admin Panel</h1>
 
-<strong>INFO24 JOBS</strong>
-
-<small>Admin Panel</small>
-
-</span>
+<p>Jobs, Companies & Applications Management</p>
 
 </div>
 
-
-<a
-    href="index.html"
-    class="header-link"
+<button
+    id="logoutBtn"
+    class="btn logout-btn hidden"
 >
-    Website
-</a>
+Logout
+</button>
 
 </div>
 
 </header>
 
 
-
-<main class="container page-space">
-
-
 <!-- LOGIN -->
 
-<section
-    id="loginSection"
-    class="login-box"
+<div
+    id="loginScreen"
+    class="container"
 >
 
-<h1>
-INFO24 JOBS
-</h1>
+<div class="login-box">
 
-<p class="login-subtitle">
-Secure Admin Login
-</p>
-
-
-<form id="loginForm">
-
-
-<label>
-Admin Email
-</label>
-
-<input
-    type="email"
-    id="adminEmail"
-    required
-    autocomplete="email"
-    placeholder="admin@example.com"
->
-
-
-<label>
-Password
-</label>
-
-<input
-    type="password"
-    id="adminPassword"
-    required
-    autocomplete="current-password"
-    placeholder="Password"
->
-
-
-<button
-    type="submit"
-    class="btn btn-primary login-btn"
->
-    LOGIN
-</button>
-
+<h2>🔐 Admin Login</h2>
 
 <div
     id="loginError"
     class="error-message"
 ></div>
 
+<div class="form-group">
 
-</form>
+<label>Email</label>
 
-</section>
-
-
-
-<!-- DASHBOARD -->
-
-<section
-    id="dashboard"
-    class="dashboard"
+<input
+    type="email"
+    id="loginEmail"
+    placeholder="Admin Email"
 >
-
-
-<div class="page-heading">
-
-<h1>
-INFO24 JOBS ADMIN
-</h1>
-
-<p>
-Welcome to Admin Dashboard
-</p>
 
 </div>
 
 
-<div
-    style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        gap:10px;
-        flex-wrap:wrap;
-    "
+<div class="form-group">
+
+<label>Password</label>
+
+<input
+    type="password"
+    id="loginPassword"
+    placeholder="Password"
 >
 
-<span id="loggedInEmail"></span>
+</div>
 
 
 <button
-    id="logoutBtn"
-    class="btn logout-btn"
+    id="loginBtn"
+    class="btn btn-primary"
+    style="width:100%;"
 >
-    LOGOUT
+Login
 </button>
 
 </div>
 
+</div>
 
 
-<!-- DASHBOARD CARDS -->
 
-<div class="admin-grid">
+<!-- ADMIN APP -->
+
+<main
+    id="adminApp"
+    class="container hidden"
+>
+
+
+<!-- DASHBOARD -->
+
+<section class="dashboard">
 
 
 <div
@@ -593,12 +532,10 @@ Welcome to Admin Dashboard
     onclick="showCompanies()"
 >
 
-<h2>
-🏢 Companies
-</h2>
+<h2>🏢 Companies</h2>
 
 <p>
-Companies کو add، verify اور manage کریں۔
+Companies کو manage کریں۔
 </p>
 
 </div>
@@ -609,22 +546,21 @@ Companies کو add، verify اور manage کریں۔
     onclick="showJobs()"
 >
 
-<h2>
-📋 Opportunities
-</h2>
+<h2>💼 Opportunities</h2>
 
 <p>
-Jobs، CV اور Application settings manage کریں۔
+Jobs / Opportunities manage کریں۔
 </p>
 
 </div>
 
 
-<div class="job-card admin-card">
+<div
+    class="job-card admin-card"
+    onclick="showApplications()"
+>
 
-<h2>
-👤 Applications
-</h2>
+<h2>👤 Applications</h2>
 
 <p>
 Candidates کی applications یہاں manage ہوں گی۔
@@ -635,12 +571,10 @@ Candidates کی applications یہاں manage ہوں گی۔
 
 <div class="job-card admin-card">
 
-<h2>
-📄 CV Management
-</h2>
+<h2>📄 CV Management</h2>
 
 <p>
-Candidates کے CVs manage ہوں گے۔
+Candidate CVs یہاں manage ہوں گی۔
 </p>
 
 </div>
@@ -648,12 +582,10 @@ Candidates کے CVs manage ہوں گے۔
 
 <div class="job-card admin-card">
 
-<h2>
-🔎 Verification
-</h2>
+<h2>✅ Verification</h2>
 
 <p>
-Company اور vacancy verification records۔
+Jobs اور companies کی verification۔
 </p>
 
 </div>
@@ -661,83 +593,82 @@ Company اور vacancy verification records۔
 
 <div class="job-card admin-card">
 
-<h2>
-💰 Commission
-</h2>
+<h2>💰 Commission</h2>
 
 <p>
-Referral اور commission records۔
+Commission records manage کریں۔
 </p>
 
 </div>
 
 
-</div>
+</section>
 
 
 
-<!-- COMPANIES -->
+<!-- GLOBAL MESSAGES -->
+
+<div
+    id="globalSuccess"
+    class="success-message"
+></div>
+
+<div
+    id="globalError"
+    class="error-message"
+></div>
+
+
+
+<!-- ========================= -->
+<!-- COMPANIES MANAGEMENT -->
+<!-- ========================= -->
 
 <section
     id="companiesSection"
     class="management-section"
 >
 
-
 <div class="section-header">
 
-<h2>
-🏢 Companies Management
-</h2>
-
+<h2>🏢 Companies Management</h2>
 
 <button
-    id="addCompanyBtn"
+    id="refreshCompaniesBtn"
     class="btn btn-primary"
 >
-    + Add Company
+🔄 Refresh
 </button>
 
 </div>
 
 
-
 <div
-    id="companyFormBox"
-    class="form-box"
+    id="companyForm"
+    class="hidden"
 >
-
 
 <h3 id="companyFormTitle">
-Add New Company
+Add Company
 </h3>
-
-
-<form id="companyForm">
-
-<input
-    type="hidden"
-    id="editCompanyId"
->
 
 
 <div class="form-grid">
 
 
-<div>
+<div class="form-group">
 
-<label>Company Name *</label>
+<label>Company Name</label>
 
 <input
     type="text"
     id="companyName"
-    required
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
 <label>Industry</label>
 
@@ -749,7 +680,7 @@ Add New Company
 </div>
 
 
-<div>
+<div class="form-group">
 
 <label>City</label>
 
@@ -761,19 +692,19 @@ Add New Company
 </div>
 
 
-<div>
+<div class="form-group">
 
 <label>Official Phone</label>
 
 <input
-    type="tel"
+    type="text"
     id="officialPhone"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
 <label>Official Email</label>
 
@@ -785,19 +716,31 @@ Add New Company
 </div>
 
 
-<div>
+<div class="form-group">
 
 <label>Website</label>
 
 <input
-    type="url"
+    type="text"
     id="website"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
+
+<label>Legal Status</label>
+
+<input
+    type="text"
+    id="legalStatus"
+>
+
+</div>
+
+
+<div class="form-group">
 
 <label>Registration Number</label>
 
@@ -809,7 +752,7 @@ Add New Company
 </div>
 
 
-<div>
+<div class="form-group">
 
 <label>Licence Number</label>
 
@@ -821,7 +764,7 @@ Add New Company
 </div>
 
 
-<div>
+<div class="form-group">
 
 <label>Licence Expiry</label>
 
@@ -833,34 +776,19 @@ Add New Company
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>Legal Status</label>
+<label>Verification Date</label>
 
-<select id="legalStatus">
-
-<option value="">
-Select
-</option>
-
-<option value="Registered">
-Registered
-</option>
-
-<option value="Unregistered">
-Unregistered
-</option>
-
-<option value="Pending">
-Pending
-</option>
-
-</select>
+<input
+    type="date"
+    id="verificationDate"
+>
 
 </div>
 
 
-<div>
+<div class="form-group">
 
 <label>Verification Status</label>
 
@@ -883,11 +811,69 @@ Rejected
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>Active Status</label>
+<label>Commission Type</label>
 
-<select id="active">
+<select id="commissionType">
+
+<option value="none">
+None
+</option>
+
+<option value="fixed">
+Fixed
+</option>
+
+<option value="percentage">
+Percentage
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Commission Amount</label>
+
+<input
+    type="text"
+    id="commissionAmount"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Commission Proof</label>
+
+<input
+    type="text"
+    id="commissionProof"
+>
+
+</div>
+
+
+<div class="form-group full-width">
+
+<label>Verification Notes</label>
+
+<textarea
+    id="verificationNotes"
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Active</label>
+
+<select id="companyActive">
 
 <option value="true">
 Active
@@ -902,57 +888,28 @@ Inactive
 </div>
 
 
-<div class="form-full">
-
-<label>
-Verification Notes
-</label>
-
-<textarea
-    id="verificationNotes"
-></textarea>
-
 </div>
 
 
-</div>
-
-
-<div
-    id="companySuccess"
-    class="success-message"
-></div>
-
-
-<div
-    id="companyError"
-    class="error-message"
-></div>
-
-
-<div class="form-buttons">
+<div class="form-actions">
 
 <button
-    type="submit"
-    class="btn btn-primary"
+    id="saveCompanyBtn"
+    class="btn btn-success"
 >
-SAVE COMPANY
+💾 Save Company
 </button>
 
 <button
-    type="button"
     id="cancelCompanyBtn"
-    class="btn"
+    class="btn btn-secondary"
 >
-CANCEL
+Cancel
 </button>
 
 </div>
 
-</form>
-
 </div>
-
 
 
 <div
@@ -964,80 +921,61 @@ Loading Companies...
 
 
 <div
+    id="companiesError"
+    class="error-message"
+></div>
+
+
+<div
     id="companiesList"
     class="list-box"
 ></div>
-
 
 </section>
 
 
 
-<!-- JOBS -->
+<!-- ========================= -->
+<!-- JOBS MANAGEMENT -->
+<!-- ========================= -->
 
 <section
     id="jobsSection"
     class="management-section"
 >
 
-
 <div class="section-header">
 
-<h2>
-📋 Opportunities / Jobs
-</h2>
-
+<h2>💼 Jobs / Opportunities Management</h2>
 
 <button
-    id="addJobBtn"
+    id="refreshJobsBtn"
     class="btn btn-primary"
 >
-    + Add Job
+🔄 Refresh
 </button>
 
 </div>
 
 
-
 <div
-    id="jobFormBox"
-    class="form-box"
+    id="jobForm"
+    class="hidden"
 >
-
 
 <h3 id="jobFormTitle">
-Add New Job
+Add Job / Opportunity
 </h3>
-
-
-<form id="jobForm">
-
-
-<input
-    type="hidden"
-    id="editJobCompanyId"
->
-
-
-<input
-    type="hidden"
-    id="editJobId"
->
 
 
 <div class="form-grid">
 
 
-<div>
+<div class="form-group">
 
-<label>
-Company *
-</label>
+<label>Company</label>
 
-<select
-    id="jobCompany"
-    required
->
+<select id="jobCompany">
 
 <option value="">
 Select Company
@@ -1048,59 +986,45 @@ Select Company
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Job Title *
-</label>
+<label>Job Title</label>
 
 <input
     type="text"
     id="jobTitle"
-    required
-    placeholder="Electrician Required"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Category *
-</label>
+<label>Category</label>
 
 <input
     type="text"
     id="jobCategory"
-    required
-    placeholder="Electrical"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Location *
-</label>
+<label>Location</label>
 
 <input
     type="text"
     id="jobLocation"
-    required
-    placeholder="Lahore"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Job Type
-</label>
+<label>Job Type</label>
 
 <select id="jobType">
 
@@ -1124,61 +1048,54 @@ Contract
 Temporary
 </option>
 
+<option value="Internship">
+Internship
+</option>
+
 </select>
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Salary
-</label>
+<label>Salary</label>
 
 <input
     type="text"
     id="jobSalary"
-    placeholder="Rs. 40,000 - 50,000"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Experience
-</label>
+<label>Experience</label>
 
 <input
     type="text"
     id="jobExperience"
-    placeholder="2 Years"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Education
-</label>
+<label>Education</label>
 
 <input
     type="text"
     id="jobEducation"
-    placeholder="Matric / Diploma"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Application Deadline
-</label>
+<label>Application Deadline</label>
 
 <input
     type="date"
@@ -1188,20 +1105,22 @@ Application Deadline
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Application Status
-</label>
+<label>Application Status</label>
 
-<select id="jobStatus">
+<select id="applicationStatus">
 
-<option value="active">
-Active / Published
+<option value="open">
+Open
 </option>
 
-<option value="inactive">
-Inactive / Draft
+<option value="closed">
+Closed
+</option>
+
+<option value="pending">
+Pending
 </option>
 
 </select>
@@ -1209,13 +1128,11 @@ Inactive / Draft
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Verification Status
-</label>
+<label>Verification Status</label>
 
-<select id="jobVerification">
+<select id="jobVerificationStatus">
 
 <option value="pending">
 Pending
@@ -1234,11 +1151,9 @@ Rejected
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Application Method
-</label>
+<label>Application Method</label>
 
 <select id="applicationMethod">
 
@@ -1246,12 +1161,20 @@ Application Method
 Info24 Jobs
 </option>
 
-<option value="Company">
-Company
+<option value="Company Website">
+Company Website
 </option>
 
-<option value="External Link">
-External Link
+<option value="Email">
+Email
+</option>
+
+<option value="WhatsApp">
+WhatsApp
+</option>
+
+<option value="Other">
+Other
 </option>
 
 </select>
@@ -1259,56 +1182,37 @@ External Link
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Application Link
-</label>
+<label>Application Link</label>
 
 <input
-    type="url"
+    type="text"
     id="applicationLink"
-    placeholder="https://..."
 >
 
 </div>
 
 
-<div class="form-full">
+<div class="form-group">
 
-<label>
-Job Description
-</label>
-
-<textarea
-    id="jobDescription"
-    placeholder="Job کی مکمل تفصیل"
-></textarea>
-
-</div>
-
-
-<div class="form-full">
-
-<label>
-Fee Type
-</label>
+<label>Fee Type</label>
 
 <select id="feeType">
 
-<option value="free">
-No Fee — FREE
+<option value="No Fee">
+No Fee
 </option>
 
-<option value="required">
+<option value="Fee Required">
 Fee Required
 </option>
 
-<option value="government">
-Government / Test Fee
+<option value="Government/Test Fee">
+Government/Test Fee
 </option>
 
-<option value="company_pays">
+<option value="Company Pays">
 Company Pays
 </option>
 
@@ -1317,94 +1221,78 @@ Company Pays
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Fee Amount
-</label>
+<label>Fee Amount</label>
 
 <input
-    type="number"
+    type="text"
     id="feeAmount"
-    min="0"
-    placeholder="0"
 >
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-Currency
-</label>
+<label>Currency</label>
 
-<select id="feeCurrency">
-
-<option value="PKR">
-PKR
-</option>
-
-<option value="AED">
-AED
-</option>
-
-<option value="USD">
-USD
-</option>
-
-</select>
+<input
+    type="text"
+    id="currency"
+    value="PKR"
+>
 
 </div>
 
 
-<div class="form-full">
+<div class="form-group full-width">
 
-<label>
-Fee Details
-</label>
+<label>Fee Details</label>
 
 <textarea
     id="feeDetails"
-    placeholder="فیس کس مرحلے پر ہے، کس مقصد کے لیے ہے وغیرہ"
 ></textarea>
 
 </div>
 
 
-<div class="form-full">
+<div class="form-group full-width">
 
-<label>
-Payment Instructions
-</label>
+<label>Payment Instructions</label>
 
 <textarea
     id="paymentInstructions"
-    placeholder="ادائیگی کا طریقہ / سرکاری لنک / بینک معلومات"
 ></textarea>
 
 </div>
 
 
-<div class="form-full">
+<div class="form-group full-width">
 
-<label>
-CV / Application Instructions
-</label>
+<label>CV / Application Instructions</label>
 
 <textarea
-    id="cvInstructions"
-    placeholder="CV کہاں جمع ہوگی، کمپنی کو کب Forward ہوگی وغیرہ"
+    id="cvApplicationInstructions"
 ></textarea>
 
 </div>
 
 
-<div class="form-full">
+<div class="form-group full-width">
 
-<label>
-Verification Notes
-</label>
+<label>Job Description</label>
+
+<textarea
+    id="jobDescription"
+></textarea>
+
+</div>
+
+
+<div class="form-group full-width">
+
+<label>Verification Notes</label>
 
 <textarea
     id="jobVerificationNotes"
@@ -1416,43 +1304,25 @@ Verification Notes
 </div>
 
 
-<div
-    id="jobSuccess"
-    class="success-message"
-></div>
-
-
-<div
-    id="jobError"
-    class="error-message"
-></div>
-
-
-<div class="form-buttons">
+<div class="form-actions">
 
 <button
-    type="submit"
-    class="btn btn-primary"
+    id="saveJobBtn"
+    class="btn btn-success"
 >
-SAVE JOB
+💾 Save Job
 </button>
 
-
 <button
-    type="button"
     id="cancelJobBtn"
-    class="btn"
+    class="btn btn-secondary"
 >
-CANCEL
+Cancel
 </button>
 
 </div>
 
-
-</form>
-
 </div>
-
 
 
 <div
@@ -1464,10 +1334,61 @@ Loading Jobs...
 
 
 <div
+    id="jobsError"
+    class="error-message"
+></div>
+
+
+<div
     id="jobsList"
     class="list-box"
 ></div>
 
+</section>
+
+
+
+<!-- ========================= -->
+<!-- APPLICATIONS MANAGEMENT -->
+<!-- ========================= -->
+
+<section
+    id="applicationsSection"
+    class="management-section"
+>
+
+<div class="section-header">
+
+<h2>👤 Applications Management</h2>
+
+<button
+    id="refreshApplicationsBtn"
+    class="btn btn-primary"
+>
+🔄 Refresh
+</button>
+
+</div>
+
+
+<div
+    id="applicationsLoading"
+    class="loading-box"
+>
+Loading Applications...
+</div>
+
+
+<div
+    id="applicationsError"
+    class="error-message"
+></div>
+
+
+<div
+    id="applicationsList"
+    class="list-box"
+></div>
 
 </section>
 
@@ -1475,48 +1396,63 @@ Loading Jobs...
 
 <div class="warning-box">
 
-<h2>
-🔐 Admin Security
-</h2>
+<strong>⚠️ Important:</strong>
 
-<p>
-Admin access صرف authenticated Firebase user
-کے لیے ہے۔
-</p>
+<br><br>
+
+Info24 Jobs پر company، job، fee اور verification information
+صرف verified / authorized information کے مطابق درج کریں۔
+
+<br><br>
+
+Applicant سے کسی بھی fee کے بارے میں واضح information دکھائیں
+اور غیر مصدقہ fee کو خود سے add نہ کریں۔
 
 </div>
 
-
-</section>
 
 </main>
 
 
 
-<footer class="site-footer">
+<!-- APPLICATION DETAILS MODAL -->
 
-<div class="container">
+<div
+    id="applicationModal"
+    class="modal hidden"
+>
 
-<h3>
-INFO24 JOBS
-</h3>
+<div class="modal-content">
 
-<p>
-Admin Management System
-</p>
+<div class="modal-header">
 
-<p>
-© 2026 INFO24 JOBS
-</p>
+<h2>👤 Application Details</h2>
+
+<button
+    class="close-btn"
+    onclick="closeApplicationModal()"
+>
+×
+</button>
 
 </div>
 
-</footer>
+<div
+    id="applicationDetails"
+></div>
+
+</div>
+
+</div>
 
 
 
 <script type="module">
 
+
+/* ========================================= */
+/* FIREBASE IMPORTS */
+/* ========================================= */
 
 import {
     initializeApp
@@ -1540,73 +1476,122 @@ import {
     collection,
     getDocs,
     doc,
-    setDoc
+    setDoc,
+    updateDoc,
+    serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-import {
-    INFO24_FIREBASE_CONFIG
-}
-from
-"./firebase-config.js";
+/* ========================================= */
+/* FIREBASE CONFIG */
+/* ========================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyC1pLiy341ayKMo0SpL7VBaDHxJsrSekoU",
+
+    authDomain:
+        "info24-jobs.firebaseapp.com",
+
+    projectId:
+        "info24-jobs",
+
+    storageBucket:
+        "info24-jobs.firebasestorage.app",
+
+    messagingSenderId:
+        "912591600762",
+
+    appId:
+        "1:912591600762:web:b1e3cf99ef8caee8c8cfc3"
+
+};
 
 
 const app =
-initializeApp(
-    INFO24_FIREBASE_CONFIG
-);
+    initializeApp(firebaseConfig);
 
 
 const auth =
-getAuth(app);
+    getAuth(app);
 
 
 const db =
-getFirestore(app);
+    getFirestore(app);
 
 
 
-/* LOGIN */
+/* ========================================= */
+/* VARIABLES */
+/* ========================================= */
 
-const loginSection =
-document.getElementById("loginSection");
+let editingCompanyId = null;
 
-const dashboard =
-document.getElementById("dashboard");
+let editingJobId = null;
 
-const loginForm =
-document.getElementById("loginForm");
+let allCompanies = [];
 
-const loginError =
-document.getElementById("loginError");
+let allJobs = [];
 
-const loggedInEmail =
-document.getElementById("loggedInEmail");
+let allApplications = [];
+
+
+
+/* ========================================= */
+/* ELEMENTS */
+/* ========================================= */
+
+const loginScreen =
+    document.getElementById("loginScreen");
+
+const adminApp =
+    document.getElementById("adminApp");
 
 const logoutBtn =
-document.getElementById("logoutBtn");
+    document.getElementById("logoutBtn");
+
+const loginBtn =
+    document.getElementById("loginBtn");
 
 
-loginForm.addEventListener(
-    "submit",
-    async function(event){
 
-        event.preventDefault();
+/* ========================================= */
+/* LOGIN */
+/* ========================================= */
 
-        loginError.style.display="none";
+loginBtn.addEventListener(
+    "click",
+    async function(){
 
         const email =
-            document
-            .getElementById("adminEmail")
-            .value
-            .trim();
+            document.getElementById("loginEmail").value.trim();
 
         const password =
-            document
-            .getElementById("adminPassword")
-            .value;
+            document.getElementById("loginPassword").value;
+
+
+        hideError("loginError");
+
+
+        if(!email || !password){
+
+            showError(
+                "loginError",
+                "Email اور Password دونوں درج کریں۔"
+            );
+
+            return;
+
+        }
+
+
+        loginBtn.disabled = true;
+
+        loginBtn.textContent = "Logging in...";
+
 
         try{
 
@@ -1616,52 +1601,54 @@ loginForm.addEventListener(
                 password
             );
 
-        }
-
-        catch(error){
+        }catch(error){
 
             console.error(error);
 
-            loginError.textContent =
-                "Email یا Password درست نہیں ہے۔";
-
-            loginError.style.display =
-                "block";
+            showError(
+                "loginError",
+                "Login failed: " + getFirebaseError(error)
+            );
 
         }
+
+
+        loginBtn.disabled = false;
+
+        loginBtn.textContent = "Login";
 
     }
 );
 
 
 
-/* AUTH */
+/* ========================================= */
+/* AUTH STATE */
+/* ========================================= */
 
 onAuthStateChanged(
     auth,
-    async function(user){
+    function(user){
 
         if(user){
 
-            loginSection.style.display="none";
+            loginScreen.classList.add("hidden");
 
-            dashboard.style.display="block";
+            adminApp.classList.remove("hidden");
 
-            loggedInEmail.textContent =
-                "Logged in: " +
-                user.email;
+            logoutBtn.classList.remove("hidden");
 
-            await loadCompanies();
+            loadCompanies();
 
-            await loadAllJobs();
+            loadJobs();
 
-        }
+        }else{
 
-        else{
+            loginScreen.classList.remove("hidden");
 
-            loginSection.style.display="block";
+            adminApp.classList.add("hidden");
 
-            dashboard.style.display="none";
+            logoutBtn.classList.add("hidden");
 
         }
 
@@ -1670,7 +1657,9 @@ onAuthStateChanged(
 
 
 
+/* ========================================= */
 /* LOGOUT */
+/* ========================================= */
 
 logoutBtn.addEventListener(
     "click",
@@ -1683,266 +1672,406 @@ logoutBtn.addEventListener(
 
 
 
-/* NAVIGATION */
+/* ========================================= */
+/* DASHBOARD NAVIGATION */
+/* ========================================= */
 
 window.showCompanies =
-function(){
+    function(){
 
-    document
-    .getElementById("companiesSection")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+        document
+            .getElementById("companiesSection")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
 
-};
+        loadCompanies();
+
+    };
 
 
 window.showJobs =
-function(){
+    function(){
+
+        document
+            .getElementById("jobsSection")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+        loadJobs();
+
+    };
+
+
+window.showApplications =
+    function(){
+
+        document
+            .getElementById("applicationsSection")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+        loadApplications();
+
+    };
+
+
+
+/* ========================================= */
+/* COMPANY FORM */
+/* ========================================= */
+
+document
+    .getElementById("cancelCompanyBtn")
+    .addEventListener(
+        "click",
+        resetCompanyForm
+    );
+
+
+document
+    .getElementById("saveCompanyBtn")
+    .addEventListener(
+        "click",
+        saveCompany
+    );
+
+
+document
+    .getElementById("refreshCompaniesBtn")
+    .addEventListener(
+        "click",
+        loadCompanies
+    );
+
+
+
+function resetCompanyForm(){
+
+    editingCompanyId = null;
 
     document
-    .getElementById("jobsSection")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+        .getElementById("companyForm")
+        .classList.add("hidden");
 
-};
-
-
-
-/* COMPANY ELEMENTS */
-
-const companyFormBox =
-document.getElementById("companyFormBox");
-
-const companyForm =
-document.getElementById("companyForm");
-
-const companiesList =
-document.getElementById("companiesList");
-
-const companiesLoading =
-document.getElementById("companiesLoading");
-
-const addCompanyBtn =
-document.getElementById("addCompanyBtn");
-
-const cancelCompanyBtn =
-document.getElementById("cancelCompanyBtn");
-
-const companySuccess =
-document.getElementById("companySuccess");
-
-const companyError =
-document.getElementById("companyError");
-
-
-
-/* ADD COMPANY */
-
-addCompanyBtn.addEventListener(
-    "click",
-    function(){
-
-        companyForm.reset();
-
-        document
-        .getElementById("editCompanyId")
-        .value="";
-
-        document
+    document
         .getElementById("companyFormTitle")
-        .textContent =
-            "Add New Company";
-
-        companyFormBox.style.display="block";
-
-        companyFormBox.scrollIntoView({
-            behavior:"smooth"
-        });
-
-    }
-);
+        .textContent = "Add Company";
 
 
+    const ids = [
 
-/* CANCEL COMPANY */
+        "companyName",
+        "industry",
+        "city",
+        "officialPhone",
+        "officialEmail",
+        "website",
+        "legalStatus",
+        "registrationNumber",
+        "licenceNumber",
+        "licenceExpiry",
+        "verificationDate",
+        "commissionAmount",
+        "commissionProof",
+        "verificationNotes"
 
-cancelCompanyBtn.addEventListener(
-    "click",
+    ];
+
+
+    ids.forEach(
+        id => {
+
+            document.getElementById(id).value = "";
+
+        }
+    );
+
+
+    document
+        .getElementById("verificationStatus")
+        .value = "pending";
+
+
+    document
+        .getElementById("commissionType")
+        .value = "none";
+
+
+    document
+        .getElementById("companyActive")
+        .value = "true";
+
+}
+
+
+
+window.openCompanyForm =
     function(){
 
-        companyFormBox.style.display="none";
+        resetCompanyForm();
 
-        companyForm.reset();
+        document
+            .getElementById("companyForm")
+            .classList.remove("hidden");
 
-    }
-);
+        document
+            .getElementById("companyForm")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+    };
 
 
 
-/* SAVE COMPANY */
+window.editCompany =
+    function(companyId){
 
-companyForm.addEventListener(
-    "submit",
-    async function(event){
+        const company =
+            allCompanies.find(
+                item => item.id === companyId
+            );
 
-        event.preventDefault();
 
-        companySuccess.style.display="none";
-        companyError.style.display="none";
+        if(!company){
 
-        const editId =
-            document
-            .getElementById("editCompanyId")
-            .value
-            .trim();
-
-        const companyName =
-            document
-            .getElementById("companyName")
-            .value
-            .trim();
-
-        if(!companyName){
-
-            companyError.textContent =
-                "Company Name لازمی ہے۔";
-
-            companyError.style.display="block";
+            alert("Company not found.");
 
             return;
 
         }
 
-        try{
 
-            const companyId =
-                editId ||
-                "COMP" +
-                Date.now();
+        editingCompanyId = companyId;
 
-            const data = {
 
-                companyName,
+        document
+            .getElementById("companyForm")
+            .classList.remove("hidden");
 
-                industry:
-                    document
-                    .getElementById("industry")
-                    .value.trim(),
 
-                city:
-                    document
-                    .getElementById("city")
-                    .value.trim(),
+        document
+            .getElementById("companyFormTitle")
+            .textContent = "Edit Company";
 
-                officialPhone:
-                    document
-                    .getElementById("officialPhone")
-                    .value.trim(),
 
-                officialEmail:
-                    document
-                    .getElementById("officialEmail")
-                    .value.trim(),
+        document.getElementById("companyName").value =
+            company.companyName || "";
 
-                website:
-                    document
-                    .getElementById("website")
-                    .value.trim(),
+        document.getElementById("industry").value =
+            company.industry || "";
 
-                registrationNumber:
-                    document
-                    .getElementById("registrationNumber")
-                    .value.trim(),
+        document.getElementById("city").value =
+            company.city || "";
 
-                licenceNumber:
-                    document
-                    .getElementById("licenceNumber")
-                    .value.trim(),
+        document.getElementById("officialPhone").value =
+            company.officialPhone || "";
 
-                licenceExpiry:
-                    document
-                    .getElementById("licenceExpiry")
-                    .value,
+        document.getElementById("officialEmail").value =
+            company.officialEmail || "";
 
-                legalStatus:
-                    document
-                    .getElementById("legalStatus")
-                    .value,
+        document.getElementById("website").value =
+            company.website || "";
 
-                verificationStatus:
-                    document
-                    .getElementById("verificationStatus")
-                    .value,
+        document.getElementById("legalStatus").value =
+            company.legalStatus || "";
 
-                active:
-                    document
-                    .getElementById("active")
-                    .value === "true",
+        document.getElementById("registrationNumber").value =
+            company.registrationNumber || "";
 
-                verificationNotes:
-                    document
-                    .getElementById("verificationNotes")
-                    .value.trim(),
+        document.getElementById("licenceNumber").value =
+            company.licenceNumber || "";
 
-                verificationDate:
-                    new Date()
-                    .toLocaleDateString("en-GB")
+        document.getElementById("licenceExpiry").value =
+            company.licenceExpiry || "";
 
-            };
+        document.getElementById("verificationDate").value =
+            company.verificationDate || "";
 
-            await setDoc(
-                doc(
-                    db,
-                    "companies",
-                    companyId
-                ),
-                data,
-                {merge:true}
-            );
+        document.getElementById("verificationStatus").value =
+            company.verificationStatus || "pending";
 
-            companySuccess.textContent =
-                "Company کامیابی سے Save ہو گئی۔";
+        document.getElementById("commissionType").value =
+            company.commissionType || "none";
 
-            companySuccess.style.display="block";
+        document.getElementById("commissionAmount").value =
+            company.commissionAmount || "";
 
-            companyForm.reset();
+        document.getElementById("commissionProof").value =
+            company.commissionProof || "";
 
-            await loadCompanies();
+        document.getElementById("verificationNotes").value =
+            company.verificationNotes || "";
 
-            setTimeout(
-                function(){
-                    companyFormBox.style.display="none";
-                },
-                1000
-            );
+        document.getElementById("companyActive").value =
+            company.active === false ? "false" : "true";
 
-        }
 
-        catch(error){
+        document
+            .getElementById("companyForm")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
 
-            console.error(error);
+    };
 
-            companyError.textContent =
-                "Company Save نہیں ہوئی۔ Firebase permission چیک کریں۔";
 
-            companyError.style.display="block";
 
-        }
+async function saveCompany(){
+
+    const name =
+        document
+            .getElementById("companyName")
+            .value
+            .trim();
+
+
+    if(!name){
+
+        alert("Company Name لازمی ہے۔");
+
+        return;
 
     }
-);
 
 
+    const companyId =
+        editingCompanyId ||
+        "COMP" + Date.now();
 
-/* LOAD COMPANIES */
+
+    const data = {
+
+        companyName:
+            name,
+
+        industry:
+            document.getElementById("industry").value.trim(),
+
+        city:
+            document.getElementById("city").value.trim(),
+
+        officialPhone:
+            document.getElementById("officialPhone").value.trim(),
+
+        officialEmail:
+            document.getElementById("officialEmail").value.trim(),
+
+        website:
+            document.getElementById("website").value.trim(),
+
+        legalStatus:
+            document.getElementById("legalStatus").value.trim(),
+
+        registrationNumber:
+            document.getElementById("registrationNumber").value.trim(),
+
+        licenceNumber:
+            document.getElementById("licenceNumber").value.trim(),
+
+        licenceExpiry:
+            document.getElementById("licenceExpiry").value,
+
+        verificationDate:
+            document.getElementById("verificationDate").value,
+
+        verificationStatus:
+            document.getElementById("verificationStatus").value,
+
+        commissionType:
+            document.getElementById("commissionType").value,
+
+        commissionAmount:
+            document.getElementById("commissionAmount").value.trim(),
+
+        commissionProof:
+            document.getElementById("commissionProof").value.trim(),
+
+        verificationNotes:
+            document.getElementById("verificationNotes").value.trim(),
+
+        active:
+            document.getElementById("companyActive").value === "true"
+
+    };
+
+
+    const button =
+        document.getElementById("saveCompanyBtn");
+
+
+    button.disabled = true;
+
+    button.textContent = "Saving...";
+
+
+    try{
+
+        await setDoc(
+            doc(
+                db,
+                "companies",
+                companyId
+            ),
+            data,
+            {
+                merge:true
+            }
+        );
+
+
+        showSuccess(
+            "Company successfully saved."
+        );
+
+
+        resetCompanyForm();
+
+        await loadCompanies();
+
+        await loadJobs();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showError(
+            "globalError",
+            getFirebaseError(error)
+        );
+
+    }
+
+
+    button.disabled = false;
+
+    button.textContent = "💾 Save Company";
+
+}
+
+
 
 async function loadCompanies(){
 
-    companiesLoading.style.display="block";
+    const loading =
+        document.getElementById(
+            "companiesLoading"
+        );
 
-    companiesList.innerHTML="";
+    const list =
+        document.getElementById(
+            "companiesList"
+        );
+
+
+    loading.style.display = "block";
+
+    hideError("companiesError");
+
 
     try{
 
@@ -1954,151 +2083,210 @@ async function loadCompanies(){
                 )
             );
 
-        companiesLoading.style.display="none";
 
-        fillCompanySelect(snapshot);
+        allCompanies =
+            snapshot.docs.map(
+                item => ({
+                    id:item.id,
+                    ...item.data()
+                })
+            );
 
-        if(snapshot.empty){
 
-            companiesList.innerHTML =
-                '<div class="empty-box">ابھی کوئی Company موجود نہیں۔</div>';
+        renderCompanies();
 
-            return;
 
-        }
+        populateCompanySelect();
 
-        snapshot.forEach(
-            function(companyDoc){
 
-                const company =
-                    companyDoc.data();
+    }catch(error){
 
-                const id =
-                    companyDoc.id;
+        console.error(error);
 
-                const item =
-                    document.createElement("div");
-
-                item.className="item-box";
-
-                item.innerHTML =
-
-                    '<div class="item-top">' +
-
-                    '<div>' +
-
-                    '<div class="item-name">' +
-
-                    escapeHtml(
-                        company.companyName ||
-                        "Unnamed Company"
-                    ) +
-
-                    '</div>' +
-
-                    '<div class="item-meta">' +
-
-                    '🏭 Industry: ' +
-                    escapeHtml(company.industry || "-") +
-
-                    '<br>' +
-
-                    '📍 City: ' +
-                    escapeHtml(company.city || "-") +
-
-                    '<br>' +
-
-                    '📞 Phone: ' +
-                    escapeHtml(company.officialPhone || "-") +
-
-                    '<br>' +
-
-                    '🆔 ID: ' +
-                    escapeHtml(id) +
-
-                    '</div>' +
-
-                    '</div>' +
-
-                    '<div>' +
-
-                    (company.active === true
-                    ?
-                    '<span class="badge badge-active">Active</span>'
-                    :
-                    '<span class="badge badge-inactive">Inactive</span>') +
-
-                    '</div>' +
-
-                    '</div>' +
-
-                    '<div class="actions">' +
-
-                    '<button class="small-btn edit-btn">✏️ Edit</button>' +
-
-                    '</div>';
-
-                companiesList.appendChild(item);
-
-                item
-                .querySelector(".edit-btn")
-                .addEventListener(
-                    "click",
-                    function(){
-
-                        editCompany(
-                            id,
-                            company
-                        );
-
-                    }
-                );
-
-            }
+        showError(
+            "companiesError",
+            getFirebaseError(error)
         );
 
     }
 
-    catch(error){
 
-        console.error(error);
-
-        companiesLoading.style.display="none";
-
-        companiesList.innerHTML =
-            '<div class="empty-box">Companies load نہیں ہو سکیں۔</div>';
-
-    }
+    loading.style.display = "none";
 
 }
 
 
 
-/* COMPANY SELECT */
+function renderCompanies(){
 
-function fillCompanySelect(snapshot){
+    const list =
+        document.getElementById(
+            "companiesList"
+        );
+
+
+    if(!allCompanies.length){
+
+        list.innerHTML =
+            '<div class="empty-box">کوئی company موجود نہیں۔</div>';
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        allCompanies
+        .map(
+            company => {
+
+                return `
+
+<div class="item-card">
+
+<h3>
+${escapeHtml(company.companyName || "Unnamed Company")}
+</h3>
+
+<div class="item-meta">
+
+<strong>Industry:</strong>
+${escapeHtml(company.industry || "-")}
+
+<br>
+
+<strong>City:</strong>
+${escapeHtml(company.city || "-")}
+
+<br>
+
+<strong>Phone:</strong>
+${escapeHtml(company.officialPhone || "-")}
+
+<br>
+
+<strong>Email:</strong>
+${escapeHtml(company.officialEmail || "-")}
+
+<br>
+
+<strong>Verification:</strong>
+<span class="badge badge-other">
+${escapeHtml(company.verificationStatus || "pending")}
+</span>
+
+<br>
+
+<strong>Status:</strong>
+${company.active === false ? "Inactive" : "Active"}
+
+</div>
+
+
+<div class="item-actions">
+
+<button
+    class="small-btn edit-btn"
+    onclick="editCompany('${company.id}')"
+>
+✏️ Edit
+</button>
+
+<button
+    class="small-btn view-btn"
+    onclick="showCompanyDetails('${company.id}')"
+>
+👁 View
+</button>
+
+</div>
+
+</div>
+
+`;
+
+            }
+        )
+        .join("");
+
+}
+
+
+
+window.showCompanyDetails =
+    function(companyId){
+
+        const company =
+            allCompanies.find(
+                item => item.id === companyId
+            );
+
+
+        if(!company){
+
+            return;
+
+        }
+
+
+        alert(
+
+            "Company: " +
+            (company.companyName || "-") +
+            "\n\n" +
+
+            "Industry: " +
+            (company.industry || "-") +
+            "\n" +
+
+            "City: " +
+            (company.city || "-") +
+            "\n" +
+
+            "Phone: " +
+            (company.officialPhone || "-") +
+            "\n" +
+
+            "Email: " +
+            (company.officialEmail || "-") +
+            "\n\n" +
+
+            "Verification: " +
+            (company.verificationStatus || "-")
+
+        );
+
+    };
+
+
+
+function populateCompanySelect(){
 
     const select =
-        document.getElementById("jobCompany");
+        document.getElementById(
+            "jobCompany"
+        );
+
 
     select.innerHTML =
         '<option value="">Select Company</option>';
 
-    snapshot.forEach(
-        function(companyDoc){
 
-            const company =
-                companyDoc.data();
+    allCompanies.forEach(
+        company => {
 
             const option =
                 document.createElement("option");
 
+
             option.value =
-                companyDoc.id;
+                company.id;
+
 
             option.textContent =
                 company.companyName ||
-                companyDoc.id;
+                company.id;
+
 
             select.appendChild(option);
 
@@ -2109,611 +2297,472 @@ function fillCompanySelect(snapshot){
 
 
 
-/* EDIT COMPANY */
+/* ========================================= */
+/* JOB FORM */
+/* ========================================= */
 
-function editCompany(
-    id,
-    company
-){
+document
+    .getElementById("cancelJobBtn")
+    .addEventListener(
+        "click",
+        resetJobForm
+    );
 
-    document
-    .getElementById("editCompanyId")
-    .value=id;
 
-    document
-    .getElementById("companyName")
-    .value =
-        company.companyName || "";
+document
+    .getElementById("saveJobBtn")
+    .addEventListener(
+        "click",
+        saveJob
+    );
 
-    document
-    .getElementById("industry")
-    .value =
-        company.industry || "";
 
-    document
-    .getElementById("city")
-    .value =
-        company.city || "";
+document
+    .getElementById("refreshJobsBtn")
+    .addEventListener(
+        "click",
+        loadJobs
+    );
 
-    document
-    .getElementById("officialPhone")
-    .value =
-        company.officialPhone || "";
 
-    document
-    .getElementById("officialEmail")
-    .value =
-        company.officialEmail || "";
+
+function resetJobForm(){
+
+    editingJobId = null;
+
 
     document
-    .getElementById("website")
-    .value =
-        company.website || "";
+        .getElementById("jobForm")
+        .classList.add("hidden");
+
 
     document
-    .getElementById("registrationNumber")
-    .value =
-        company.registrationNumber || "";
+        .getElementById("jobFormTitle")
+        .textContent =
+            "Add Job / Opportunity";
 
-    document
-    .getElementById("licenceNumber")
-    .value =
-        company.licenceNumber || "";
 
-    document
-    .getElementById("licenceExpiry")
-    .value =
-        company.licenceExpiry || "";
+    const ids = [
 
-    document
-    .getElementById("legalStatus")
-    .value =
-        company.legalStatus || "";
+        "jobTitle",
+        "jobCategory",
+        "jobLocation",
+        "jobSalary",
+        "jobExperience",
+        "jobEducation",
+        "applicationDeadline",
+        "applicationLink",
+        "feeAmount",
+        "currency",
+        "feeDetails",
+        "paymentInstructions",
+        "cvApplicationInstructions",
+        "jobDescription",
+        "jobVerificationNotes"
 
-    document
-    .getElementById("verificationStatus")
-    .value =
-        company.verificationStatus || "pending";
+    ];
 
-    document
-    .getElementById("active")
-    .value =
-        company.active === false
-        ? "false"
-        : "true";
 
-    document
-    .getElementById("verificationNotes")
-    .value =
-        company.verificationNotes || "";
+    ids.forEach(
+        id => {
 
-    document
-    .getElementById("companyFormTitle")
-    .textContent =
-        "Edit Company";
+            document.getElementById(id).value = "";
 
-    companyFormBox.style.display="block";
+        }
+    );
 
-    companyFormBox.scrollIntoView({
-        behavior:"smooth"
-    });
+
+    document.getElementById("jobCompany").value = "";
+
+    document.getElementById("jobType").value = "";
+
+    document.getElementById("applicationStatus").value = "open";
+
+    document.getElementById("jobVerificationStatus").value = "pending";
+
+    document.getElementById("applicationMethod").value = "Info24 Jobs";
+
+    document.getElementById("feeType").value = "No Fee";
+
+    document.getElementById("currency").value = "PKR";
 
 }
 
 
 
-/* JOB ELEMENTS */
-
-const jobFormBox =
-document.getElementById("jobFormBox");
-
-const jobForm =
-document.getElementById("jobForm");
-
-const jobsList =
-document.getElementById("jobsList");
-
-const jobsLoading =
-document.getElementById("jobsLoading");
-
-const addJobBtn =
-document.getElementById("addJobBtn");
-
-const cancelJobBtn =
-document.getElementById("cancelJobBtn");
-
-const jobSuccess =
-document.getElementById("jobSuccess");
-
-const jobError =
-document.getElementById("jobError");
-
-
-
-/* ADD JOB */
-
-addJobBtn.addEventListener(
-    "click",
+window.openJobForm =
     function(){
 
-        jobForm.reset();
+        resetJobForm();
 
         document
-        .getElementById("editJobCompanyId")
-        .value="";
+            .getElementById("jobForm")
+            .classList.remove("hidden");
 
         document
-        .getElementById("editJobId")
-        .value="";
+            .getElementById("jobForm")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+    };
+
+
+
+window.editJob =
+    function(companyId,jobId){
+
+        const job =
+            allJobs.find(
+                item =>
+                    item.companyId === companyId &&
+                    item.id === jobId
+            );
+
+
+        if(!job){
+
+            alert("Job not found.");
+
+            return;
+
+        }
+
+
+        editingJobId = {
+
+            companyId:
+                companyId,
+
+            jobId:
+                jobId
+
+        };
+
 
         document
-        .getElementById("jobFormTitle")
-        .textContent =
-            "Add New Job";
-
-        jobFormBox.style.display="block";
-
-        jobFormBox.scrollIntoView({
-            behavior:"smooth"
-        });
-
-    }
-);
+            .getElementById("jobForm")
+            .classList.remove("hidden");
 
 
-
-/* CANCEL JOB */
-
-cancelJobBtn.addEventListener(
-    "click",
-    function(){
-
-        jobFormBox.style.display="none";
-
-        jobForm.reset();
-
-    }
-);
+        document
+            .getElementById("jobFormTitle")
+            .textContent =
+                "Edit Job / Opportunity";
 
 
+        document.getElementById("jobCompany").value =
+            companyId;
 
-/* SAVE JOB */
+        document.getElementById("jobTitle").value =
+            job.title || "";
 
-jobForm.addEventListener(
-    "submit",
-    async function(event){
+        document.getElementById("jobCategory").value =
+            job.category || "";
 
-        event.preventDefault();
+        document.getElementById("jobLocation").value =
+            job.location || "";
 
-        jobSuccess.style.display="none";
-        jobError.style.display="none";
+        document.getElementById("jobType").value =
+            job.job_type || "";
 
-        const companyId =
-            document
+        document.getElementById("jobSalary").value =
+            job.salary || "";
+
+        document.getElementById("jobExperience").value =
+            job.experience || "";
+
+        document.getElementById("jobEducation").value =
+            job.education || "";
+
+        document.getElementById("applicationDeadline").value =
+            job.application_deadline || "";
+
+        document.getElementById("applicationStatus").value =
+            job.application_status || "open";
+
+        document.getElementById("jobVerificationStatus").value =
+            job.verification_status || "pending";
+
+        document.getElementById("applicationMethod").value =
+            job.application_method || "Info24 Jobs";
+
+        document.getElementById("applicationLink").value =
+            job.application_link || "";
+
+        document.getElementById("jobDescription").value =
+            job.description || "";
+
+        document.getElementById("feeType").value =
+            job.fee_type || "No Fee";
+
+        document.getElementById("feeAmount").value =
+            job.fee_amount || "";
+
+        document.getElementById("currency").value =
+            job.currency || "PKR";
+
+        document.getElementById("feeDetails").value =
+            job.fee_details || "";
+
+        document.getElementById("paymentInstructions").value =
+            job.payment_instructions || "";
+
+        document.getElementById("cvApplicationInstructions").value =
+            job.cv_application_instructions || "";
+
+        document.getElementById("jobVerificationNotes").value =
+            job.verification_notes || "";
+
+
+        document
+            .getElementById("jobForm")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+    };
+
+
+
+async function saveJob(){
+
+    const companyId =
+        document
             .getElementById("jobCompany")
             .value;
 
-        const editCompanyId =
-            document
-            .getElementById("editJobCompanyId")
-            .value;
 
-        const editJobId =
-            document
-            .getElementById("editJobId")
-            .value;
-
-        if(!companyId){
-
-            jobError.textContent =
-                "Company منتخب کریں۔";
-
-            jobError.style.display="block";
-
-            return;
-
-        }
-
-        try{
-
-            const jobId =
-                editJobId ||
-                "JOB" +
-                Date.now();
-
-            const data = {
-
-                title:
-                    document
-                    .getElementById("jobTitle")
-                    .value.trim(),
-
-                company:
-                    document
-                    .getElementById("jobCompany")
-                    .options[
-                        document
-                        .getElementById("jobCompany")
-                        .selectedIndex
-                    ]
-                    .textContent,
-
-                category:
-                    document
-                    .getElementById("jobCategory")
-                    .value.trim(),
-
-                location:
-                    document
-                    .getElementById("jobLocation")
-                    .value.trim(),
-
-                job_type:
-                    document
-                    .getElementById("jobType")
-                    .value,
-
-                salary:
-                    document
-                    .getElementById("jobSalary")
-                    .value.trim(),
-
-                experience:
-                    document
-                    .getElementById("jobExperience")
-                    .value.trim(),
-
-                education:
-                    document
-                    .getElementById("jobEducation")
-                    .value.trim(),
-
-                description:
-                    document
-                    .getElementById("jobDescription")
-                    .value.trim(),
-
-                application_link:
-                    document
-                    .getElementById("applicationLink")
-                    .value.trim(),
-
-                application_method:
-                    document
-                    .getElementById("applicationMethod")
-                    .value,
-
-                application_deadline:
-                    document
-                    .getElementById("applicationDeadline")
-                    .value,
-
-                status:
-                    document
-                    .getElementById("jobStatus")
-                    .value,
-
-                verification_status:
-                    document
-                    .getElementById("jobVerification")
-                    .value,
-
-                fee_type:
-                    document
-                    .getElementById("feeType")
-                    .value,
-
-                fee_amount:
-                    document
-                    .getElementById("feeAmount")
-                    .value,
-
-                fee_currency:
-                    document
-                    .getElementById("feeCurrency")
-                    .value,
-
-                fee_details:
-                    document
-                    .getElementById("feeDetails")
-                    .value.trim(),
-
-                payment_instructions:
-                    document
-                    .getElementById("paymentInstructions")
-                    .value.trim(),
-
-                cv_instructions:
-                    document
-                    .getElementById("cvInstructions")
-                    .value.trim(),
-
-                verification_notes:
-                    document
-                    .getElementById("jobVerificationNotes")
-                    .value.trim(),
-
-                updated_at:
-                    new Date()
-                    .toISOString()
-
-            };
+    const title =
+        document
+            .getElementById("jobTitle")
+            .value
+            .trim();
 
 
-            await setDoc(
+    if(!companyId){
 
-                doc(
-                    db,
-                    "companies",
-                    companyId,
-                    "opportunities",
-                    jobId
-                ),
+        alert("Company select کریں۔");
 
-                data,
-
-                {merge:true}
-
-            );
-
-
-            jobSuccess.textContent =
-                "Job کامیابی سے Save ہو گئی۔";
-
-            jobSuccess.style.display="block";
-
-
-            jobForm.reset();
-
-
-            await loadAllJobs();
-
-
-            setTimeout(
-                function(){
-
-                    jobFormBox.style.display="none";
-
-                },
-                1200
-            );
-
-        }
-
-        catch(error){
-
-            console.error(error);
-
-            jobError.textContent =
-                "Job Save نہیں ہوئی۔ Firebase Rules میں write permission درکار ہے۔";
-
-            jobError.style.display="block";
-
-        }
+        return;
 
     }
-);
 
 
+    if(!title){
 
-/* LOAD ALL JOBS */
+        alert("Job Title لازمی ہے۔");
 
-async function loadAllJobs(){
+        return;
 
-    jobsLoading.style.display="block";
+    }
 
-    jobsList.innerHTML="";
+
+    const jobId =
+        editingJobId
+            ? editingJobId.jobId
+            : "JOB" + Date.now();
+
+
+    const data = {
+
+        title:
+            title,
+
+        company:
+            getCompanyName(companyId),
+
+        category:
+            document.getElementById("jobCategory").value.trim(),
+
+        location:
+            document.getElementById("jobLocation").value.trim(),
+
+        job_type:
+            document.getElementById("jobType").value,
+
+        salary:
+            document.getElementById("jobSalary").value.trim(),
+
+        experience:
+            document.getElementById("jobExperience").value.trim(),
+
+        education:
+            document.getElementById("jobEducation").value.trim(),
+
+        application_deadline:
+            document.getElementById("applicationDeadline").value,
+
+        application_status:
+            document.getElementById("applicationStatus").value,
+
+        verification_status:
+            document.getElementById("jobVerificationStatus").value,
+
+        application_method:
+            document.getElementById("applicationMethod").value,
+
+        application_link:
+            document.getElementById("applicationLink").value.trim(),
+
+        description:
+            document.getElementById("jobDescription").value.trim(),
+
+        fee_type:
+            document.getElementById("feeType").value,
+
+        fee_amount:
+            document.getElementById("feeAmount").value.trim(),
+
+        currency:
+            document.getElementById("currency").value.trim(),
+
+        fee_details:
+            document.getElementById("feeDetails").value.trim(),
+
+        payment_instructions:
+            document.getElementById("paymentInstructions").value.trim(),
+
+        cv_application_instructions:
+            document.getElementById("cvApplicationInstructions").value.trim(),
+
+        verification_notes:
+            document.getElementById("jobVerificationNotes").value.trim()
+
+    };
+
+
+    const button =
+        document.getElementById("saveJobBtn");
+
+
+    button.disabled = true;
+
+    button.textContent = "Saving...";
+
 
     try{
 
-        const companiesSnapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "companies"
-                )
-            );
+        await setDoc(
+
+            doc(
+                db,
+                "companies",
+                companyId,
+                "opportunities",
+                jobId
+            ),
+
+            data,
+
+            {
+                merge:true
+            }
+
+        );
 
 
-        if(companiesSnapshot.empty){
+        showSuccess(
+            "Job successfully saved."
+        );
 
-            jobsLoading.style.display="none";
 
-            jobsList.innerHTML =
-                '<div class="empty-box">پہلے Company بنائیں۔</div>';
+        resetJobForm();
 
-            return;
+        await loadJobs();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showError(
+            "globalError",
+            getFirebaseError(error)
+        );
+
+    }
+
+
+    button.disabled = false;
+
+    button.textContent = "💾 Save Job";
+
+}
+
+
+
+async function loadJobs(){
+
+    const loading =
+        document.getElementById(
+            "jobsLoading"
+        );
+
+
+    const list =
+        document.getElementById(
+            "jobsList"
+        );
+
+
+    loading.style.display = "block";
+
+    hideError("jobsError");
+
+
+    try{
+
+        allJobs = [];
+
+
+        if(!allCompanies.length){
+
+            await loadCompanies();
 
         }
 
 
-        let totalJobs = 0;
-
-
         for(
-            const companyDoc
-            of companiesSnapshot.docs
+            const company
+            of allCompanies
         ){
-
-            const company =
-                companyDoc.data();
-
-
-            const companyId =
-                companyDoc.id;
-
 
             const jobsSnapshot =
                 await getDocs(
+
                     collection(
+
                         db,
+
                         "companies",
-                        companyId,
+
+                        company.id,
+
                         "opportunities"
+
                     )
+
                 );
 
 
-            jobsSnapshot.forEach(
-                function(jobDoc){
+            jobsSnapshot.docs.forEach(
+                jobDoc => {
 
-                    totalJobs++;
+                    allJobs.push({
 
-                    const job =
-                        jobDoc.data();
+                        id:
+                            jobDoc.id,
 
-                    const item =
-                        document.createElement("div");
+                        companyId:
+                            company.id,
 
-                    item.className="item-box";
+                        companyName:
+                            company.companyName,
 
+                        ...jobDoc.data()
 
-                    const feeBadge =
-                        job.fee_type === "free"
-
-                        ?
-
-                        '<span class="badge badge-free">FREE</span>'
-
-                        :
-
-                        '<span class="badge badge-fee">FEE</span>';
-
-
-                    const activeBadge =
-                        job.status === "active"
-
-                        ?
-
-                        '<span class="badge badge-active">Published</span>'
-
-                        :
-
-                        '<span class="badge badge-inactive">Inactive</span>';
-
-
-                    item.innerHTML =
-
-                        '<div class="item-top">' +
-
-                        '<div>' +
-
-                        '<div class="item-name">' +
-
-                        escapeHtml(
-                            job.title ||
-                            "Untitled Job"
-                        ) +
-
-                        '</div>' +
-
-                        '<div class="item-meta">' +
-
-                        '🏢 Company: ' +
-                        escapeHtml(
-                            company.companyName ||
-                            job.company ||
-                            "-"
-                        ) +
-
-                        '<br>' +
-
-                        '🏷️ Category: ' +
-                        escapeHtml(
-                            job.category || "-"
-                        ) +
-
-                        '<br>' +
-
-                        '📍 Location: ' +
-                        escapeHtml(
-                            job.location || "-"
-                        ) +
-
-                        '<br>' +
-
-                        '💰 Salary: ' +
-                        escapeHtml(
-                            job.salary || "-"
-                        ) +
-
-                        '<br>' +
-
-                        '🎓 Education: ' +
-                        escapeHtml(
-                            job.education || "-"
-                        ) +
-
-                        '<br>' +
-
-                        '🔧 Experience: ' +
-                        escapeHtml(
-                            job.experience || "-"
-                        ) +
-
-                        '<br>' +
-
-                        '💳 Fee: ' +
-                        escapeHtml(
-                            job.fee_type === "free"
-                            ? "FREE"
-                            :
-                            (
-                                (job.fee_amount || "0") +
-                                " " +
-                                (job.fee_currency || "PKR")
-                            )
-                        ) +
-
-                        '<br>' +
-
-                        '🆔 Job ID: ' +
-                        escapeHtml(
-                            jobDoc.id
-                        ) +
-
-                        '</div>' +
-
-                        '</div>' +
-
-                        '<div>' +
-
-                        feeBadge +
-
-                        activeBadge +
-
-                        '</div>' +
-
-                        '</div>' +
-
-                        '<div class="actions">' +
-
-                        '<button class="small-btn edit-btn">' +
-
-                        '✏️ Edit Job' +
-
-                        '</button>' +
-
-                        '</div>';
-
-
-                    jobsList.appendChild(item);
-
-
-                    item
-                    .querySelector(".edit-btn")
-                    .addEventListener(
-                        "click",
-                        function(){
-
-                            editJob(
-                                companyId,
-                                jobDoc.id,
-                                job
-                            );
-
-                        }
-                    );
+                    });
 
                 }
             );
@@ -2721,26 +2770,1010 @@ async function loadAllJobs(){
         }
 
 
-        jobsLoading.style.display="none";
+        renderJobs();
 
 
-        if(totalJobs === 0){
-
-            jobsList.innerHTML =
-                '<div class="empty-box">ابھی کوئی Job موجود نہیں۔</div>';
-
-        }
-
-    }
-
-    catch(error){
+    }catch(error){
 
         console.error(error);
 
-        jobsLoading.style.display="none";
+        showError(
+            "jobsError",
+            getFirebaseError(error)
+        );
 
-        jobsList.innerHTML =
-            '<div class="empty-box">Jobs load نہیں ہو سکیں۔</div>';
+    }
+
+
+    loading.style.display = "none";
+
+}
+
+
+
+function renderJobs(){
+
+    const list =
+        document.getElementById(
+            "jobsList"
+        );
+
+
+    if(!allJobs.length){
+
+        list.innerHTML =
+            '<div class="empty-box">کوئی Job / Opportunity موجود نہیں۔</div>';
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        allJobs
+        .map(
+            job => {
+
+                return `
+
+<div class="item-card">
+
+<h3>
+${escapeHtml(job.title || "Untitled Job")}
+</h3>
+
+
+<div class="item-meta">
+
+<strong>Company:</strong>
+${escapeHtml(job.companyName || job.company || "-")}
+
+<br>
+
+<strong>Category:</strong>
+${escapeHtml(job.category || "-")}
+
+<br>
+
+<strong>Location:</strong>
+${escapeHtml(job.location || "-")}
+
+<br>
+
+<strong>Job Type:</strong>
+${escapeHtml(job.job_type || "-")}
+
+<br>
+
+<strong>Salary:</strong>
+${escapeHtml(job.salary || "-")}
+
+<br>
+
+<strong>Experience:</strong>
+${escapeHtml(job.experience || "-")}
+
+<br>
+
+<strong>Education:</strong>
+${escapeHtml(job.education || "-")}
+
+<br>
+
+<strong>Deadline:</strong>
+${escapeHtml(job.application_deadline || "-")}
+
+<br>
+
+<strong>Application Status:</strong>
+<span class="badge badge-other">
+${escapeHtml(job.application_status || "-")}
+</span>
+
+<br>
+
+<strong>Verification:</strong>
+<span class="badge badge-other">
+${escapeHtml(job.verification_status || "-")}
+</span>
+
+<br>
+
+<strong>Fee:</strong>
+${escapeHtml(job.fee_type || "No Fee")}
+${job.fee_amount ? " - " + escapeHtml(job.fee_amount) : ""}
+
+</div>
+
+
+<div class="item-actions">
+
+<button
+    class="small-btn edit-btn"
+    onclick="editJob('${job.companyId}','${job.id}')"
+>
+✏️ Edit
+</button>
+
+<button
+    class="small-btn view-btn"
+    onclick="showJobDetails('${job.companyId}','${job.id}')"
+>
+👁 View
+</button>
+
+</div>
+
+</div>
+
+`;
+
+            }
+        )
+        .join("");
+
+}
+
+
+
+window.showJobDetails =
+    function(companyId,jobId){
+
+        const job =
+            allJobs.find(
+                item =>
+                    item.companyId === companyId &&
+                    item.id === jobId
+            );
+
+
+        if(!job){
+
+            return;
+
+        }
+
+
+        alert(
+
+            "Job: " +
+            (job.title || "-") +
+
+            "\n\nCompany: " +
+            (job.companyName || job.company || "-") +
+
+            "\nLocation: " +
+            (job.location || "-") +
+
+            "\nCategory: " +
+            (job.category || "-") +
+
+            "\nJob Type: " +
+            (job.job_type || "-") +
+
+            "\nSalary: " +
+            (job.salary || "-") +
+
+            "\nExperience: " +
+            (job.experience || "-") +
+
+            "\nEducation: " +
+            (job.education || "-") +
+
+            "\nFee Type: " +
+            (job.fee_type || "No Fee") +
+
+            "\nFee Amount: " +
+            (job.fee_amount || "-")
+
+        );
+
+    };
+
+
+
+function getCompanyName(companyId){
+
+    const company =
+        allCompanies.find(
+            item => item.id === companyId
+        );
+
+
+    return company
+        ? company.companyName || company.id
+        : "";
+
+}
+
+
+
+/* ========================================= */
+/* APPLICATIONS MANAGEMENT */
+/* ========================================= */
+
+document
+    .getElementById("refreshApplicationsBtn")
+    .addEventListener(
+        "click",
+        loadApplications
+    );
+
+
+
+async function loadApplications(){
+
+    const loading =
+        document.getElementById(
+            "applicationsLoading"
+        );
+
+
+    const list =
+        document.getElementById(
+            "applicationsList"
+        );
+
+
+    loading.style.display = "block";
+
+    hideError("applicationsError");
+
+
+    try{
+
+        if(!allCompanies.length){
+
+            await loadCompanies();
+
+        }
+
+
+        allApplications = [];
+
+
+        for(
+            const company
+            of allCompanies
+        ){
+
+            const jobsSnapshot =
+                await getDocs(
+
+                    collection(
+
+                        db,
+
+                        "companies",
+
+                        company.id,
+
+                        "opportunities"
+
+                    )
+
+                );
+
+
+            for(
+                const jobDoc
+                of jobsSnapshot.docs
+            ){
+
+                const jobData =
+                    jobDoc.data();
+
+
+                const applicationsSnapshot =
+                    await getDocs(
+
+                        collection(
+
+                            db,
+
+                            "companies",
+
+                            company.id,
+
+                            "opportunities",
+
+                            jobDoc.id,
+
+                            "applications"
+
+                        )
+
+                    );
+
+
+                applicationsSnapshot.docs.forEach(
+                    applicationDoc => {
+
+                        allApplications.push({
+
+                            id:
+                                applicationDoc.id,
+
+                            companyId:
+                                company.id,
+
+                            companyName:
+                                company.companyName,
+
+                            jobId:
+                                jobDoc.id,
+
+                            jobTitle:
+                                jobData.title || "-",
+
+                            ...applicationDoc.data()
+
+                        });
+
+                    }
+                );
+
+            }
+
+        }
+
+
+        renderApplications();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showError(
+            "applicationsError",
+            getFirebaseError(error)
+        );
+
+        list.innerHTML = "";
+
+    }
+
+
+    loading.style.display = "none";
+
+}
+
+
+
+function renderApplications(){
+
+    const list =
+        document.getElementById(
+            "applicationsList"
+        );
+
+
+    if(!allApplications.length){
+
+        list.innerHTML =
+            '<div class="empty-box">ابھی کوئی application موجود نہیں۔</div>';
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        allApplications
+        .map(
+            application => {
+
+                const status =
+                    application.status ||
+                    "pending";
+
+
+                return `
+
+<div class="item-card">
+
+<h3>
+👤 ${escapeHtml(application.applicant_name || "Unknown Applicant")}
+</h3>
+
+
+<div class="item-meta">
+
+<strong>Job:</strong>
+${escapeHtml(application.jobTitle || "-")}
+
+<br>
+
+<strong>Company:</strong>
+${escapeHtml(application.companyName || "-")}
+
+<br>
+
+<strong>Mobile:</strong>
+${escapeHtml(application.phone || "-")}
+
+<br>
+
+<strong>WhatsApp:</strong>
+${escapeHtml(application.whatsapp || "-")}
+
+<br>
+
+<strong>Email:</strong>
+${escapeHtml(application.email || "-")}
+
+<br>
+
+<strong>City:</strong>
+${escapeHtml(application.city || "-")}
+
+<br>
+
+<strong>Education:</strong>
+${escapeHtml(application.education || "-")}
+
+<br>
+
+<strong>Experience:</strong>
+${escapeHtml(application.experience || "-")}
+
+<br>
+
+<strong>CV:</strong>
+${escapeHtml(application.cv_file_name || "No CV")}
+
+<br>
+
+<strong>Status:</strong>
+
+${getStatusBadge(status)}
+
+</div>
+
+
+<div class="item-actions">
+
+
+<button
+    class="small-btn view-btn"
+    onclick="viewApplication('${application.companyId}','${application.jobId}','${application.id}')"
+>
+👁 View Details
+</button>
+
+
+<button
+    class="small-btn shortlist-btn"
+    onclick="updateApplicationStatus('${application.companyId}','${application.jobId}','${application.id}','shortlisted')"
+>
+⭐ Shortlist
+</button>
+
+
+<button
+    class="small-btn forward-btn"
+    onclick="updateApplicationStatus('${application.companyId}','${application.jobId}','${application.id}','forwarded')"
+>
+📤 Forward
+</button>
+
+
+<button
+    class="small-btn reject-btn"
+    onclick="updateApplicationStatus('${application.companyId}','${application.jobId}','${application.id}','rejected')"
+>
+❌ Reject
+</button>
+
+
+</div>
+
+</div>
+
+`;
+
+            }
+        )
+        .join("");
+
+}
+
+
+
+function getStatusBadge(status){
+
+    const value =
+        String(status || "pending")
+        .toLowerCase();
+
+
+    if(value === "shortlisted"){
+
+        return `
+        <span class="badge badge-shortlisted">
+        ⭐ Shortlisted
+        </span>
+        `;
+
+    }
+
+
+    if(value === "forwarded"){
+
+        return `
+        <span class="badge badge-forwarded">
+        📤 Forwarded
+        </span>
+        `;
+
+    }
+
+
+    if(value === "rejected"){
+
+        return `
+        <span class="badge badge-rejected">
+        ❌ Rejected
+        </span>
+        `;
+
+    }
+
+
+    return `
+    <span class="badge badge-pending">
+    ⏳ Pending
+    </span>
+    `;
+
+}
+
+
+
+window.viewApplication =
+    function(companyId,jobId,applicationId){
+
+        const application =
+            allApplications.find(
+
+                item =>
+                    item.companyId === companyId &&
+                    item.jobId === jobId &&
+                    item.id === applicationId
+
+            );
+
+
+        if(!application){
+
+            alert("Application not found.");
+
+            return;
+
+        }
+
+
+        const details =
+            document.getElementById(
+                "applicationDetails"
+            );
+
+
+        details.innerHTML = `
+
+<div class="detail-row">
+
+<div class="detail-label">
+Applicant Name
+</div>
+
+<div>
+${escapeHtml(application.applicant_name || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Father Name
+</div>
+
+<div>
+${escapeHtml(application.father_name || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Mobile
+</div>
+
+<div>
+${escapeHtml(application.phone || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+WhatsApp
+</div>
+
+<div>
+${escapeHtml(application.whatsapp || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Email
+</div>
+
+<div>
+${escapeHtml(application.email || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+CNIC
+</div>
+
+<div>
+${escapeHtml(application.cnic || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+City
+</div>
+
+<div>
+${escapeHtml(application.city || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Education
+</div>
+
+<div>
+${escapeHtml(application.education || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Experience
+</div>
+
+<div>
+${escapeHtml(application.experience || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+CV File
+</div>
+
+<div>
+${escapeHtml(application.cv_file_name || "No CV uploaded")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Additional Information
+</div>
+
+<div>
+${escapeHtml(application.additional_message || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Job
+</div>
+
+<div>
+${escapeHtml(application.jobTitle || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Company
+</div>
+
+<div>
+${escapeHtml(application.companyName || "-")}
+</div>
+
+</div>
+
+
+<div class="detail-row">
+
+<div class="detail-label">
+Application Status
+</div>
+
+<div>
+${getStatusBadge(application.status || "pending")}
+</div>
+
+</div>
+
+`;
+
+
+        document
+            .getElementById("applicationModal")
+            .classList.remove("hidden");
+
+    };
+
+
+
+window.closeApplicationModal =
+    function(){
+
+        document
+            .getElementById("applicationModal")
+            .classList.add("hidden");
+
+    };
+
+
+
+window.updateApplicationStatus =
+    async function(
+        companyId,
+        jobId,
+        applicationId,
+        newStatus
+    ){
+
+        const statusNames = {
+
+            shortlisted:
+                "Shortlisted",
+
+            forwarded:
+                "Forwarded",
+
+            rejected:
+                "Rejected"
+
+        };
+
+
+        const displayName =
+            statusNames[newStatus] ||
+            newStatus;
+
+
+        const confirmed =
+            confirm(
+                "Application کو " +
+                displayName +
+                " کرنا ہے؟"
+            );
+
+
+        if(!confirmed){
+
+            return;
+
+        }
+
+
+        try{
+
+            await updateDoc(
+
+                doc(
+
+                    db,
+
+                    "companies",
+
+                    companyId,
+
+                    "opportunities",
+
+                    jobId,
+
+                    "applications",
+
+                    applicationId
+
+                ),
+
+                {
+
+                    status:
+                        newStatus,
+
+                    status_updated_at:
+                        serverTimestamp()
+
+                }
+
+            );
+
+
+            showSuccess(
+                "Application status successfully updated."
+            );
+
+
+            await loadApplications();
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showError(
+                "applicationsError",
+                getFirebaseError(error)
+            );
+
+        }
+
+    };
+
+
+
+/* ========================================= */
+/* MODAL CLICK OUTSIDE */
+/* ========================================= */
+
+document
+    .getElementById("applicationModal")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target ===
+                this
+            ){
+
+                closeApplicationModal();
+
+            }
+
+        }
+    );
+
+
+
+/* ========================================= */
+/* HELPERS */
+/* ========================================= */
+
+function escapeHtml(value){
+
+    if(value === null || value === undefined){
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+function showError(
+    elementId,
+    message
+){
+
+    const element =
+        document.getElementById(
+            elementId
+        );
+
+
+    if(!element){
+
+        return;
+
+    }
+
+
+    element.textContent =
+        message;
+
+
+    element.style.display =
+        "block";
+
+}
+
+
+
+function hideError(elementId){
+
+    const element =
+        document.getElementById(
+            elementId
+        );
+
+
+    if(element){
+
+        element.style.display =
+            "none";
 
     }
 
@@ -2748,172 +3781,93 @@ async function loadAllJobs(){
 
 
 
-/* EDIT JOB */
+function showSuccess(message){
 
-function editJob(
-    companyId,
-    jobId,
-    job
-){
+    const element =
+        document.getElementById(
+            "globalSuccess"
+        );
 
-    document
-    .getElementById("editJobCompanyId")
-    .value =
-        companyId;
 
-    document
-    .getElementById("editJobId")
-    .value =
-        jobId;
+    element.textContent =
+        message;
 
-    document
-    .getElementById("jobCompany")
-    .value =
-        companyId;
 
-    document
-    .getElementById("jobTitle")
-    .value =
-        job.title || "";
+    element.style.display =
+        "block";
 
-    document
-    .getElementById("jobCategory")
-    .value =
-        job.category || "";
 
-    document
-    .getElementById("jobLocation")
-    .value =
-        job.location || "";
+    setTimeout(
+        function(){
 
-    document
-    .getElementById("jobType")
-    .value =
-        job.job_type || "";
+            element.style.display =
+                "none";
 
-    document
-    .getElementById("jobSalary")
-    .value =
-        job.salary || "";
-
-    document
-    .getElementById("jobExperience")
-    .value =
-        job.experience || "";
-
-    document
-    .getElementById("jobEducation")
-    .value =
-        job.education || "";
-
-    document
-    .getElementById("jobDescription")
-    .value =
-        job.description || "";
-
-    document
-    .getElementById("applicationLink")
-    .value =
-        job.application_link || "";
-
-    document
-    .getElementById("applicationMethod")
-    .value =
-        job.application_method ||
-        "Info24 Jobs";
-
-    document
-    .getElementById("applicationDeadline")
-    .value =
-        job.application_deadline || "";
-
-    document
-    .getElementById("jobStatus")
-    .value =
-        job.status ||
-        "active";
-
-    document
-    .getElementById("jobVerification")
-    .value =
-        job.verification_status ||
-        "pending";
-
-    document
-    .getElementById("feeType")
-    .value =
-        job.fee_type ||
-        "free";
-
-    document
-    .getElementById("feeAmount")
-    .value =
-        job.fee_amount ||
-        "";
-
-    document
-    .getElementById("feeCurrency")
-    .value =
-        job.fee_currency ||
-        "PKR";
-
-    document
-    .getElementById("feeDetails")
-    .value =
-        job.fee_details ||
-        "";
-
-    document
-    .getElementById("paymentInstructions")
-    .value =
-        job.payment_instructions ||
-        "";
-
-    document
-    .getElementById("cvInstructions")
-    .value =
-        job.cv_instructions ||
-        "";
-
-    document
-    .getElementById("jobVerificationNotes")
-    .value =
-        job.verification_notes ||
-        "";
-
-    document
-    .getElementById("jobFormTitle")
-    .textContent =
-        "Edit Job";
-
-    jobFormBox.style.display="block";
-
-    jobFormBox.scrollIntoView({
-        behavior:"smooth"
-    });
+        },
+        4000
+    );
 
 }
 
 
 
-/* ESCAPE */
+function getFirebaseError(error){
 
-function escapeHtml(value){
+    if(!error){
 
-    return String(
-        value ?? ""
-    )
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+        return "Unknown error.";
+
+    }
+
+
+    if(
+        error.code ===
+        "permission-denied"
+    ){
+
+        return "Permission denied. Firebase Firestore Rules check کریں۔";
+
+    }
+
+
+    if(
+        error.code ===
+        "auth/invalid-credential"
+    ){
+
+        return "Email یا Password غلط ہے۔";
+
+    }
+
+
+    if(
+        error.code ===
+        "auth/invalid-email"
+    ){
+
+        return "Email درست نہیں ہے۔";
+
+    }
+
+
+    if(
+        error.code ===
+        "auth/user-not-found"
+    ){
+
+        return "Admin account نہیں ملا۔";
+
+    }
+
+
+    return error.message ||
+        "Something went wrong.";
 
 }
+
 
 
 </script>
-
 
 </body>
 
