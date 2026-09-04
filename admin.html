@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Admin Login — INFO24 JOBS</title>
+<title>Admin Dashboard — INFO24 JOBS</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -36,23 +36,39 @@
     margin-bottom:25px;
 }
 
-.login-box label{
+.login-box label,
+.company-form label{
     display:block;
     font-weight:bold;
     font-size:13px;
     margin:14px 0 5px;
 }
 
-.login-box input{
+.login-box input,
+.company-form input,
+.company-form select,
+.company-form textarea{
+
     width:100%;
     padding:12px;
+
     border:1px solid #d7dee8;
     border-radius:9px;
+
     font-size:14px;
     outline:none;
+
 }
 
-.login-box input:focus{
+.company-form textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.login-box input:focus,
+.company-form input:focus,
+.company-form select:focus,
+.company-form textarea:focus{
     border-color:#0b66a3;
 }
 
@@ -62,14 +78,38 @@
 }
 
 .error-message{
+
     display:none;
+
     background:#fff0f0;
     color:#b42318;
+
     border:1px solid #f3b5b5;
+
     padding:10px;
     border-radius:9px;
+
     margin-top:15px;
+
     font-size:13px;
+}
+
+.success-message{
+
+    display:none;
+
+    background:#effaf3;
+    color:#18794e;
+
+    border:1px solid #b7e4c7;
+
+    padding:10px;
+    border-radius:9px;
+
+    margin-top:15px;
+
+    font-size:13px;
+
 }
 
 .dashboard{
@@ -82,10 +122,252 @@
 }
 
 .admin-grid{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:18px;
+
     margin-top:25px;
+
+}
+
+.admin-card{
+    cursor:pointer;
+}
+
+.management-section{
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,.06);
+
+}
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:20px;
+
+}
+
+.section-header h2{
+    margin:0;
+    color:#071d49;
+}
+
+.company-form{
+
+    display:none;
+
+    background:#f8fafc;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    margin-bottom:25px;
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+.form-full{
+    grid-column:1/-1;
+}
+
+.form-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:20px;
+
+}
+
+.company-list{
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+.company-item{
+
+    border:1px solid #e1e6ed;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    background:#fff;
+
+}
+
+.company-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.company-name{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#071d49;
+
+}
+
+.company-meta{
+
+    color:#687386;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    margin-top:8px;
+
+}
+
+.status-badge{
+
+    display:inline-block;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+.status-active{
+
+    background:#e8f7ee;
+    color:#18794e;
+
+}
+
+.status-inactive{
+
+    background:#fff0f0;
+    color:#b42318;
+
+}
+
+.status-verified{
+
+    background:#eaf2ff;
+    color:#155eef;
+
+}
+
+.status-pending{
+
+    background:#fff7df;
+    color:#946200;
+
+}
+
+.company-actions{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.small-btn{
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:9px 14px;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+}
+
+.edit-btn{
+
+    background:#eaf2ff;
+    color:#155eef;
+
+}
+
+.empty-box{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#687386;
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+}
+
+.loading-box{
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#687386;
+
 }
 
 @media(max-width:700px){
@@ -94,9 +376,17 @@
         grid-template-columns:1fr;
     }
 
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
     .login-box{
         margin:30px auto;
         padding:20px;
+    }
+
+    .management-section{
+        padding:18px;
     }
 
 }
@@ -253,36 +543,42 @@ Welcome to Admin Dashboard
 </div>
 
 
+
+<!-- DASHBOARD CARDS -->
+
 <div class="admin-grid">
 
 
-<div class="job-card">
+<div
+    class="job-card admin-card"
+    onclick="showCompanies()"
+>
 
 <h2>
 🏢 Companies
 </h2>
 
 <p>
-Companies کو verify اور manage کیا جائے گا۔
+Companies کو add، verify اور manage کریں۔
 </p>
 
 </div>
 
 
-<div class="job-card">
+<div class="job-card admin-card">
 
 <h2>
 📋 Opportunities
 </h2>
 
 <p>
-Job opportunities create، verify اور publish ہوں گی۔
+Job opportunities یہاں manage ہوں گی۔
 </p>
 
 </div>
 
 
-<div class="job-card">
+<div class="job-card admin-card">
 
 <h2>
 👤 Applications
@@ -295,20 +591,20 @@ Candidates کی applications یہاں manage ہوں گی۔
 </div>
 
 
-<div class="job-card">
+<div class="job-card admin-card">
 
 <h2>
 📄 CV Management
 </h2>
 
 <p>
-Candidates کے CVs secure طریقے سے manage ہوں گے۔
+Candidates کے CVs manage ہوں گے۔
 </p>
 
 </div>
 
 
-<div class="job-card">
+<div class="job-card admin-card">
 
 <h2>
 🔎 Verification
@@ -321,7 +617,7 @@ Company اور vacancy verification records۔
 </div>
 
 
-<div class="job-card">
+<div class="job-card admin-card">
 
 <h2>
 💰 Commission
@@ -335,6 +631,358 @@ Referral اور commission records۔
 
 
 </div>
+
+
+
+<!-- COMPANIES MANAGEMENT -->
+
+<section
+    id="companiesSection"
+    class="management-section"
+>
+
+
+<div class="section-header">
+
+<h2>
+🏢 Companies Management
+</h2>
+
+
+<button
+    id="addCompanyBtn"
+    class="btn btn-primary"
+>
+    + Add Company
+</button>
+
+</div>
+
+
+
+<!-- COMPANY FORM -->
+
+<div
+    id="companyFormBox"
+    class="company-form"
+>
+
+
+<h3 id="companyFormTitle">
+Add New Company
+</h3>
+
+
+<form id="companyForm">
+
+
+<input
+    type="hidden"
+    id="editCompanyId"
+>
+
+
+<div class="form-grid">
+
+
+<div>
+
+<label>
+Company Name *
+</label>
+
+<input
+    type="text"
+    id="companyName"
+    required
+    placeholder="Company Name"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Industry
+</label>
+
+<input
+    type="text"
+    id="industry"
+    placeholder="e.g. Construction"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+City
+</label>
+
+<input
+    type="text"
+    id="city"
+    placeholder="Lahore"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Official Phone
+</label>
+
+<input
+    type="tel"
+    id="officialPhone"
+    placeholder="03001234567"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Official Email
+</label>
+
+<input
+    type="email"
+    id="officialEmail"
+    placeholder="company@example.com"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Website
+</label>
+
+<input
+    type="url"
+    id="website"
+    placeholder="https://example.com"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Registration Number
+</label>
+
+<input
+    type="text"
+    id="registrationNumber"
+    placeholder="Registration Number"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Licence Number
+</label>
+
+<input
+    type="text"
+    id="licenceNumber"
+    placeholder="Licence Number"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Licence Expiry
+</label>
+
+<input
+    type="date"
+    id="licenceExpiry"
+>
+
+</div>
+
+
+
+<div>
+
+<label>
+Legal Status
+</label>
+
+<select id="legalStatus">
+
+<option value="">
+Select Legal Status
+</option>
+
+<option value="Registered">
+Registered
+</option>
+
+<option value="Unregistered">
+Unregistered
+</option>
+
+<option value="Pending">
+Pending
+</option>
+
+</select>
+
+</div>
+
+
+
+<div>
+
+<label>
+Verification Status
+</label>
+
+<select id="verificationStatus">
+
+<option value="pending">
+Pending
+</option>
+
+<option value="verified">
+Verified
+</option>
+
+<option value="rejected">
+Rejected
+</option>
+
+</select>
+
+</div>
+
+
+
+<div>
+
+<label>
+Active Status
+</label>
+
+<select id="active">
+
+<option value="true">
+Active
+</option>
+
+<option value="false">
+Inactive
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-full">
+
+<label>
+Verification Notes
+</label>
+
+<textarea
+    id="verificationNotes"
+    placeholder="Verification notes"
+></textarea>
+
+</div>
+
+
+</div>
+
+
+<div
+    id="companySuccess"
+    class="success-message"
+></div>
+
+
+<div
+    id="companyError"
+    class="error-message"
+></div>
+
+
+<div class="form-buttons">
+
+
+<button
+    type="submit"
+    class="btn btn-primary"
+>
+    SAVE COMPANY
+</button>
+
+
+<button
+    type="button"
+    id="cancelCompanyBtn"
+    class="btn"
+>
+    CANCEL
+</button>
+
+
+</div>
+
+
+</form>
+
+</div>
+
+
+
+<!-- COMPANY LIST -->
+
+<div
+    id="companiesLoading"
+    class="loading-box"
+>
+Loading Companies...
+</div>
+
+
+<div
+    id="companiesList"
+    class="company-list"
+></div>
+
+
+</section>
+
 
 
 <div class="warning-box">
@@ -379,9 +1027,10 @@ Admin Management System
 
 
 
-<!-- Firebase SDK -->
+<!-- FIREBASE -->
 
 <script type="module">
+
 
 import {
     initializeApp
@@ -401,11 +1050,25 @@ from
 
 
 import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    setDoc
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+import {
     INFO24_FIREBASE_CONFIG
 }
 from
 "./firebase-config.js";
 
+
+
+/* FIREBASE INITIALIZE */
 
 const app =
 initializeApp(
@@ -416,6 +1079,13 @@ initializeApp(
 const auth =
 getAuth(app);
 
+
+const db =
+getFirestore(app);
+
+
+
+/* ELEMENTS */
 
 const loginSection =
 document.getElementById(
@@ -453,6 +1123,54 @@ document.getElementById(
 );
 
 
+const companyFormBox =
+document.getElementById(
+    "companyFormBox"
+);
+
+
+const companyForm =
+document.getElementById(
+    "companyForm"
+);
+
+
+const companiesList =
+document.getElementById(
+    "companiesList"
+);
+
+
+const companiesLoading =
+document.getElementById(
+    "companiesLoading"
+);
+
+
+const addCompanyBtn =
+document.getElementById(
+    "addCompanyBtn"
+);
+
+
+const cancelCompanyBtn =
+document.getElementById(
+    "cancelCompanyBtn"
+);
+
+
+const companySuccess =
+document.getElementById(
+    "companySuccess"
+);
+
+
+const companyError =
+document.getElementById(
+    "companyError"
+);
+
+
 
 /* LOGIN */
 
@@ -461,7 +1179,6 @@ loginForm.addEventListener(
     async function(event){
 
         event.preventDefault();
-
 
         loginError.style.display =
             "none";
@@ -498,10 +1215,8 @@ loginForm.addEventListener(
 
             console.error(error);
 
-
             loginError.textContent =
                 "Email یا Password درست نہیں ہے۔";
-
 
             loginError.style.display =
                 "block";
@@ -517,7 +1232,7 @@ loginForm.addEventListener(
 
 onAuthStateChanged(
     auth,
-    function(user){
+    async function(user){
 
         if(user){
 
@@ -532,6 +1247,9 @@ onAuthStateChanged(
             loggedInEmail.textContent =
                 "Logged in: " +
                 user.email;
+
+
+            await loadCompanies();
 
         }
 
@@ -561,6 +1279,771 @@ logoutBtn.addEventListener(
 
     }
 );
+
+
+
+/* SHOW COMPANIES */
+
+window.showCompanies =
+function(){
+
+    document
+    .getElementById(
+        "companiesSection"
+    )
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+};
+
+
+
+/* ADD COMPANY */
+
+addCompanyBtn.addEventListener(
+    "click",
+    function(){
+
+        companyForm.reset();
+
+        document
+        .getElementById(
+            "editCompanyId"
+        )
+        .value = "";
+
+
+        document
+        .getElementById(
+            "companyFormTitle"
+        )
+        .textContent =
+            "Add New Company";
+
+
+        companySuccess.style.display =
+            "none";
+
+
+        companyError.style.display =
+            "none";
+
+
+        companyFormBox.style.display =
+            "block";
+
+
+        companyFormBox.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+
+/* CANCEL */
+
+cancelCompanyBtn.addEventListener(
+    "click",
+    function(){
+
+        companyFormBox.style.display =
+            "none";
+
+        companyForm.reset();
+
+    }
+);
+
+
+
+/* SAVE COMPANY */
+
+companyForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        companySuccess.style.display =
+            "none";
+
+
+        companyError.style.display =
+            "none";
+
+
+        const editId =
+            document
+            .getElementById(
+                "editCompanyId"
+            )
+            .value
+            .trim();
+
+
+        const companyName =
+            document
+            .getElementById(
+                "companyName"
+            )
+            .value
+            .trim();
+
+
+        if(!companyName){
+
+            companyError.textContent =
+                "Company Name لازمی ہے۔";
+
+            companyError.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        try{
+
+            let companyId =
+                editId;
+
+
+            if(!companyId){
+
+                companyId =
+                    "COMP" +
+                    String(
+                        Date.now()
+                    );
+
+            }
+
+
+            const companyData = {
+
+                companyName:
+                    companyName,
+
+                industry:
+                    document
+                    .getElementById(
+                        "industry"
+                    )
+                    .value
+                    .trim(),
+
+                city:
+                    document
+                    .getElementById(
+                        "city"
+                    )
+                    .value
+                    .trim(),
+
+                officialPhone:
+                    document
+                    .getElementById(
+                        "officialPhone"
+                    )
+                    .value
+                    .trim(),
+
+                officialEmail:
+                    document
+                    .getElementById(
+                        "officialEmail"
+                    )
+                    .value
+                    .trim(),
+
+                website:
+                    document
+                    .getElementById(
+                        "website"
+                    )
+                    .value
+                    .trim(),
+
+                registrationNumber:
+                    document
+                    .getElementById(
+                        "registrationNumber"
+                    )
+                    .value
+                    .trim(),
+
+                licenceNumber:
+                    document
+                    .getElementById(
+                        "licenceNumber"
+                    )
+                    .value
+                    .trim(),
+
+                licenceExpiry:
+                    document
+                    .getElementById(
+                        "licenceExpiry"
+                    )
+                    .value,
+
+                legalStatus:
+                    document
+                    .getElementById(
+                        "legalStatus"
+                    )
+                    .value,
+
+                verificationStatus:
+                    document
+                    .getElementById(
+                        "verificationStatus"
+                    )
+                    .value,
+
+                active:
+                    document
+                    .getElementById(
+                        "active"
+                    )
+                    .value === "true",
+
+                verificationNotes:
+                    document
+                    .getElementById(
+                        "verificationNotes"
+                    )
+                    .value
+                    .trim(),
+
+                verificationDate:
+                    new Date()
+                    .toLocaleDateString(
+                        "en-GB"
+                    )
+
+            };
+
+
+            await setDoc(
+                doc(
+                    db,
+                    "companies",
+                    companyId
+                ),
+                companyData,
+                {
+                    merge:true
+                }
+            );
+
+
+            companySuccess.textContent =
+                "Company کامیابی سے Save ہو گئی۔";
+
+
+            companySuccess.style.display =
+                "block";
+
+
+            companyForm.reset();
+
+
+            document
+            .getElementById(
+                "editCompanyId"
+            )
+            .value = "";
+
+
+            document
+            .getElementById(
+                "companyFormTitle"
+            )
+            .textContent =
+                "Add New Company";
+
+
+            await loadCompanies();
+
+
+            setTimeout(
+                function(){
+
+                    companyFormBox.style.display =
+                        "none";
+
+                },
+                1200
+            );
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            companyError.textContent =
+                "Company Save نہیں ہوئی۔ Firebase Rules یا connection چیک کریں۔";
+
+            companyError.style.display =
+                "block";
+
+        }
+
+    }
+);
+
+
+
+/* LOAD COMPANIES */
+
+async function loadCompanies(){
+
+    companiesLoading.style.display =
+        "block";
+
+
+    companiesList.innerHTML = "";
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "companies"
+                )
+            );
+
+
+        companiesLoading.style.display =
+            "none";
+
+
+        if(
+            snapshot.empty
+        ){
+
+            companiesList.innerHTML =
+
+                '<div class="empty-box">' +
+
+                'ابھی کوئی Company موجود نہیں۔' +
+
+                '</div>';
+
+            return;
+
+        }
+
+
+        snapshot.forEach(
+            function(companyDoc){
+
+                const company =
+                    companyDoc.data();
+
+
+                const companyId =
+                    companyDoc.id;
+
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "company-item";
+
+
+                const activeBadge =
+                    company.active === true
+
+                    ?
+
+                    '<span class="status-badge status-active">Active</span>'
+
+                    :
+
+                    '<span class="status-badge status-inactive">Inactive</span>';
+
+
+                let verificationBadge = "";
+
+
+                if(
+                    company.verificationStatus ===
+                    "verified"
+                ){
+
+                    verificationBadge =
+                        '<span class="status-badge status-verified">Verified</span>';
+
+                }
+
+                else if(
+                    company.verificationStatus ===
+                    "rejected"
+                ){
+
+                    verificationBadge =
+                        '<span class="status-badge status-inactive">Rejected</span>';
+
+                }
+
+                else{
+
+                    verificationBadge =
+                        '<span class="status-badge status-pending">Pending</span>';
+
+                }
+
+
+                item.innerHTML =
+
+                    '<div class="company-top">' +
+
+                        '<div>' +
+
+                            '<div class="company-name">' +
+
+                                escapeHtml(
+                                    company.companyName ||
+                                    "Unnamed Company"
+                                ) +
+
+                            '</div>' +
+
+                            '<div class="company-meta">' +
+
+                                '🏭 Industry: ' +
+
+                                escapeHtml(
+                                    company.industry ||
+                                    "-"
+                                ) +
+
+                                '<br>' +
+
+                                '📍 City: ' +
+
+                                escapeHtml(
+                                    company.city ||
+                                    "-"
+                                ) +
+
+                                '<br>' +
+
+                                '📞 Phone: ' +
+
+                                escapeHtml(
+                                    company.officialPhone ||
+                                    "-"
+                                ) +
+
+                                '<br>' +
+
+                                '✉️ Email: ' +
+
+                                escapeHtml(
+                                    company.officialEmail ||
+                                    "-"
+                                ) +
+
+                                '<br>' +
+
+                                '🆔 Company ID: ' +
+
+                                escapeHtml(
+                                    companyId
+                                ) +
+
+                            '</div>' +
+
+                        '</div>' +
+
+
+                        '<div>' +
+
+                            activeBadge +
+
+                            ' ' +
+
+                            verificationBadge +
+
+                        '</div>' +
+
+                    '</div>' +
+
+
+                    '<div class="company-actions">' +
+
+                        '<button ' +
+
+                            'class="small-btn edit-btn" ' +
+
+                            'data-edit="' +
+
+                            escapeHtml(
+                                companyId
+                            ) +
+
+                            '">' +
+
+                            '✏️ Edit' +
+
+                        '</button>' +
+
+                    '</div>';
+
+
+                companiesList.appendChild(
+                    item
+                );
+
+
+                const editButton =
+                    item.querySelector(
+                        "[data-edit]"
+                    );
+
+
+                editButton.addEventListener(
+                    "click",
+                    function(){
+
+                        editCompany(
+                            companyId,
+                            company
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+
+        companiesLoading.style.display =
+            "none";
+
+
+        companiesList.innerHTML =
+
+            '<div class="empty-box">' +
+
+            'Companies load نہیں ہو سکیں۔ Firebase Rules / connection چیک کریں۔' +
+
+            '</div>';
+
+    }
+
+}
+
+
+
+/* EDIT COMPANY */
+
+function editCompany(
+    companyId,
+    company
+){
+
+    document
+    .getElementById(
+        "editCompanyId"
+    )
+    .value =
+        companyId;
+
+
+    document
+    .getElementById(
+        "companyName"
+    )
+    .value =
+        company.companyName ||
+        "";
+
+
+    document
+    .getElementById(
+        "industry"
+    )
+    .value =
+        company.industry ||
+        "";
+
+
+    document
+    .getElementById(
+        "city"
+    )
+    .value =
+        company.city ||
+        "";
+
+
+    document
+    .getElementById(
+        "officialPhone"
+    )
+    .value =
+        company.officialPhone ||
+        "";
+
+
+    document
+    .getElementById(
+        "officialEmail"
+    )
+    .value =
+        company.officialEmail ||
+        "";
+
+
+    document
+    .getElementById(
+        "website"
+    )
+    .value =
+        company.website ||
+        "";
+
+
+    document
+    .getElementById(
+        "registrationNumber"
+    )
+    .value =
+        company.registrationNumber ||
+        "";
+
+
+    document
+    .getElementById(
+        "licenceNumber"
+    )
+    .value =
+        company.licenceNumber ||
+        "";
+
+
+    document
+    .getElementById(
+        "licenceExpiry"
+    )
+    .value =
+        company.licenceExpiry ||
+        "";
+
+
+    document
+    .getElementById(
+        "legalStatus"
+    )
+    .value =
+        company.legalStatus ||
+        "";
+
+
+    document
+    .getElementById(
+        "verificationStatus"
+    )
+    .value =
+        company.verificationStatus ||
+        "pending";
+
+
+    document
+    .getElementById(
+        "active"
+    )
+    .value =
+        company.active === false
+        ?
+        "false"
+        :
+        "true";
+
+
+    document
+    .getElementById(
+        "verificationNotes"
+    )
+    .value =
+        company.verificationNotes ||
+        "";
+
+
+    document
+    .getElementById(
+        "companyFormTitle"
+    )
+    .textContent =
+        "Edit Company";
+
+
+    companyFormBox.style.display =
+        "block";
+
+
+    companyFormBox.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+
+/* ESCAPE HTML */
+
+function escapeHtml(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
 
 </script>
 
