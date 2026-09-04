@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Application Receipt — INFO24 JOBS</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<main class="container page-space">
+
+<section
+    id="receipt"
+    class="receipt-card"
+>
+
+
+<div class="receipt-header">
+
+<h1>INFO24 JOBS</h1>
+
+<h2>APPLICATION RECEIPT</h2>
+
+</div>
+
+
+<div class="success-box">
+
+<h3>
+✅ آپ کی درخواست موصول ہوگئی ہے
+</h3>
+
+<p>
+براہ کرم اپنی Application ID محفوظ رکھیں۔
+</p>
+
+</div>
+
+
+<div class="receipt-row">
+
+<strong>Application ID:</strong>
+
+<span id="receiptId">
+-
+</span>
+
+</div>
+
+
+<div class="receipt-row">
+
+<strong>Application Date:</strong>
+
+<span id="receiptDate">
+-
+</span>
+
+</div>
+
+
+<div class="receipt-row">
+
+<strong>Candidate Name:</strong>
+
+<span id="receiptName">
+-
+</span>
+
+</div>
+
+
+<div class="receipt-row">
+
+<strong>Mobile:</strong>
+
+<span id="receiptMobile">
+-
+</span>
+
+</div>
+
+
+<div class="receipt-row">
+
+<strong>City:</strong>
+
+<span id="receiptCity">
+-
+</span>
+
+</div>
+
+
+<div class="receipt-row">
+
+<strong>Applied Job:</strong>
+
+<span>
+Job Opportunity
+</span>
+
+</div>
+
+
+<hr>
+
+
+<section class="receipt-policy">
+
+<h2>
+اہم شرائط و معلومات
+</h2>
+
+
+<p>
+
+1۔ آپ نے مذکورہ Job Opportunity کے لیے
+اپنی درخواست جمع کروائی ہے۔
+
+</p>
+
+
+<p>
+
+2۔ <strong>
+Info24 Jobs کی طرف سے آپ سے
+Application، Registration یا CV جمع کروانے
+کی کوئی اضافی فیس یا چارجز وصول نہیں کیے جاتے۔
+</strong>
+
+</p>
+
+
+<p>
+
+3۔ کمپنی کی طرف سے جواب آنے کا
+کوئی مقررہ وقت نہیں ہے۔
+
+</p>
+
+
+<p>
+
+4۔ کمپنی اپنی ضرورت اور recruitment process
+کے مطابق کسی بھی وقت جواب دے سکتی ہے۔
+
+</p>
+
+
+<p>
+
+5۔ اگر کمپنی کی طرف سے آپ کو
+Shortlisted، Interview، Selected یا Rejected
+کیا جاتا ہے تو دستیاب معلومات کے مطابق
+آپ کو Call، WhatsApp یا Email کے ذریعے
+آگاہ کیا جائے گا۔
+
+</p>
+
+
+<p>
+
+6۔ Job کی حتمی selection، salary،
+joining، duty conditions اور دیگر شرائط
+متعلقہ کمپنی کے اختیار میں ہوں گی۔
+
+</p>
+
+
+<p>
+
+7۔ <strong>
+Info24 Jobs ملازمت، interview یا selection
+کی ضمانت نہیں دیتا۔
+</strong>
+
+</p>
+
+
+<p>
+
+8۔ امیدوار کو کسی بھی غیر متعلقہ شخص کو
+Info24 Jobs کے نام پر رقم دینے سے پہلے
+مکمل تصدیق کرنی چاہیے۔
+
+</p>
+
+</section>
+
+
+<div class="receipt-actions">
+
+<button
+    onclick="window.print()"
+    class="btn btn-primary"
+>
+    🖨️ Print
+</button>
+
+
+<a
+    href="index.html"
+    class="btn btn-light"
+>
+    Home
+</a>
+
+</div>
+
+
+</section>
+
+</main>
+
+
+<script>
+
+const data =
+JSON.parse(
+    sessionStorage.getItem(
+        "info24Application"
+    )
+);
+
+
+if(data){
+
+    document
+    .getElementById("receiptId")
+    .textContent =
+        data.applicationId;
+
+
+    document
+    .getElementById("receiptDate")
+    .textContent =
+        data.date;
+
+
+    document
+    .getElementById("receiptName")
+    .textContent =
+        data.name;
+
+
+    document
+    .getElementById("receiptMobile")
+    .textContent =
+        data.mobile;
+
+
+    document
+    .getElementById("receiptCity")
+    .textContent =
+        data.city;
+
+}
+
+</script>
+
+</body>
+
+</html>
