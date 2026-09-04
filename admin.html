@@ -8,13 +8,106 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Admin — INFO24 JOBS</title>
+<title>Admin Login — INFO24 JOBS</title>
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+
+.login-box{
+    max-width:450px;
+    margin:60px auto;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.login-box h1{
+    text-align:center;
+    color:#071d49;
+    margin-bottom:5px;
+}
+
+.login-subtitle{
+    text-align:center;
+    color:#687386;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.login-box label{
+    display:block;
+    font-weight:bold;
+    font-size:13px;
+    margin:14px 0 5px;
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #d7dee8;
+    border-radius:9px;
+    font-size:14px;
+    outline:none;
+}
+
+.login-box input:focus{
+    border-color:#0b66a3;
+}
+
+.login-btn{
+    width:100%;
+    margin-top:20px;
+}
+
+.error-message{
+    display:none;
+    background:#fff0f0;
+    color:#b42318;
+    border:1px solid #f3b5b5;
+    padding:10px;
+    border-radius:9px;
+    margin-top:15px;
+    font-size:13px;
+}
+
+.dashboard{
+    display:none;
+}
+
+.logout-btn{
+    background:#b42318;
+    color:white;
+}
+
+.admin-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:25px;
+}
+
+@media(max-width:700px){
+
+    .admin-grid{
+        grid-template-columns:1fr;
+    }
+
+    .login-box{
+        margin:30px auto;
+        padding:20px;
+    }
+
+}
+
+</style>
+
 </head>
 
+
 <body>
+
 
 <header class="site-header">
 
@@ -25,11 +118,15 @@
 <span class="logo-box">I24</span>
 
 <span>
+
 <strong>INFO24 JOBS</strong>
+
 <small>Admin Panel</small>
+
 </span>
 
 </div>
+
 
 <a
     href="index.html"
@@ -43,30 +140,130 @@
 </header>
 
 
+
 <main class="container page-space">
 
-<section class="page-heading">
+
+<!-- LOGIN -->
+
+<section
+    id="loginSection"
+    class="login-box"
+>
+
+<h1>
+INFO24 JOBS
+</h1>
+
+<p class="login-subtitle">
+Secure Admin Login
+</p>
+
+
+<form id="loginForm">
+
+
+<label>
+Admin Email
+</label>
+
+<input
+    type="email"
+    id="adminEmail"
+    required
+    autocomplete="email"
+    placeholder="admin@example.com"
+>
+
+
+<label>
+Password
+</label>
+
+<input
+    type="password"
+    id="adminPassword"
+    required
+    autocomplete="current-password"
+    placeholder="Password"
+>
+
+
+<button
+    type="submit"
+    class="btn btn-primary login-btn"
+>
+    LOGIN
+</button>
+
+
+<div
+    id="loginError"
+    class="error-message"
+></div>
+
+
+</form>
+
+</section>
+
+
+
+<!-- DASHBOARD -->
+
+<section
+    id="dashboard"
+    class="dashboard"
+>
+
+
+<div class="page-heading">
 
 <h1>
 INFO24 JOBS ADMIN
 </h1>
 
 <p>
-Management Dashboard
+Welcome to Admin Dashboard
 </p>
 
-</section>
+</div>
 
 
-<div class="job-list">
+<div
+    style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:10px;
+        flex-wrap:wrap;
+    "
+>
+
+<span id="loggedInEmail"></span>
+
+
+<button
+    id="logoutBtn"
+    class="btn logout-btn"
+>
+    LOGOUT
+</button>
+
+</div>
+
+
+<div class="admin-grid">
+
 
 <div class="job-card">
 
-<h2>🏢 Companies</h2>
+<h2>
+🏢 Companies
+</h2>
 
 <p>
-Verified اور Under Verification companies
-یہاں manage ہوں گی۔
+Companies کو verify اور manage کیا جائے گا۔
 </p>
 
 </div>
@@ -74,11 +271,12 @@ Verified اور Under Verification companies
 
 <div class="job-card">
 
-<h2>📋 Opportunities</h2>
+<h2>
+📋 Opportunities
+</h2>
 
 <p>
-Job opportunities create، verify اور publish
-کی جائیں گی۔
+Job opportunities create، verify اور publish ہوں گی۔
 </p>
 
 </div>
@@ -86,7 +284,9 @@ Job opportunities create، verify اور publish
 
 <div class="job-card">
 
-<h2>👤 Applications</h2>
+<h2>
+👤 Applications
+</h2>
 
 <p>
 Candidates کی applications یہاں manage ہوں گی۔
@@ -97,57 +297,273 @@ Candidates کی applications یہاں manage ہوں گی۔
 
 <div class="job-card">
 
-<h2>📄 CV Management</h2>
-
-<p>
-Secure CV system بعد کے مرحلے میں connect ہوگا۔
-</p>
-
-</div>
-
-
-<div class="job-card">
-
-<h2>🔎 Verification</h2>
-
-<p>
-Company، vacancy اور legal verification records۔
-</p>
-
-</div>
-
-
-<div class="job-card">
-
-<h2>💰 Commission</h2>
-
-<p>
-Referral اور commission records manage کیے جائیں گے۔
-</p>
-
-</div>
-
-</div>
-
-
-<section class="warning-box">
-
 <h2>
-🔐 Security
+📄 CV Management
 </h2>
 
 <p>
-یہ Admin Panel ابھی public production استعمال کے لیے
-مکمل secure نہیں ہے۔ Firebase Authentication اور
-Security Rules اگلے مرحلے میں شامل کیے جائیں گے۔
+Candidates کے CVs secure طریقے سے manage ہوں گے۔
 </p>
+
+</div>
+
+
+<div class="job-card">
+
+<h2>
+🔎 Verification
+</h2>
+
+<p>
+Company اور vacancy verification records۔
+</p>
+
+</div>
+
+
+<div class="job-card">
+
+<h2>
+💰 Commission
+</h2>
+
+<p>
+Referral اور commission records۔
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="warning-box">
+
+<h2>
+🔐 Admin Security
+</h2>
+
+<p>
+Admin access صرف authenticated Firebase user
+کے لیے ہے۔
+</p>
+
+</div>
+
 
 </section>
 
 </main>
 
 
-<script src="admin-script.js"></script>
+
+<footer class="site-footer">
+
+<div class="container">
+
+<h3>
+INFO24 JOBS
+</h3>
+
+<p>
+Admin Management System
+</p>
+
+<p class="copyright">
+© 2026 INFO24 JOBS
+</p>
+
+</div>
+
+</footer>
+
+
+
+<!-- Firebase SDK -->
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+import {
+    INFO24_FIREBASE_CONFIG
+}
+from
+"./firebase-config.js";
+
+
+const app =
+initializeApp(
+    INFO24_FIREBASE_CONFIG
+);
+
+
+const auth =
+getAuth(app);
+
+
+const loginSection =
+document.getElementById(
+    "loginSection"
+);
+
+
+const dashboard =
+document.getElementById(
+    "dashboard"
+);
+
+
+const loginForm =
+document.getElementById(
+    "loginForm"
+);
+
+
+const loginError =
+document.getElementById(
+    "loginError"
+);
+
+
+const loggedInEmail =
+document.getElementById(
+    "loggedInEmail"
+);
+
+
+const logoutBtn =
+document.getElementById(
+    "logoutBtn"
+);
+
+
+
+/* LOGIN */
+
+loginForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        loginError.style.display =
+            "none";
+
+
+        const email =
+            document
+            .getElementById(
+                "adminEmail"
+            )
+            .value
+            .trim();
+
+
+        const password =
+            document
+            .getElementById(
+                "adminPassword"
+            )
+            .value;
+
+
+        try{
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+
+            loginError.textContent =
+                "Email یا Password درست نہیں ہے۔";
+
+
+            loginError.style.display =
+                "block";
+
+        }
+
+    }
+);
+
+
+
+/* AUTH CHECK */
+
+onAuthStateChanged(
+    auth,
+    function(user){
+
+        if(user){
+
+            loginSection.style.display =
+                "none";
+
+
+            dashboard.style.display =
+                "block";
+
+
+            loggedInEmail.textContent =
+                "Logged in: " +
+                user.email;
+
+        }
+
+        else{
+
+            loginSection.style.display =
+                "block";
+
+
+            dashboard.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+
+/* LOGOUT */
+
+logoutBtn.addEventListener(
+    "click",
+    async function(){
+
+        await signOut(auth);
+
+    }
+);
+
+</script>
+
 
 </body>
 
