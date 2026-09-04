@@ -1,18 +1,8 @@
-const INFO24_FIREBASE_CONFIG = null;
-
-/*
-    INFO24 JOBS کے لیے نیا Firebase project بننے کے بعد
-    یہاں نئی Firebase configuration رکھی جائے گی۔
-
-    مثال:
-
-    const INFO24_FIREBASE_CONFIG = {
-        apiKey: "...",
-        authDomain: "...",
-        projectId: "...",
-        storageBucket: "...",
-        messagingSenderId: "...",
-        appId: "..."
-    };
-
-*/
+const INFO24_FIREBASE_CONFIG = {
+    apiKey: "AIzaSyC1pLiy341ayKMo0SpL7VBaDHxJsrSekoU",
+    authDomain: "info24-jobs.firebaseapp.com",
+    projectId: "info24-jobs",
+    storageBucket: "info24-jobs.firebasestorage.app",
+    messagingSenderId: "912591600762",
+    appId: "1:912591600762:web:b1e3cf99ef8caee8c8cfc3"
+};
