@@ -2,1859 +2,1565 @@
 <html lang="ur" dir="rtl">
 
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Info24 Jobs - Apply Now</title>
-
-<style>
-
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f3f5f8;
-    color:#17202a;
-}
-
-header{
-    background:#17202a;
-    color:#fff;
-    padding:20px;
-}
-
-.header-inner{
-    max-width:850px;
-    margin:auto;
-}
-
-header h1{
-    margin:0;
-    font-size:26px;
-}
-
-header p{
-    margin:7px 0 0;
-    color:#d7dde3;
-}
-
-.container{
-    max-width:850px;
-    margin:25px auto;
-    padding:0 15px;
-}
-
-.job-info{
-    background:#fff;
-    padding:22px;
-    border-radius:14px;
-    box-shadow:0 4px 18px rgba(0,0,0,.06);
-    margin-bottom:20px;
-}
-
-.job-info h2{
-    margin-top:0;
-}
-
-.job-meta{
-    line-height:1.9;
-    color:#475467;
-}
-
-.form-box{
-    background:#fff;
-    padding:25px;
-    border-radius:14px;
-    box-shadow:0 4px 18px rgba(0,0,0,.06);
-}
-
-.form-box h2{
-    margin-top:0;
-}
-
-.form-group{
-    margin-bottom:17px;
-}
-
-label{
-    display:block;
-    font-weight:bold;
-    margin-bottom:7px;
-}
-
-.required{
-    color:#d92d20;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccd2d8;
-    border-radius:8px;
-    font-size:15px;
-    background:#fff;
-}
-
-textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
-.full-width{
-    grid-column:1/-1;
-}
-
-
-/* ============================= */
-/* CV AREA */
-/* ============================= */
-
-.file-box{
-    border:2px dashed #b8c2cc;
-    border-radius:12px;
-    padding:20px;
-    background:#f8fafc;
-    text-align:center;
-}
-
-.cv-button{
-    width:100%;
-    max-width:450px;
-    padding:16px;
-    border:0;
-    border-radius:10px;
-    background:#1769aa;
-    color:#fff;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    display:block;
-    margin:0 auto;
-}
-
-.cv-button:active{
-    transform:scale(.98);
-    opacity:.85;
-}
-
-#cvFile{
-    display:none;
-}
-
-.selected-file{
-    display:none;
-    margin-top:15px;
-    padding:12px;
-    border-radius:9px;
-    background:#ecfdf3;
-    border:1px solid #a7f3d0;
-    color:#067647;
-    line-height:1.7;
-    word-break:break-word;
-}
-
-.file-help{
-    margin-top:12px;
-    color:#667085;
-    font-size:13px;
-    line-height:1.7;
-}
-
-.progress-box{
-    display:none;
-    margin-top:15px;
-    text-align:right;
-}
-
-.progress-bar-bg{
-    width:100%;
-    height:10px;
-    background:#e4e7ec;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.progress-bar{
-    width:0%;
-    height:100%;
-    background:#1769aa;
-    transition:.2s;
-}
-
-.progress-text{
-    margin-top:7px;
-    font-size:13px;
-    color:#475467;
-}
-
-.checkbox-row{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    margin:18px 0;
-}
-
-.checkbox-row input{
-    width:auto;
-    margin-top:4px;
-}
-
-.checkbox-row label{
-    font-weight:normal;
-    margin:0;
-    line-height:1.7;
-}
-
-.submit-btn{
-    width:100%;
-    border:0;
-    border-radius:9px;
-    padding:14px;
-    background:#1769aa;
-    color:#fff;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.submit-btn:disabled{
-    opacity:.6;
-    cursor:not-allowed;
-}
-
-.message{
-    display:none;
-    padding:14px;
-    border-radius:9px;
-    margin-bottom:18px;
-    line-height:1.7;
-}
-
-.error-message{
-    background:#fff0f0;
-    color:#b42318;
-}
-
-.fee-box{
-    background:#fff8e1;
-    border:1px solid #f5d77a;
-    color:#6b5200;
-    padding:15px;
-    border-radius:10px;
-    margin-top:15px;
-    line-height:1.7;
-}
-
-.success-screen{
-    display:none;
-    text-align:center;
-    background:#fff;
-    padding:35px 20px;
-    border-radius:14px;
-    box-shadow:0 4px 18px rgba(0,0,0,.06);
-}
-
-.success-icon{
-    font-size:55px;
-}
-
-.success-screen h2{
-    color:#067647;
-}
-
-@media(max-width:700px){
-
-    .form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .full-width{
-        grid-column:auto;
-    }
-
-    .form-box,
-    .job-info{
-        padding:18px;
-    }
-
-    .cv-button{
-        max-width:none;
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<header>
-
-<div class="header-inner">
-
-<h1>Info24 Jobs</h1>
-
-<p>Job Application Form</p>
-
-</div>
-
-</header>
-
-
-<main class="container">
-
-
-<!-- JOB INFORMATION -->
-
-<section id="jobInfo" class="job-info">
-
-<h2 id="jobTitle">
-Loading Job...
-</h2>
-
-<div id="jobMeta" class="job-meta">
-Loading...
-</div>
-
-<div
-    id="feeBox"
-    class="fee-box"
-    style="display:none;"
-></div>
-
-</section>
-
-
-<!-- ERROR -->
-
-<div
-    id="errorMessage"
-    class="message error-message"
-></div>
-
-
-<!-- APPLICATION FORM -->
-
-<section
-    id="applicationFormBox"
-    class="form-box"
->
-
-<h2>📝 Apply Now</h2>
-
-<p>
-براہِ کرم اپنی درست معلومات درج کریں۔
-</p>
-
-
-<form id="applicationForm">
-
-
-<div class="form-grid">
-
-
-<!-- NAME -->
-
-<div class="form-group">
-
-<label>
-Applicant Name
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="applicantName"
-    required
-    placeholder="Full Name"
->
-
-</div>
-
-
-<!-- FATHER NAME -->
-
-<div class="form-group">
-
-<label>
-Father Name
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="fatherName"
-    required
-    placeholder="Father Name"
->
-
-</div>
-
-
-<!-- MOBILE -->
-
-<div class="form-group">
-
-<label>
-Mobile
-<span class="required">*</span>
-</label>
-
-<input
-    type="tel"
-    id="phone"
-    required
-    placeholder="03XXXXXXXXX"
->
-
-</div>
-
-
-<!-- WHATSAPP -->
-
-<div class="form-group">
-
-<label>
-WhatsApp
-</label>
-
-<input
-    type="tel"
-    id="whatsapp"
-    placeholder="03XXXXXXXXX"
->
-
-</div>
-
-
-<!-- EMAIL -->
-
-<div class="form-group">
-
-<label>
-Email
-<span class="required">*</span>
-</label>
-
-<input
-    type="email"
-    id="email"
-    required
-    placeholder="example@gmail.com"
->
-
-</div>
-
-
-<!-- CNIC -->
-
-<div class="form-group">
-
-<label>
-CNIC
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="cnic"
-    required
-    placeholder="XXXXX-XXXXXXX-X"
->
-
-</div>
-
-
-<!-- CITY -->
-
-<div class="form-group">
-
-<label>
-City
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="city"
-    required
-    placeholder="Your City"
->
-
-</div>
-
-
-<!-- EDUCATION -->
-
-<div class="form-group">
-
-<label>
-Education
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="education"
-    required
-    placeholder="Matric / Intermediate / Diploma / Degree"
->
-
-</div>
-
-
-<!-- EXPERIENCE -->
-
-<div class="form-group">
-
-<label>
-Experience
-</label>
-
-<input
-    type="text"
-    id="experience"
-    placeholder="e.g. 2 Years"
->
-
-</div>
-
-
-<!-- CV -->
-
-<div class="form-group full-width">
-
-<label>
-CV / Resume
-<span class="required">*</span>
-</label>
-
-
-<div class="file-box">
-
-
-<!-- ACTUAL FILE INPUT -->
-
-<input
-    type="file"
-    id="cvFile"
-    accept=".pdf,.doc,.docx"
->
-
-
-<!-- DIRECT JAVASCRIPT BUTTON -->
-
-<button
-    type="button"
-    id="chooseCvButton"
-    class="cv-button"
->
-📎 CV / Resume فائل منتخب کریں
-</button>
-
-
-<!-- SELECTED FILE -->
-
-<div
-    id="selectedFile"
-    class="selected-file"
-></div>
-
-
-<div class="file-help">
-
-PDF, DOC یا DOCX فائل منتخب کریں۔
-
-<br>
-
-Maximum file size:
-<strong>5 MB</strong>
-
-<br>
-
-CV منتخب کرنے کے لیے اوپر والے بٹن پر tap کریں۔
-
-</div>
-
-
-<!-- UPLOAD PROGRESS -->
-
-<div
-    id="uploadProgress"
-    class="progress-box"
->
-
-<div class="progress-bar-bg">
-
-<div
-    id="progressBar"
-    class="progress-bar"
-></div>
-
-</div>
-
-<div
-    id="progressText"
-    class="progress-text"
->
-CV Uploading...
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- ADDITIONAL INFORMATION -->
-
-<div class="form-group full-width">
-
-<label>
-Additional Information
-</label>
-
-<textarea
-    id="additionalMessage"
-    placeholder="کوئی اضافی معلومات..."
-></textarea>
-
-</div>
-
-
-</div>
-
-
-<!-- CONFIRMATION -->
-
-<div class="checkbox-row">
-
-<input
-    type="checkbox"
-    id="confirmation"
-    required
->
-
-<label for="confirmation">
-
-میں تصدیق کرتا/کرتی ہوں کہ اوپر دی گئی معلومات درست ہیں اور میری CV
-Info24 Jobs کے ذریعے متعلقہ کمپنی / recruiter کو application process
-کے لیے forward کی جا سکتی ہے۔
-
-<span class="required">*</span>
-
-</label>
-
-</div>
-
-
-<!-- SUBMIT -->
-
-<button
-    type="submit"
-    id="submitBtn"
-    class="submit-btn"
->
-📤 Submit Application
-</button>
-
-
-</form>
-
-</section>
-
-
-<!-- SUCCESS -->
-
-<section
-    id="successScreen"
-    class="success-screen"
->
-
-<div class="success-icon">
-✅
-</div>
-
-<h2>
-Application Successfully Submitted
-</h2>
-
-<p>
-آپ کی application اور CV کامیابی سے submit ہو گئی ہے۔
-</p>
-
-<p>
-Info24 Jobs آپ کی application کو review کرکے متعلقہ company / recruiter
-کو forward کرے گا۔
-</p>
-
-<div id="applicationReference"></div>
-
-</section>
-
-
-</main>
-
-
-
-<script type="module">
-
-
-/* ========================================= */
-/* FIREBASE IMPORTS */
-/* ========================================= */
-
-import {
-    initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
-
-import {
-    getFirestore,
-    doc,
-    getDoc,
-    collection,
-    addDoc,
-    serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
-
-import {
-    getStorage,
-    ref,
-    uploadBytesResumable,
-    getDownloadURL
-}
-from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
-
-
-
-/* ========================================= */
-/* FIREBASE CONFIG */
-/* ========================================= */
-
-const firebaseConfig = {
-
-    apiKey:
-        "AIzaSyC1pLiy341ayKMo0SpL7VBaDHxJsrSekoU",
-
-    authDomain:
-        "info24-jobs.firebaseapp.com",
-
-    projectId:
-        "info24-jobs",
-
-    storageBucket:
-        "info24-jobs.firebasestorage.app",
-
-    messagingSenderId:
-        "912591600762",
-
-    appId:
-        "1:912591600762:web:b1e3cf99ef8caee8c8cfc3"
-
-};
-
-
-const app =
-    initializeApp(firebaseConfig);
-
-
-const db =
-    getFirestore(app);
-
-
-const storage =
-    getStorage(app);
-
-
-
-/* ========================================= */
-/* URL PARAMETERS */
-/* ========================================= */
-
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-
-const companyId =
-    params.get("company");
-
-
-const jobId =
-    params.get("job");
-
-
-
-/* ========================================= */
-/* ELEMENTS */
-/* ========================================= */
-
-const jobTitleElement =
-    document.getElementById(
-        "jobTitle"
-    );
-
-
-const jobMetaElement =
-    document.getElementById(
-        "jobMeta"
-    );
-
-
-const feeBox =
-    document.getElementById(
-        "feeBox"
-    );
-
-
-const form =
-    document.getElementById(
-        "applicationForm"
-    );
-
-
-const submitBtn =
-    document.getElementById(
-        "submitBtn"
-    );
-
-
-const errorMessage =
-    document.getElementById(
-        "errorMessage"
-    );
-
-
-const applicationFormBox =
-    document.getElementById(
-        "applicationFormBox"
-    );
-
-
-const successScreen =
-    document.getElementById(
-        "successScreen"
-    );
-
-
-const applicationReference =
-    document.getElementById(
-        "applicationReference"
-    );
-
-
-const cvFileInput =
-    document.getElementById(
-        "cvFile"
-    );
-
-
-const chooseCvButton =
-    document.getElementById(
-        "chooseCvButton"
-    );
-
-
-const selectedFile =
-    document.getElementById(
-        "selectedFile"
-    );
-
-
-const uploadProgress =
-    document.getElementById(
-        "uploadProgress"
-    );
-
-
-const progressBar =
-    document.getElementById(
-        "progressBar"
-    );
-
-
-const progressText =
-    document.getElementById(
-        "progressText"
-    );
-
-
-let currentJob = null;
-
-
-
-/* ========================================= */
-/* OPEN MOBILE FILE PICKER */
-/* ========================================= */
-
-chooseCvButton.addEventListener(
-    "click",
-    function(){
-
-        cvFileInput.click();
-
-    }
-);
-
-
-
-/* ========================================= */
-/* LOAD JOB */
-/* ========================================= */
-
-async function loadJob(){
-
-    if(!companyId || !jobId){
-
-        showError(
-            "Job information missing. براہِ کرم درست Apply link استعمال کریں۔"
-        );
-
-        jobTitleElement.textContent =
-            "Job Not Found";
-
-        jobMetaElement.textContent =
-            "";
-
-        return;
-
-    }
-
-
-    try{
-
-        const jobRef =
-            doc(
-                db,
-                "companies",
-                companyId,
-                "opportunities",
-                jobId
-            );
-
-
-        const snapshot =
-            await getDoc(jobRef);
-
-
-        if(!snapshot.exists()){
-
-            showError(
-                "یہ Job موجود نہیں ہے یا remove ہو چکی ہے۔"
-            );
-
-            jobTitleElement.textContent =
-                "Job Not Found";
-
-            return;
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Info24 Jobs - Apply</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f8;
+            color: #17202a;
+        }
+
+        .header {
+            background: #0b5ed7;
+            color: white;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        .header p {
+            margin: 6px 0 0;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .job-box {
+            background: #eef5ff;
+            border: 1px solid #cfe0ff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .job-box h2 {
+            margin: 0 0 10px;
+            color: #0b5ed7;
+            font-size: 22px;
+        }
+
+        .job-info {
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .required {
+            color: red;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cfd6dd;
+            border-radius: 8px;
+            font-size: 15px;
+            background: white;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        /*
+         * IMPORTANT:
+         * CV input کو hide نہیں کیا گیا۔
+         * یہی موبائل کا اصل native file picker ہے۔
+         */
+
+        .cv-area {
+            border: 2px dashed #0b5ed7;
+            border-radius: 10px;
+            padding: 15px;
+            background: #f8fbff;
+        }
+
+        .cv-area input[type="file"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bfc8d2;
+            border-radius: 8px;
+            background: white;
+            font-size: 15px;
+            direction: ltr;
+        }
+
+        .cv-note {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .selected-file {
+            margin-top: 10px;
+            padding: 10px;
+            background: #eaf7ea;
+            border-radius: 7px;
+            color: #176b1c;
+            display: none;
+            word-break: break-word;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 18px 0;
+        }
+
+        .checkbox-row input {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: #0b5ed7;
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:disabled {
+            background: #8daedc;
+            cursor: not-allowed;
+        }
+
+        .message {
+            display: none;
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .success {
+            background: #e7f7e7;
+            color: #176b1c;
+            border: 1px solid #b9dfba;
+        }
+
+        .error {
+            background: #fdeaea;
+            color: #a51f1f;
+            border: 1px solid #efb4b4;
+        }
+
+        .progress-box {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #0b5ed7;
+            transition: width 0.2s;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 7px;
+            font-size: 13px;
+        }
+
+        .success-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 55px;
+        }
+
+        .reference {
+            background: #f0f4f8;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 11px 18px;
+            background: #17202a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 30px;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                margin: 15px auto;
+                padding: 0 10px;
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
 
         }
 
+    </style>
+</head>
 
-        currentJob = {
+<body>
 
-            id:
-                snapshot.id,
+    <div class="header">
+        <h1>Info24 Jobs</h1>
+        <p>Job Application Form</p>
+    </div>
 
-            ...snapshot.data()
+    <div class="container">
+
+        <!-- Loading -->
+        <div
+            id="loadingBox"
+            class="card loading"
+        >
+            Job details loading...
+        </div>
+
+
+        <!-- Main Application -->
+        <div
+            id="applicationCard"
+            class="card"
+            style="display:none;"
+        >
+
+            <div class="job-box">
+
+                <h2 id="jobTitle">
+                    Job Title
+                </h2>
+
+                <div class="job-info">
+
+                    <div>
+                        <strong>Company:</strong>
+                        <span id="companyName">-</span>
+                    </div>
+
+                    <div>
+                        <strong>Category:</strong>
+                        <span id="jobCategory">-</span>
+                    </div>
+
+                    <div>
+                        <strong>Location:</strong>
+                        <span id="jobLocation">-</span>
+                    </div>
+
+                    <div>
+                        <strong>Job Type:</strong>
+                        <span id="jobType">-</span>
+                    </div>
+
+                    <div id="salaryRow">
+                        <strong>Salary:</strong>
+                        <span id="jobSalary">-</span>
+                    </div>
+
+                    <div id="experienceRow">
+                        <strong>Experience:</strong>
+                        <span id="jobExperience">-</span>
+                    </div>
+
+                    <div id="educationRow">
+                        <strong>Education:</strong>
+                        <span id="jobEducation">-</span>
+                    </div>
+
+                    <div id="deadlineRow">
+                        <strong>Application Deadline:</strong>
+                        <span id="jobDeadline">-</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="errorMessage"
+                class="message error"
+            ></div>
+
+
+            <div
+                id="successMessage"
+                class="message success"
+            ></div>
+
+
+            <form id="applicationForm">
+
+                <!-- Applicant Name -->
+                <div class="form-group">
+
+                    <label>
+                        Applicant Name
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="applicantName"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Father Name -->
+                <div class="form-group">
+
+                    <label>
+                        Father Name
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fatherName"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Mobile -->
+                <div class="form-group">
+
+                    <label>
+                        Mobile Number
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="03XXXXXXXXX"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- WhatsApp -->
+                <div class="form-group">
+
+                    <label>
+                        WhatsApp Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="whatsapp"
+                        placeholder="03XXXXXXXXX"
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@gmail.com"
+                    >
+
+                </div>
+
+
+                <!-- CNIC -->
+                <div class="form-group">
+
+                    <label>
+                        CNIC
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cnic"
+                        placeholder="XXXXX-XXXXXXX-X"
+                    >
+
+                </div>
+
+
+                <!-- City -->
+                <div class="form-group">
+
+                    <label>
+                        City
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Education -->
+                <div class="form-group">
+
+                    <label>
+                        Education
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="education"
+                        placeholder="مثلاً Matric, Intermediate, Diploma, Bachelor"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Experience -->
+                <div class="form-group">
+
+                    <label>
+                        Experience
+                    </label>
+
+                    <input
+                        type="text"
+                        id="experience"
+                        placeholder="مثلاً 2 Years"
+                    >
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- CV / RESUME - NATIVE MOBILE FILE INPUT -->
+                <!-- ================================================= -->
+
+                <div class="form-group">
+
+                    <label>
+                        CV / Resume
+                        <span class="required">*</span>
+                    </label>
+
+                    <div class="cv-area">
+
+                        <input
+                            type="file"
+                            id="cvFile"
+                            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                            required
+                        >
+
+                        <div class="cv-note">
+
+                            صرف PDF, DOC یا DOCX فائل قبول ہوگی۔
+                            <br>
+                            زیادہ سے زیادہ سائز: 5 MB
+                            <br>
+                            اوپر موجود <strong>Choose File</strong>
+                            / <strong>فائل منتخب کریں</strong> پر tap کریں۔
+
+                        </div>
+
+                        <div
+                            id="selectedFile"
+                            class="selected-file"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Additional Information -->
+                <div class="form-group">
+
+                    <label>
+                        Additional Information
+                    </label>
+
+                    <textarea
+                        id="additionalMessage"
+                        placeholder="اگر کوئی اضافی معلومات دینا چاہتے ہیں تو یہاں لکھیں"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Confirmation -->
+                <div class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="confirmation"
+                        required
+                    >
+
+                    <label for="confirmation">
+
+                        میں تصدیق کرتا/کرتی ہوں کہ اوپر دی گئی معلومات
+                        درست ہیں۔
+
+                        <span class="required">*</span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- Progress -->
+                <div
+                    id="progressBox"
+                    class="progress-box"
+                >
+
+                    <div class="progress-bar">
+
+                        <div
+                            id="progressFill"
+                            class="progress-fill"
+                        ></div>
+
+                    </div>
+
+                    <div
+                        id="progressText"
+                        class="progress-text"
+                    >
+                        CV Uploading: 0%
+                    </div>
+
+                </div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    id="submitButton"
+                    class="submit-btn"
+                >
+                    Submit Application
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Success Screen -->
+        <div
+            id="successScreen"
+            class="card success-screen"
+        >
+
+            <div class="success-icon">
+                ✅
+            </div>
+
+            <h2>
+                Application Submitted Successfully
+            </h2>
+
+            <p>
+                آپ کی درخواست کامیابی سے جمع ہوگئی ہے۔
+            </p>
+
+            <div
+                id="applicationReference"
+                class="reference"
+            >
+                Reference: -
+            </div>
+
+            <a
+                href="index.html"
+                class="back-btn"
+            >
+                Back to Jobs
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- FIREBASE -->
+    <!-- ========================================================= -->
+
+    <script type="module">
+
+        import {
+            initializeApp
+        } from
+        "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+        import {
+            getFirestore,
+            doc,
+            getDoc,
+            collection,
+            addDoc,
+            serverTimestamp
+        } from
+        "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+        import {
+            getStorage,
+            ref,
+            uploadBytesResumable,
+            getDownloadURL
+        } from
+        "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
+
+
+        /*
+         * Firebase configuration
+         */
+
+        const firebaseConfig = {
+
+            apiKey:
+                "AIzaSyC1pLiy341ayKMo0SpL7VBaDHxJsrSekoU",
+
+            authDomain:
+                "info24-jobs.firebaseapp.com",
+
+            projectId:
+                "info24-jobs",
+
+            storageBucket:
+                "info24-jobs.firebasestorage.app",
+
+            messagingSenderId:
+                "912591600762",
+
+            appId:
+                "1:912591600762:web:b1e3cf99ef8caee8c8cfc3"
 
         };
 
 
-        renderJob();
+        /*
+         * Firebase initialize
+         */
 
+        const app =
+            initializeApp(firebaseConfig);
 
-    }catch(error){
+        const db =
+            getFirestore(app);
 
-        console.error(error);
+        const storage =
+            getStorage(app);
 
-        showError(
-            getFirebaseError(error)
-        );
 
-    }
+        /*
+         * URL parameters
+         *
+         * Example:
+         * apply.html?company=COMP001&job=JOB001
+         */
 
-}
-
-
-
-/* ========================================= */
-/* RENDER JOB */
-/* ========================================= */
-
-function renderJob(){
-
-    jobTitleElement.textContent =
-        currentJob.title ||
-        "Job Opportunity";
-
-
-    jobMetaElement.innerHTML = `
-
-<strong>Company:</strong>
-${escapeHtml(currentJob.company || "-")}
-
-<br>
-
-<strong>Category:</strong>
-${escapeHtml(currentJob.category || "-")}
-
-<br>
-
-<strong>Location:</strong>
-${escapeHtml(currentJob.location || "-")}
-
-<br>
-
-<strong>Job Type:</strong>
-${escapeHtml(currentJob.job_type || "-")}
-
-<br>
-
-<strong>Salary:</strong>
-${escapeHtml(currentJob.salary || "-")}
-
-<br>
-
-<strong>Experience:</strong>
-${escapeHtml(currentJob.experience || "-")}
-
-<br>
-
-<strong>Education:</strong>
-${escapeHtml(currentJob.education || "-")}
-
-<br>
-
-<strong>Application Deadline:</strong>
-${escapeHtml(currentJob.application_deadline || "-")}
-
-`;
-
-
-    const feeType =
-        currentJob.fee_type ||
-        "No Fee";
-
-
-    const feeAmount =
-        currentJob.fee_amount ||
-        "";
-
-
-    if(
-        feeType !== "No Fee" ||
-        feeAmount
-    ){
-
-        feeBox.style.display =
-            "block";
-
-
-        feeBox.innerHTML = `
-
-<strong>💰 Application / Fee Information</strong>
-
-<br>
-
-Fee Type:
-${escapeHtml(feeType)}
-
-${
-    feeAmount
-        ? "<br>Fee Amount: " +
-          escapeHtml(
-              feeAmount +
-              " " +
-              (currentJob.currency || "PKR")
-          )
-        : ""
-}
-
-${
-    currentJob.fee_details
-        ? "<br><br>" +
-          escapeHtml(
-              currentJob.fee_details
-          )
-        : ""
-}
-
-`;
-
-    }else{
-
-        feeBox.style.display =
-            "none";
-
-    }
-
-}
-
-
-
-/* ========================================= */
-/* CV SELECTED */
-/* ========================================= */
-
-cvFileInput.addEventListener(
-    "change",
-    function(){
-
-        const file =
-            cvFileInput.files &&
-            cvFileInput.files[0];
-
-
-        if(!file){
-
-            selectedFile.style.display =
-                "none";
-
-            selectedFile.textContent =
-                "";
-
-            return;
-
-        }
-
-
-        const maxSize =
-            5 * 1024 * 1024;
-
-
-        const fileName =
-            file.name.toLowerCase();
-
-
-        const validExtension =
-
-            fileName.endsWith(".pdf") ||
-
-            fileName.endsWith(".doc") ||
-
-            fileName.endsWith(".docx");
-
-
-        if(file.size > maxSize){
-
-            showError(
-                "CV file 5 MB سے زیادہ نہیں ہونی چاہیے۔"
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
             );
 
-            cvFileInput.value =
-                "";
+        const companyId =
+            urlParams.get("company");
 
-            selectedFile.style.display =
-                "none";
-
-            return;
-
-        }
+        const jobId =
+            urlParams.get("job");
 
 
-        if(!validExtension){
+        /*
+         * HTML elements
+         */
 
-            showError(
-                "صرف PDF, DOC یا DOCX فائل upload کریں۔"
+        const loadingBox =
+            document.getElementById(
+                "loadingBox"
             );
 
-            cvFileInput.value =
-                "";
+        const applicationCard =
+            document.getElementById(
+                "applicationCard"
+            );
 
-            selectedFile.style.display =
-                "none";
+        const successScreen =
+            document.getElementById(
+                "successScreen"
+            );
 
-            return;
+        const applicationForm =
+            document.getElementById(
+                "applicationForm"
+            );
 
-        }
+        const cvFileInput =
+            document.getElementById(
+                "cvFile"
+            );
 
+        const selectedFile =
+            document.getElementById(
+                "selectedFile"
+            );
 
-        selectedFile.style.display =
-            "block";
+        const errorMessage =
+            document.getElementById(
+                "errorMessage"
+            );
 
+        const successMessage =
+            document.getElementById(
+                "successMessage"
+            );
 
-        selectedFile.innerHTML =
+        const submitButton =
+            document.getElementById(
+                "submitButton"
+            );
 
-            "✅ CV منتخب ہو گئی ہے<br>" +
+        const progressBox =
+            document.getElementById(
+                "progressBox"
+            );
 
-            "<strong>" +
+        const progressFill =
+            document.getElementById(
+                "progressFill"
+            );
 
-            escapeHtml(
-                file.name
-            ) +
-
-            "</strong>" +
-
-            "<br>" +
-
-            formatFileSize(
-                file.size
+        const progressText =
+            document.getElementById(
+                "progressText"
             );
 
 
-        hideError();
+        /*
+         * Show error
+         */
 
-    }
-);
+        function showError(message) {
 
+            errorMessage.textContent =
+                message;
 
-
-/* ========================================= */
-/* FORM SUBMIT */
-/* ========================================= */
-
-form.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        hideError();
-
-
-        if(!currentJob){
-
-            showError(
-                "Job information available نہیں ہے۔"
-            );
-
-            return;
-
-        }
-
-
-        const file =
-            cvFileInput.files &&
-            cvFileInput.files[0];
-
-
-        if(!file){
-
-            showError(
-                "براہِ کرم پہلے CV / Resume فائل منتخب کریں۔"
-            );
-
-            return;
-
-        }
-
-
-        const maxSize =
-            5 * 1024 * 1024;
-
-
-        const fileName =
-            file.name.toLowerCase();
-
-
-        if(file.size > maxSize){
-
-            showError(
-                "CV file 5 MB سے زیادہ نہیں ہونی چاہیے۔"
-            );
-
-            return;
-
-        }
-
-
-        if(
-            !fileName.endsWith(".pdf") &&
-            !fileName.endsWith(".doc") &&
-            !fileName.endsWith(".docx")
-        ){
-
-            showError(
-                "صرف PDF, DOC یا DOCX فائل upload کریں۔"
-            );
-
-            return;
-
-        }
-
-
-        submitBtn.disabled =
-            true;
-
-
-        submitBtn.textContent =
-            "CV Upload ہو رہی ہے...";
-
-
-        uploadProgress.style.display =
-            "block";
-
-
-        progressBar.style.width =
-            "0%";
-
-
-        progressText.textContent =
-            "CV Upload شروع ہو رہی ہے...";
-
-
-        try{
-
-
-            /* =============================== */
-            /* SAFE FILE NAME */
-            /* =============================== */
-
-            const safeFileName =
-                file.name.replace(
-                    /[^a-zA-Z0-9._-]/g,
-                    "_"
-                );
-
-
-            const uniqueName =
-                Date.now() +
-                "_" +
-                Math.random()
-                    .toString(36)
-                    .substring(2,10) +
-                "_" +
-                safeFileName;
-
-
-            const storagePath =
-                "cvs/" +
-                companyId +
-                "/" +
-                jobId +
-                "/" +
-                uniqueName;
-
-
-            const storageRef =
-                ref(
-                    storage,
-                    storagePath
-                );
-
-
-            /* =============================== */
-            /* UPLOAD */
-            /* =============================== */
-
-            const uploadTask =
-                uploadBytesResumable(
-                    storageRef,
-                    file
-                );
-
-
-            const downloadURL =
-                await new Promise(
-                    function(resolve,reject){
-
-                        uploadTask.on(
-
-                            "state_changed",
-
-                            function(snapshot){
-
-                                const percent =
-                                    (
-                                        snapshot.bytesTransferred /
-                                        snapshot.totalBytes
-                                    ) * 100;
-
-
-                                const rounded =
-                                    Math.round(
-                                        percent
-                                    );
-
-
-                                progressBar.style.width =
-                                    rounded + "%";
-
-
-                                progressText.textContent =
-                                    "CV Upload: " +
-                                    rounded +
-                                    "%";
-
-                            },
-
-
-                            function(error){
-
-                                reject(error);
-
-                            },
-
-
-                            async function(){
-
-                                try{
-
-                                    const url =
-                                        await getDownloadURL(
-                                            uploadTask.snapshot.ref
-                                        );
-
-                                    resolve(url);
-
-                                }catch(error){
-
-                                    reject(error);
-
-                                }
-
-                            }
-
-                        );
-
-                    }
-                );
-
-
-            progressText.textContent =
-                "CV upload مکمل۔ Application save ہو رہی ہے...";
-
-
-            submitBtn.textContent =
-                "Application Save ہو رہی ہے...";
-
-
-            /* =============================== */
-            /* APPLICATION DATA */
-            /* =============================== */
-
-            const applicationData = {
-
-                job_id:
-                    jobId,
-
-                company_id:
-                    companyId,
-
-                applicant_name:
-                    document
-                        .getElementById(
-                            "applicantName"
-                        )
-                        .value
-                        .trim(),
-
-                father_name:
-                    document
-                        .getElementById(
-                            "fatherName"
-                        )
-                        .value
-                        .trim(),
-
-                phone:
-                    document
-                        .getElementById(
-                            "phone"
-                        )
-                        .value
-                        .trim(),
-
-                whatsapp:
-                    document
-                        .getElementById(
-                            "whatsapp"
-                        )
-                        .value
-                        .trim(),
-
-                email:
-                    document
-                        .getElementById(
-                            "email"
-                        )
-                        .value
-                        .trim(),
-
-                cnic:
-                    document
-                        .getElementById(
-                            "cnic"
-                        )
-                        .value
-                        .trim(),
-
-                city:
-                    document
-                        .getElementById(
-                            "city"
-                        )
-                        .value
-                        .trim(),
-
-                education:
-                    document
-                        .getElementById(
-                            "education"
-                        )
-                        .value
-                        .trim(),
-
-                experience:
-                    document
-                        .getElementById(
-                            "experience"
-                        )
-                        .value
-                        .trim(),
-
-                cv_file_name:
-                    file.name,
-
-                cv_storage_path:
-                    storagePath,
-
-                cv_download_url:
-                    downloadURL,
-
-                cv_file_size:
-                    file.size,
-
-                cv_file_type:
-                    file.type,
-
-                additional_message:
-                    document
-                        .getElementById(
-                            "additionalMessage"
-                        )
-                        .value
-                        .trim(),
-
-                status:
-                    "pending",
-
-                applied_at:
-                    serverTimestamp()
-
-            };
-
-
-            /* =============================== */
-            /* SAVE APPLICATION */
-            /* =============================== */
-
-            const applicationsRef =
-                collection(
-
-                    db,
-
-                    "companies",
-
-                    companyId,
-
-                    "opportunities",
-
-                    jobId,
-
-                    "applications"
-
-                );
-
-
-            const applicationDoc =
-                await addDoc(
-
-                    applicationsRef,
-
-                    applicationData
-
-                );
-
-
-            /* =============================== */
-            /* SUCCESS */
-            /* =============================== */
-
-            applicationReference.innerHTML = `
-
-<strong>
-Application Reference:
-</strong>
-
-<br>
-
-${escapeHtml(
-    applicationDoc.id
-)}
-
-`;
-
-
-            applicationFormBox.style.display =
-                "none";
-
-
-            successScreen.style.display =
+            errorMessage.style.display =
                 "block";
 
-
-            uploadProgress.style.display =
+            successMessage.style.display =
                 "none";
-
 
             window.scrollTo({
-
-                top:0,
-
-                behavior:"smooth"
-
+                top: 0,
+                behavior: "smooth"
             });
-
-
-        }catch(error){
-
-            console.error(
-                "APPLICATION ERROR:",
-                error
-            );
-
-
-            showError(
-                getFirebaseError(error)
-            );
-
-
-            uploadProgress.style.display =
-                "none";
-
-
-            submitBtn.disabled =
-                false;
-
-
-            submitBtn.textContent =
-                "📤 Submit Application";
 
         }
 
-    }
-);
+
+        /*
+         * Show success message
+         */
+
+        function showSuccess(message) {
+
+            successMessage.textContent =
+                message;
+
+            successMessage.style.display =
+                "block";
+
+            errorMessage.style.display =
+                "none";
+
+        }
 
 
+        /*
+         * File selection
+         *
+         * IMPORTANT:
+         * یہاں file picker کھلوانے کے لیے
+         * کوئی JavaScript click() نہیں ہے۔
+         */
 
-/* ========================================= */
-/* FILE SIZE */
-/* ========================================= */
+        cvFileInput.addEventListener(
+            "change",
+            function () {
 
-function formatFileSize(bytes){
+                const file =
+                    cvFileInput.files[0];
 
-    if(bytes < 1024){
+                if (!file) {
 
-        return bytes + " Bytes";
+                    selectedFile.style.display =
+                        "none";
 
-    }
+                    selectedFile.textContent =
+                        "";
 
+                    return;
 
-    if(bytes < 1024 * 1024){
-
-        return (
-            bytes / 1024
-        ).toFixed(1) + " KB";
-
-    }
-
-
-    return (
-        bytes /
-        (1024 * 1024)
-    ).toFixed(2) + " MB";
-
-}
+                }
 
 
+                /*
+                 * File size
+                 */
 
-/* ========================================= */
-/* ERROR */
-/* ========================================= */
+                const maxSize =
+                    5 * 1024 * 1024;
 
-function showError(message){
+                if (file.size > maxSize) {
 
-    errorMessage.textContent =
-        message;
+                    cvFileInput.value = "";
 
-    errorMessage.style.display =
-        "block";
+                    selectedFile.style.display =
+                        "block";
 
+                    selectedFile.style.background =
+                        "#fdeaea";
 
-    window.scrollTo({
+                    selectedFile.style.color =
+                        "#a51f1f";
 
-        top:0,
+                    selectedFile.textContent =
+                        "❌ فائل 5 MB سے زیادہ ہے۔";
 
-        behavior:"smooth"
+                    return;
 
-    });
-
-}
-
-
-
-function hideError(){
-
-    errorMessage.style.display =
-        "none";
-
-}
+                }
 
 
+                /*
+                 * File extension
+                 */
 
-/* ========================================= */
-/* ESCAPE HTML */
-/* ========================================= */
+                const fileName =
+                    file.name.toLowerCase();
 
-function escapeHtml(value){
-
-    if(
-        value === null ||
-        value === undefined
-    ){
-
-        return "";
-
-    }
+                const allowed =
+                    fileName.endsWith(".pdf") ||
+                    fileName.endsWith(".doc") ||
+                    fileName.endsWith(".docx");
 
 
-    return String(value)
+                if (!allowed) {
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+                    cvFileInput.value = "";
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+                    selectedFile.style.display =
+                        "block";
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+                    selectedFile.style.background =
+                        "#fdeaea";
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
+                    selectedFile.style.color =
+                        "#a51f1f";
 
-        .replace(
-            /'/g,
-            "&#039;"
+                    selectedFile.textContent =
+                        "❌ صرف PDF, DOC یا DOCX فائل منتخب کریں۔";
+
+                    return;
+
+                }
+
+
+                /*
+                 * Valid file
+                 */
+
+                selectedFile.style.display =
+                    "block";
+
+                selectedFile.style.background =
+                    "#eaf7ea";
+
+                selectedFile.style.color =
+                    "#176b1c";
+
+                selectedFile.textContent =
+                    "✅ Selected: " +
+                    file.name;
+
+            }
         );
 
-}
+
+        /*
+         * Load job
+         */
+
+        async function loadJob() {
+
+            try {
+
+                if (!companyId || !jobId) {
+
+                    throw new Error(
+                        "Job information missing from URL."
+                    );
+
+                }
 
 
-
-/* ========================================= */
-/* FIREBASE ERROR */
-/* ========================================= */
-
-function getFirebaseError(error){
-
-    if(!error){
-
-        return "Unknown error.";
-
-    }
+                const jobRef =
+                    doc(
+                        db,
+                        "companies",
+                        companyId,
+                        "opportunities",
+                        jobId
+                    );
 
 
-    if(
-        error.code ===
-        "storage/unauthorized"
-    ){
-
-        return "CV upload کی اجازت نہیں ہے۔ Firebase Storage Rules check کرنا ہوں گے۔";
-
-    }
+                const jobSnap =
+                    await getDoc(jobRef);
 
 
-    if(
-        error.code ===
-        "storage/unauthenticated"
-    ){
+                if (!jobSnap.exists()) {
 
-        return "Firebase Storage authentication مسئلہ ہے۔";
+                    throw new Error(
+                        "Job not found."
+                    );
 
-    }
-
-
-    if(
-        error.code ===
-        "storage/quota-exceeded"
-    ){
-
-        return "Firebase Storage quota مسئلہ ہے۔";
-
-    }
+                }
 
 
-    if(
-        error.code ===
-        "permission-denied"
-    ){
-
-        return "Firestore permission denied۔ Firestore Rules check کریں۔";
-
-    }
+                const job =
+                    jobSnap.data();
 
 
-    if(
-        error.code ===
-        "storage/unknown"
-    ){
+                /*
+                 * Job details
+                 */
 
-        return "CV upload کے دوران Storage error آیا ہے۔";
-
-    }
-
-
-    return error.message ||
-        "Something went wrong.";
-
-}
+                document.getElementById(
+                    "jobTitle"
+                ).textContent =
+                    job.title || "-";
 
 
+                document.getElementById(
+                    "companyName"
+                ).textContent =
+                    job.company || "-";
 
-/* ========================================= */
-/* START */
-/* ========================================= */
 
-loadJob();
+                document.getElementById(
+                    "jobCategory"
+                ).textContent =
+                    job.category || "-";
 
-</script>
+
+                document.getElementById(
+                    "jobLocation"
+                ).textContent =
+                    job.location || "-";
+
+
+                document.getElementById(
+                    "jobType"
+                ).textContent =
+                    job.job_type || "-";
+
+
+                document.getElementById(
+                    "jobSalary"
+                ).textContent =
+                    job.salary || "-";
+
+
+                document.getElementById(
+                    "jobExperience"
+                ).textContent =
+                    job.experience || "-";
+
+
+                document.getElementById(
+                    "jobEducation"
+                ).textContent =
+                    job.education || "-";
+
+
+                document.getElementById(
+                    "jobDeadline"
+                ).textContent =
+                    job.application_deadline || "-";
+
+
+                loadingBox.style.display =
+                    "none";
+
+                applicationCard.style.display =
+                    "block";
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Job loading error:",
+                    error
+                );
+
+                loadingBox.innerHTML =
+                    "❌ Job details load نہیں ہو سکیں۔";
+
+                loadingBox.style.color =
+                    "#a51f1f";
+
+            }
+
+        }
+
+
+        /*
+         * Submit application
+         */
+
+        applicationForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                errorMessage.style.display =
+                    "none";
+
+                successMessage.style.display =
+                    "none";
+
+
+                const file =
+                    cvFileInput.files[0];
+
+
+                /*
+                 * CV check
+                 */
+
+                if (!file) {
+
+                    showError(
+                        "براہ کرم اپنا CV / Resume منتخب کریں۔"
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Size check
+                 */
+
+                const maxSize =
+                    5 * 1024 * 1024;
+
+                if (file.size > maxSize) {
+
+                    showError(
+                        "CV فائل 5 MB سے زیادہ نہیں ہونی چاہیے۔"
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Extension check
+                 */
+
+                const fileName =
+                    file.name.toLowerCase();
+
+                const allowed =
+                    fileName.endsWith(".pdf") ||
+                    fileName.endsWith(".doc") ||
+                    fileName.endsWith(".docx");
+
+
+                if (!allowed) {
+
+                    showError(
+                        "صرف PDF, DOC یا DOCX CV قبول ہوگی۔"
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Disable button
+                 */
+
+                submitButton.disabled =
+                    true;
+
+                submitButton.textContent =
+                    "Please Wait...";
+
+
+                progressBox.style.display =
+                    "block";
+
+                progressFill.style.width =
+                    "0%";
+
+                progressText.textContent =
+                    "CV Uploading: 0%";
+
+
+                try {
+
+                    /*
+                     * Unique CV filename
+                     */
+
+                    const safeName =
+                        file.name.replace(
+                            /[^a-zA-Z0-9._-]/g,
+                            "_"
+                        );
+
+
+                    const uniqueName =
+                        Date.now() +
+                        "_" +
+                        safeName;
+
+
+                    /*
+                     * Storage location
+                     */
+
+                    const storagePath =
+                        "cvs/" +
+                        companyId +
+                        "/" +
+                        jobId +
+                        "/" +
+                        uniqueName;
+
+
+                    const storageRef =
+                        ref(
+                            storage,
+                            storagePath
+                        );
+
+
+                    /*
+                     * Upload
+                     */
+
+                    const uploadTask =
+                        uploadBytesResumable(
+                            storageRef,
+                            file,
+                            {
+                                contentType:
+                                    file.type
+                            }
+                        );
+
+
+                    const downloadURL =
+                        await new Promise(
+                            function (
+                                resolve,
+                                reject
+                            ) {
+
+                                uploadTask.on(
+
+                                    "state_changed",
+
+                                    function (
+                                        snapshot
+                                    ) {
+
+                                        const percent =
+                                            Math.round(
+                                                (
+                                                    snapshot.bytesTransferred /
+                                                    snapshot.totalBytes
+                                                ) * 100
+                                            );
+
+
+                                        progressFill.style.width =
+                                            percent + "%";
+
+
+                                        progressText.textContent =
+                                            "CV Uploading: " +
+                                            percent +
+                                            "%";
+
+                                    },
+
+                                    function (
+                                        error
+                                    ) {
+
+                                        reject(
+                                            error
+                                        );
+
+                                    },
+
+                                    async function () {
+
+                                        try {
+
+                                            const url =
+                                                await getDownloadURL(
+                                                    uploadTask.snapshot.ref
+                                                );
+
+                                            resolve(
+                                                url
+                                            );
+
+                                        }
+                                        catch (error) {
+
+                                            reject(
+                                                error
+                                            );
+
+                                        }
+
+                                    }
+
+                                );
+
+                            }
+                        );
+
+
+                    /*
+                     * Application data
+                     */
+
+                    const applicationData = {
+
+                        job_id:
+                            jobId,
+
+                        company_id:
+                            companyId,
+
+                        applicant_name:
+                            document.getElementById(
+                                "applicantName"
+                            ).value.trim(),
+
+                        father_name:
+                            document.getElementById(
+                                "fatherName"
+                            ).value.trim(),
+
+                        phone:
+                            document.getElementById(
+                                "phone"
+                            ).value.trim(),
+
+                        whatsapp:
+                            document.getElementById(
+                                "whatsapp"
+                            ).value.trim(),
+
+                        email:
+                            document.getElementById(
+                                "email"
+                            ).value.trim(),
+
+                        cnic:
+                            document.getElementById(
+                                "cnic"
+                            ).value.trim(),
+
+                        city:
+                            document.getElementById(
+                                "city"
+                            ).value.trim(),
+
+                        education:
+                            document.getElementById(
+                                "education"
+                            ).value.trim(),
+
+                        experience:
+                            document.getElementById(
+                                "experience"
+                            ).value.trim(),
+
+                        cv_file_name:
+                            file.name,
+
+                        cv_file_size:
+                            file.size,
+
+                        cv_file_type:
+                            file.type,
+
+                        cv_storage_path:
+                            storagePath,
+
+                        cv_download_url:
+                            downloadURL,
+
+                        additional_message:
+                            document.getElementById(
+                                "additionalMessage"
+                            ).value.trim(),
+
+                        status:
+                            "pending",
+
+                        applied_at:
+                            serverTimestamp()
+
+                    };
+
+
+                    /*
+                     * Save application
+                     */
+
+                    const applicationsRef =
+                        collection(
+                            db,
+                            "companies",
+                            companyId,
+                            "opportunities",
+                            jobId,
+                            "applications"
+                        );
+
+
+                    const applicationDoc =
+                        await addDoc(
+                            applicationsRef,
+                            applicationData
+                        );
+
+
+                    /*
+                     * Reference
+                     */
+
+                    const reference =
+                        "INFO24-" +
+                        applicationDoc.id
+                            .substring(0, 8)
+                            .toUpperCase();
+
+
+                    /*
+                     * Hide form
+                     */
+
+                    applicationCard.style.display =
+                        "none";
+
+
+                    successScreen.style.display =
+                        "block";
+
+
+                    document.getElementById(
+                        "applicationReference"
+                    ).textContent =
+                        "Application Reference: " +
+                        reference;
+
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+
+                }
+                catch (error) {
+
+                    console.error(
+                        "Application submit error:",
+                        error
+                    );
+
+
+                    let message =
+                        "Application submit نہیں ہو سکی۔";
+
+
+                    if (
+                        error &&
+                        error.code ===
+                        "storage/unauthorized"
+                    ) {
+
+                        message =
+                            "CV upload کی permission نہیں ہے۔ Firebase Storage Rules check کریں۔";
+
+                    }
+                    else if (
+                        error &&
+                        error.code ===
+                        "storage/canceled"
+                    ) {
+
+                        message =
+                            "CV upload cancel ہو گئی۔";
+
+                    }
+                    else if (
+                        error &&
+                        error.code ===
+                        "storage/quota-exceeded"
+                    ) {
+
+                        message =
+                            "Firebase Storage quota مسئلہ ہے۔";
+
+                    }
+                    else if (
+                        error &&
+                        error.message
+                    ) {
+
+                        message =
+                            "Error: " +
+                            error.message;
+
+                    }
+
+
+                    showError(
+                        message
+                    );
+
+
+                    submitButton.disabled =
+                        false;
+
+                    submitButton.textContent =
+                        "Submit Application";
+
+                    progressBox.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        /*
+         * Start
+         */
+
+        loadJob();
+
+    </script>
 
 </body>
 
