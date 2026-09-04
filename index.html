@@ -1,1 +1,1891 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
 
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Info24 Jobs - پاکستان میں ملازمت، فیکٹری، لیبر، ڈرائیور، ٹیکنیشن اور دیگر مواقع"
+    >
+
+    <title>INFO24 JOBS — Jobs & Opportunities</title>
+
+    <style>
+
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+
+        body{
+            font-family:
+                Arial,
+                "Noto Nastaliq Urdu",
+                "Noto Sans Arabic",
+                sans-serif;
+
+            background:#f4f7fb;
+            color:#17202a;
+            line-height:1.6;
+        }
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+        button,
+        select,
+        input{
+            font-family:inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header{
+            background:linear-gradient(
+                135deg,
+                #071d49,
+                #0b4f8a
+            );
+
+            color:white;
+            padding:18px 15px;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            box-shadow:0 4px 15px rgba(0,0,0,.15);
+        }
+
+        .header-inner{
+            max-width:1200px;
+            margin:auto;
+
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:15px;
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+
+        .brand-logo{
+            width:48px;
+            height:48px;
+            border-radius:12px;
+            background:white;
+            color:#0b4f8a;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-size:20px;
+            font-weight:900;
+
+            box-shadow:0 3px 10px rgba(0,0,0,.2);
+        }
+
+        .brand-text h1{
+            font-size:24px;
+            line-height:1.1;
+            letter-spacing:.5px;
+        }
+
+        .brand-text p{
+            font-size:12px;
+            opacity:.9;
+            margin-top:3px;
+        }
+
+        .header-btn{
+            background:white;
+            color:#0b4f8a;
+            border:none;
+            padding:10px 16px;
+            border-radius:10px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero{
+            background:
+                linear-gradient(
+                    rgba(7,29,73,.93),
+                    rgba(11,79,138,.90)
+                );
+
+            color:white;
+            padding:55px 15px 65px;
+        }
+
+        .hero-inner{
+            max-width:1100px;
+            margin:auto;
+            text-align:center;
+        }
+
+        .hero h2{
+            font-size:36px;
+            margin-bottom:10px;
+        }
+
+        .hero h2 span{
+            color:#ffd166;
+        }
+
+        .hero-subtitle{
+            max-width:760px;
+            margin:0 auto 28px;
+            font-size:17px;
+            opacity:.95;
+        }
+
+        /* =========================
+           SEARCH BOX
+        ========================= */
+
+        .search-box{
+            background:white;
+            padding:12px;
+            border-radius:16px;
+            max-width:950px;
+            margin:auto;
+
+            display:grid;
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr
+                auto;
+
+            gap:10px;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,.22);
+        }
+
+        .search-box input,
+        .search-box select{
+            width:100%;
+            border:1px solid #d7dee8;
+            border-radius:10px;
+            padding:13px 12px;
+            background:#fff;
+            color:#17202a;
+            font-size:14px;
+            outline:none;
+        }
+
+        .search-box input:focus,
+        .search-box select:focus{
+            border-color:#0b66a3;
+        }
+
+        .search-btn{
+            border:none;
+            background:#0b66a3;
+            color:white;
+            border-radius:10px;
+            padding:12px 20px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        .search-btn:hover{
+            background:#084f7e;
+        }
+
+        /* =========================
+           FREE MESSAGE
+        ========================= */
+
+        .free-message{
+            max-width:1000px;
+            margin:-25px auto 30px;
+            padding:18px;
+
+            background:white;
+            border-radius:14px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.08);
+
+            text-align:center;
+
+            position:relative;
+            z-index:10;
+        }
+
+        .free-message strong{
+            color:#14833b;
+        }
+
+        .free-message p{
+            font-size:14px;
+            color:#4b5563;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main{
+            max-width:1200px;
+            margin:auto;
+            padding:10px 15px 50px;
+        }
+
+        .section-title{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+
+            margin:30px 0 18px;
+        }
+
+        .section-title h2{
+            font-size:25px;
+        }
+
+        .section-title p{
+            font-size:13px;
+            color:#6b7280;
+        }
+
+        /* =========================
+           CATEGORY CARDS
+        ========================= */
+
+        .categories{
+            display:grid;
+            grid-template-columns:
+                repeat(6,1fr);
+
+            gap:12px;
+        }
+
+        .category{
+            background:white;
+            border:1px solid #e4e9ef;
+            border-radius:14px;
+
+            padding:18px 10px;
+            text-align:center;
+
+            cursor:pointer;
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .category:hover{
+            transform:translateY(-3px);
+
+            box-shadow:
+                0 7px 20px rgba(0,0,0,.08);
+        }
+
+        .category-icon{
+            font-size:28px;
+            margin-bottom:5px;
+        }
+
+        .category-name{
+            font-size:13px;
+            font-weight:bold;
+        }
+
+        /* =========================
+           JOB GRID
+        ========================= */
+
+        .jobs-grid{
+            display:grid;
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:18px;
+        }
+
+        .job-card{
+            background:white;
+            border:1px solid #e2e8f0;
+            border-radius:16px;
+
+            padding:20px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,.05);
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .job-card:hover{
+            transform:translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.10);
+        }
+
+        .job-top{
+            display:flex;
+            align-items:flex-start;
+            justify-content:space-between;
+            gap:10px;
+            margin-bottom:13px;
+        }
+
+        .job-category{
+            background:#e8f3ff;
+            color:#075985;
+
+            padding:5px 9px;
+            border-radius:20px;
+
+            font-size:11px;
+            font-weight:bold;
+        }
+
+        .verified{
+            background:#e9f8ef;
+            color:#16803c;
+
+            padding:5px 9px;
+            border-radius:20px;
+
+            font-size:11px;
+            font-weight:bold;
+            white-space:nowrap;
+        }
+
+        .job-card h3{
+            font-size:20px;
+            margin-bottom:5px;
+        }
+
+        .company{
+            color:#4b5563;
+            font-size:13px;
+            margin-bottom:12px;
+        }
+
+        .job-info{
+            display:grid;
+            gap:7px;
+            margin-bottom:16px;
+        }
+
+        .job-info div{
+            font-size:13px;
+            color:#374151;
+        }
+
+        .job-description{
+            background:#f8fafc;
+            padding:10px;
+            border-radius:9px;
+
+            font-size:12px;
+            color:#4b5563;
+
+            margin-bottom:17px;
+        }
+
+        .job-actions{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:8px;
+        }
+
+        .btn{
+            border:none;
+            border-radius:9px;
+            padding:11px 8px;
+
+            cursor:pointer;
+            font-weight:bold;
+            font-size:13px;
+            text-align:center;
+        }
+
+        .btn-primary{
+            background:#0b66a3;
+            color:white;
+        }
+
+        .btn-primary:hover{
+            background:#084f7e;
+        }
+
+        .btn-secondary{
+            background:#eef2f7;
+            color:#243447;
+        }
+
+        .btn-secondary:hover{
+            background:#e2e8f0;
+        }
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .steps{
+            display:grid;
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:15px;
+        }
+
+        .step{
+            background:white;
+            border-radius:14px;
+            padding:20px;
+
+            text-align:center;
+
+            border:1px solid #e4e9ef;
+        }
+
+        .step-number{
+            width:42px;
+            height:42px;
+
+            margin:0 auto 10px;
+
+            border-radius:50%;
+
+            background:#0b66a3;
+            color:white;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-weight:bold;
+            font-size:18px;
+        }
+
+        .step h3{
+            font-size:16px;
+            margin-bottom:5px;
+        }
+
+        .step p{
+            font-size:12px;
+            color:#6b7280;
+        }
+
+        /* =========================
+           SAFETY BOX
+        ========================= */
+
+        .safety{
+            margin-top:35px;
+
+            background:#fffaf0;
+            border:1px solid #f4d58d;
+
+            border-radius:15px;
+
+            padding:20px;
+        }
+
+        .safety h2{
+            font-size:20px;
+            margin-bottom:8px;
+        }
+
+        .safety p{
+            font-size:13px;
+            color:#59451b;
+            margin-bottom:5px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer{
+            background:#071d49;
+            color:white;
+
+            padding:35px 15px 20px;
+            margin-top:30px;
+        }
+
+        .footer-inner{
+            max-width:1100px;
+            margin:auto;
+        }
+
+        .footer-grid{
+            display:grid;
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap:30px;
+        }
+
+        .footer-col h3{
+            margin-bottom:10px;
+            font-size:17px;
+        }
+
+        .footer-col p,
+        .footer-col a{
+            font-size:13px;
+            color:#dbe7f4;
+        }
+
+        .footer-col a{
+            display:block;
+            margin:5px 0;
+        }
+
+        .copyright{
+            border-top:1px solid rgba(255,255,255,.15);
+            margin-top:25px;
+            padding-top:15px;
+
+            text-align:center;
+
+            font-size:12px;
+            color:#b9c7d8;
+        }
+
+        /* =========================
+           NO RESULT
+        ========================= */
+
+        .no-results{
+            display:none;
+
+            background:white;
+            border-radius:14px;
+
+            padding:35px;
+            text-align:center;
+
+            border:1px solid #e2e8f0;
+
+            margin-top:15px;
+        }
+
+        .no-results h3{
+            margin-bottom:5px;
+        }
+
+        .no-results p{
+            color:#6b7280;
+            font-size:13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width:950px){
+
+            .categories{
+                grid-template-columns:
+                    repeat(3,1fr);
+            }
+
+            .jobs-grid{
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .steps{
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .search-box{
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .search-btn{
+                grid-column:
+                    span 2;
+            }
+
+        }
+
+        @media(max-width:650px){
+
+            header{
+                padding:12px;
+            }
+
+            .header-inner{
+                align-items:center;
+            }
+
+            .brand-logo{
+                width:42px;
+                height:42px;
+                font-size:17px;
+            }
+
+            .brand-text h1{
+                font-size:20px;
+            }
+
+            .brand-text p{
+                font-size:10px;
+            }
+
+            .header-btn{
+                padding:8px 10px;
+                font-size:11px;
+            }
+
+            .hero{
+                padding:38px 12px 50px;
+            }
+
+            .hero h2{
+                font-size:27px;
+            }
+
+            .hero-subtitle{
+                font-size:14px;
+            }
+
+            .search-box{
+                grid-template-columns:1fr;
+                padding:10px;
+            }
+
+            .search-btn{
+                grid-column:auto;
+            }
+
+            .categories{
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .jobs-grid{
+                grid-template-columns:1fr;
+            }
+
+            .steps{
+                grid-template-columns:1fr;
+            }
+
+            .section-title{
+                align-items:flex-start;
+                flex-direction:column;
+            }
+
+            .footer-grid{
+                grid-template-columns:1fr;
+                gap:20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-inner">
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-logo">
+                I24
+            </div>
+
+            <div class="brand-text">
+
+                <h1>INFO24 JOBS</h1>
+
+                <p>
+                    Jobs & Opportunities
+                </p>
+
+            </div>
+
+        </a>
+
+        <button
+            class="header-btn"
+            onclick="scrollToJobs()"
+        >
+            Jobs دیکھیں
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <h2>
+            اپنا <span>موقع</span> تلاش کریں
+        </h2>
+
+        <p class="hero-subtitle">
+
+            پاکستان بھر میں Jobs، Factory Labour،
+            Drivers، Technicians اور دیگر
+            verified opportunities تلاش کریں۔
+
+        </p>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Job یا Company تلاش کریں..."
+                oninput="filterJobs()"
+            >
+
+
+            <select
+                id="cityFilter"
+                onchange="filterJobs()"
+            >
+
+                <option value="">
+                    تمام شہر
+                </option>
+
+                <option value="لاہور">
+                    لاہور
+                </option>
+
+                <option value="کراچی">
+                    کراچی
+                </option>
+
+                <option value="فیصل آباد">
+                    فیصل آباد
+                </option>
+
+                <option value="سیالکوٹ">
+                    سیالکوٹ
+                </option>
+
+                <option value="گوجرانوالہ">
+                    گوجرانوالہ
+                </option>
+
+                <option value="راولپنڈی">
+                    راولپنڈی
+                </option>
+
+            </select>
+
+
+            <select
+                id="categoryFilter"
+                onchange="filterJobs()"
+            >
+
+                <option value="">
+                    تمام Categories
+                </option>
+
+                <option value="Factory">
+                    Factory / Labour
+                </option>
+
+                <option value="Driver">
+                    Driver
+                </option>
+
+                <option value="Technician">
+                    Technician
+                </option>
+
+                <option value="Office">
+                    Office Jobs
+                </option>
+
+                <option value="Skilled">
+                    Skilled Worker
+                </option>
+
+            </select>
+
+
+            <button
+                class="search-btn"
+                onclick="filterJobs()"
+            >
+                🔍 Search
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FREE MESSAGE
+========================= -->
+
+<div class="free-message">
+
+    <p>
+
+        ✅
+        <strong>
+            Info24 Jobs پر Job Application مفت ہے۔
+        </strong>
+
+        آپ سے Job Apply کرنے، Registration یا CV جمع کروانے
+        کی کوئی فیس نہیں لی جاتی۔
+
+    </p>
+
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+
+    <!-- CATEGORIES -->
+
+    <div class="section-title">
+
+        <div>
+            <h2>
+                Job Categories
+            </h2>
+
+            <p>
+                اپنی ضرورت کے مطابق Category منتخب کریں
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="categories">
+
+        <div
+            class="category"
+            onclick="selectCategory('Factory')"
+        >
+
+            <div class="category-icon">
+                🏭
+            </div>
+
+            <div class="category-name">
+                Factory / Labour
+            </div>
+
+        </div>
+
+
+        <div
+            class="category"
+            onclick="selectCategory('Driver')"
+        >
+
+            <div class="category-icon">
+                🚛
+            </div>
+
+            <div class="category-name">
+                Drivers
+            </div>
+
+        </div>
+
+
+        <div
+            class="category"
+            onclick="selectCategory('Technician')"
+        >
+
+            <div class="category-icon">
+                🔧
+            </div>
+
+            <div class="category-name">
+                Technicians
+            </div>
+
+        </div>
+
+
+        <div
+            class="category"
+            onclick="selectCategory('Skilled')"
+        >
+
+            <div class="category-icon">
+                ⚡
+            </div>
+
+            <div class="category-name">
+                Skilled Workers
+            </div>
+
+        </div>
+
+
+        <div
+            class="category"
+            onclick="selectCategory('Office')"
+        >
+
+            <div class="category-icon">
+                💼
+            </div>
+
+            <div class="category-name">
+                Office Jobs
+            </div>
+
+        </div>
+
+
+        <div
+            class="category"
+            onclick="selectCategory('Overseas')"
+        >
+
+            <div class="category-icon">
+                🌍
+            </div>
+
+            <div class="category-name">
+                Overseas Jobs
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JOBS -->
+
+    <div
+        class="section-title"
+        id="jobsSection"
+    >
+
+        <div>
+
+            <h2>
+                Latest Opportunities
+            </h2>
+
+            <p>
+                Verified opportunities یہاں دکھائی جائیں گی
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="jobs-grid"
+        id="jobsGrid"
+    >
+
+
+        <!-- JOB 1 -->
+
+        <div
+            class="job-card"
+            data-city="لاہور"
+            data-category="Factory"
+            data-search="electrician electrician factory لاہور لاہور factory worker"
+        >
+
+            <div class="job-top">
+
+                <span class="job-category">
+                    Factory / Labour
+                </span>
+
+                <span class="verified">
+                    🟢 Verified
+                </span>
+
+            </div>
+
+
+            <h3>
+                Electrician Required
+            </h3>
+
+            <div class="company">
+                🏭 Verified Company — لاہور
+            </div>
+
+
+            <div class="job-info">
+
+                <div>
+                    📍 لاہور
+                </div>
+
+                <div>
+                    👷 Required Workers: 20
+                </div>
+
+                <div>
+                    ⚡ Electrical Experience Required
+                </div>
+
+                <div>
+                    💰 Salary: کمپنی کی شرائط کے مطابق
+                </div>
+
+            </div>
+
+
+            <div class="job-description">
+
+                کمپنی کی ضرورت کے مطابق experienced
+                Electricians درکار ہیں۔
+
+            </div>
+
+
+            <div class="job-actions">
+
+                <a
+                    href="job-details.html?job=JT001"
+                    class="btn btn-secondary"
+                >
+                    Details
+                </a>
+
+                <a
+                    href="apply.html?job=JT001"
+                    class="btn btn-primary"
+                >
+                    APPLY FREE
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- JOB 2 -->
+
+        <div
+            class="job-card"
+            data-city="کراچی"
+            data-category="Factory"
+            data-search="factory worker labour کراچی factory worker labour"
+        >
+
+            <div class="job-top">
+
+                <span class="job-category">
+                    Factory / Labour
+                </span>
+
+                <span class="verified">
+                    🟢 Verified
+                </span>
+
+            </div>
+
+
+            <h3>
+                Factory Workers Required
+            </h3>
+
+            <div class="company">
+                🏭 Verified Company — کراچی
+            </div>
+
+
+            <div class="job-info">
+
+                <div>
+                    📍 کراچی
+                </div>
+
+                <div>
+                    👷 Required Workers: 50
+                </div>
+
+                <div>
+                    🏭 Factory Worker
+                </div>
+
+                <div>
+                    💰 Salary: کمپنی کی شرائط کے مطابق
+                </div>
+
+            </div>
+
+
+            <div class="job-description">
+
+                Factory میں مختلف Labour/Worker positions
+                کے لیے candidates درکار ہیں۔
+
+            </div>
+
+
+            <div class="job-actions">
+
+                <a
+                    href="job-details.html?job=JT002"
+                    class="btn btn-secondary"
+                >
+                    Details
+                </a>
+
+                <a
+                    href="apply.html?job=JT002"
+                    class="btn btn-primary"
+                >
+                    APPLY FREE
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- JOB 3 -->
+
+        <div
+            class="job-card"
+            data-city="فیصل آباد"
+            data-category="Driver"
+            data-search="driver driver فیصل آباد فیصل آباد driver"
+        >
+
+            <div class="job-top">
+
+                <span class="job-category">
+                    Driver
+                </span>
+
+                <span class="verified">
+                    🟢 Verified
+                </span>
+
+            </div>
+
+
+            <h3>
+                Driver Required
+            </h3>
+
+            <div class="company">
+                🚛 Verified Company — فیصل آباد
+            </div>
+
+
+            <div class="job-info">
+
+                <div>
+                    📍 فیصل آباد
+                </div>
+
+                <div>
+                    👤 Required: 10 Drivers
+                </div>
+
+                <div>
+                    🚛 Valid Driving Licence
+                </div>
+
+                <div>
+                    💰 Salary: کمپنی کی شرائط کے مطابق
+                </div>
+
+            </div>
+
+
+            <div class="job-description">
+
+                Experienced drivers کے لیے
+                employment opportunity۔
+
+            </div>
+
+
+            <div class="job-actions">
+
+                <a
+                    href="job-details.html?job=JT003"
+                    class="btn btn-secondary"
+                >
+                    Details
+                </a>
+
+                <a
+                    href="apply.html?job=JT003"
+                    class="btn btn-primary"
+                >
+                    APPLY FREE
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- JOB 4 -->
+
+        <div
+            class="job-card"
+            data-city="سیالکوٹ"
+            data-category="Skilled"
+            data-search="welder skilled worker سیالکوٹ welder"
+        >
+
+            <div class="job-top">
+
+                <span class="job-category">
+                    Skilled Worker
+                </span>
+
+                <span class="verified">
+                    🟢 Verified
+                </span>
+
+            </div>
+
+
+            <h3>
+                Welder Required
+            </h3>
+
+            <div class="company">
+                🏭 Verified Industry — سیالکوٹ
+            </div>
+
+
+            <div class="job-info">
+
+                <div>
+                    📍 سیالکوٹ
+                </div>
+
+                <div>
+                    👷 Required: 15
+                </div>
+
+                <div>
+                    🔧 Welding Experience
+                </div>
+
+                <div>
+                    💰 Salary: کمپنی کی شرائط کے مطابق
+                </div>
+
+            </div>
+
+
+            <div class="job-description">
+
+                Skilled Welders کے لیے
+                company requirement۔
+
+            </div>
+
+
+            <div class="job-actions">
+
+                <a
+                    href="job-details.html?job=JT004"
+                    class="btn btn-secondary"
+                >
+                    Details
+                </a>
+
+                <a
+                    href="apply.html?job=JT004"
+                    class="btn btn-primary"
+                >
+                    APPLY FREE
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- JOB 5 -->
+
+        <div
+            class="job-card"
+            data-city="گوجرانوالہ"
+            data-category="Technician"
+            data-search="technician technician گوجرانوالہ technician"
+        >
+
+            <div class="job-top">
+
+                <span class="job-category">
+                    Technician
+                </span>
+
+                <span class="verified">
+                    🟢 Verified
+                </span>
+
+            </div>
+
+
+            <h3>
+                Technical Staff Required
+            </h3>
+
+            <div class="company">
+                🔧 Verified Company — گوجرانوالہ
+            </div>
+
+
+            <div class="job-info">
+
+                <div>
+                    📍 گوجرانوالہ
+                </div>
+
+                <div>
+                    👷 Required: 8 Technicians
+                </div>
+
+                <div>
+                    🔧 Technical Experience
+                </div>
+
+                <div>
+                    💰 Salary: کمپنی کی شرائط کے مطابق
+                </div>
+
+            </div>
+
+
+            <div class="job-description">
+
+                Technical department کے لیے
+                experienced staff درکار ہے۔
+
+            </div>
+
+
+            <div class="job-actions">
+
+                <a
+                    href="job-details.html?job=JT005"
+                    class="btn btn-secondary"
+                >
+                    Details
+                </a>
+
+                <a
+                    href="apply.html?job=JT005"
+                    class="btn btn-primary"
+                >
+                    APPLY FREE
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- JOB 6 -->
+
+        <div
+            class="job-card"
+            data-city="راولپنڈی"
+            data-category="Office"
+            data-search="office computer operator راولپنڈی office job"
+        >
+
+            <div class="job-top">
+
+                <span class="job-category">
+                    Office Job
+                </span>
+
+                <span class="verified">
+                    🟢 Verified
+                </span>
+
+            </div>
+
+
+            <h3>
+                Computer Operator
+            </h3>
+
+            <div class="company">
+                🏢 Verified Company — راولپنڈی
+            </div>
+
+
+            <div class="job-info">
+
+                <div>
+                    📍 راولپنڈی
+                </div>
+
+                <div>
+                    👤 Required: 3
+                </div>
+
+                <div>
+                    💻 Basic Computer Skills
+                </div>
+
+                <div>
+                    💰 Salary: کمپنی کی شرائط کے مطابق
+                </div>
+
+            </div>
+
+
+            <div class="job-description">
+
+                Office work کے لیے
+                Computer Operators درکار ہیں۔
+
+            </div>
+
+
+            <div class="job-actions">
+
+                <a
+                    href="job-details.html?job=JT006"
+                    class="btn btn-secondary"
+                >
+                    Details
+                </a>
+
+                <a
+                    href="apply.html?job=JT006"
+                    class="btn btn-primary"
+                >
+                    APPLY FREE
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- NO RESULTS -->
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+
+        <h3>
+            کوئی Job نہیں ملی
+        </h3>
+
+        <p>
+            Search یا filters تبدیل کر کے دوبارہ کوشش کریں۔
+        </p>
+
+    </div>
+
+
+    <!-- HOW IT WORKS -->
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                یہ نظام کیسے کام کرتا ہے؟
+            </h2>
+
+            <p>
+                Candidate کے لیے آسان اور مفت طریقہ
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <h3>
+                Job تلاش کریں
+            </h3>
+
+            <p>
+                اپنی پسند کی verified opportunity تلاش کریں۔
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <h3>
+                Free Apply کریں
+            </h3>
+
+            <p>
+                اپنی معلومات اور CV جمع کروائیں۔
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <h3>
+                CV Forward
+            </h3>
+
+            <p>
+                مناسب درخواست متعلقہ کمپنی تک پہنچائی جائے گی۔
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+            <h3>
+                Company Response
+            </h3>
+
+            <p>
+                کمپنی کے جواب کے مطابق candidate کو اطلاع دی جائے گی۔
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SAFETY -->
+
+    <div class="safety">
+
+        <h2>
+            ⚠️ اہم معلومات
+        </h2>
+
+        <p>
+            <strong>
+                Info24 Jobs کی طرف سے Job Apply کرنے،
+                Registration یا CV جمع کروانے کی کوئی فیس نہیں ہے۔
+            </strong>
+        </p>
+
+        <p>
+            کمپنی کی طرف سے Selection، Interview،
+            Salary اور Hiring کا حتمی فیصلہ متعلقہ کمپنی کرے گی۔
+        </p>
+
+        <p>
+            Job response کے لیے کوئی مقررہ وقت نہیں ہے۔
+            کمپنی اپنی ضرورت اور recruitment process کے مطابق
+            جواب دے سکتی ہے۔
+        </p>
+
+        <p>
+            Info24 Jobs ملازمت کی ضمانت نہیں دیتا،
+            بلکہ verified opportunity اور candidate کے درمیان
+            رابطے/درخواست کے عمل میں مدد فراہم کرتا ہے۔
+        </p>
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-grid">
+
+            <div class="footer-col">
+
+                <h3>
+                    INFO24 JOBS
+                </h3>
+
+                <p>
+                    پاکستان میں Jobs اور مختلف
+                    employment opportunities کو
+                    امیدواروں تک پہنچانے کے لیے
+                    ایک آسان پلیٹ فارم۔
+                </p>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="jobs.html">
+                    All Jobs
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="apply.html">
+                    Apply
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 INFO24 JOBS — All Rights Reserved
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    function filterJobs(){
+
+        const search =
+            document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+        const city =
+            document
+            .getElementById("cityFilter")
+            .value;
+
+        const category =
+            document
+            .getElementById("categoryFilter")
+            .value;
+
+        const cards =
+            document.querySelectorAll(".job-card");
+
+        let visible = 0;
+
+
+        cards.forEach(card => {
+
+            const cardCity =
+                card.dataset.city || "";
+
+            const cardCategory =
+                card.dataset.category || "";
+
+            const cardSearch =
+                (
+                    card.dataset.search ||
+                    ""
+                ).toLowerCase();
+
+
+            const searchMatch =
+                !search ||
+                cardSearch.includes(search);
+
+
+            const cityMatch =
+                !city ||
+                cardCity === city;
+
+
+            const categoryMatch =
+                !category ||
+                cardCategory === category;
+
+
+            if(
+                searchMatch &&
+                cityMatch &&
+                categoryMatch
+            ){
+
+                card.style.display = "";
+
+                visible++;
+
+            }else{
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+
+        const noResults =
+            document.getElementById("noResults");
+
+
+        if(visible === 0){
+
+            noResults.style.display = "block";
+
+        }else{
+
+            noResults.style.display = "none";
+
+        }
+
+    }
+
+
+    function selectCategory(category){
+
+        document
+        .getElementById("categoryFilter")
+        .value = category;
+
+        filterJobs();
+
+        scrollToJobs();
+
+    }
+
+
+    function scrollToJobs(){
+
+        const section =
+            document.getElementById("jobsSection");
+
+        if(section){
+
+            section.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        }
+
+    }
+
+
+</script>
+
+</body>
+
+</html>
