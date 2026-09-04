@@ -120,23 +120,73 @@ textarea{
     grid-column:1/-1;
 }
 
+
+/* ============================= */
+/* CV UPLOAD BOX */
+/* ============================= */
+
 .file-box{
     border:2px dashed #b8c2cc;
-    border-radius:10px;
-    padding:18px;
+    border-radius:12px;
+    padding:20px;
     background:#f8fafc;
+    text-align:center;
+}
+
+.cv-select-btn{
+    display:inline-block;
+    width:100%;
+    max-width:400px;
+    padding:15px 18px;
+    background:#1769aa;
+    color:#fff;
+    border-radius:9px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    text-align:center;
+    border:0;
+    -webkit-tap-highlight-color:transparent;
+    user-select:none;
+}
+
+.cv-select-btn:active{
+    opacity:.75;
+    transform:scale(.99);
+}
+
+#cvFile{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
+}
+
+.selected-file{
+    display:none;
+    margin-top:14px;
+    padding:12px;
+    background:#ecfdf3;
+    border:1px solid #a7f3d0;
+    border-radius:9px;
+    color:#067647;
+    font-weight:bold;
+    word-break:break-word;
+    line-height:1.6;
 }
 
 .file-help{
-    margin-top:7px;
+    margin-top:12px;
     color:#667085;
     font-size:13px;
-    line-height:1.6;
+    line-height:1.7;
 }
 
 .progress-box{
     display:none;
-    margin-top:12px;
+    margin-top:15px;
+    text-align:right;
 }
 
 .progress-bar-bg{
@@ -150,6 +200,7 @@ textarea{
 .progress-bar{
     width:0%;
     height:100%;
+    background:#1769aa;
     transition:.2s;
 }
 
@@ -169,6 +220,12 @@ textarea{
 .checkbox-row input{
     width:auto;
     margin-top:4px;
+}
+
+.checkbox-row label{
+    font-weight:normal;
+    margin:0;
+    line-height:1.7;
 }
 
 .submit-btn{
@@ -250,6 +307,11 @@ textarea{
     .form-box,
     .job-info{
         padding:18px;
+    }
+
+    .cv-select-btn{
+        max-width:none;
+        font-size:16px;
     }
 
 }
@@ -526,30 +588,54 @@ CV / Resume
 
 <div class="file-box">
 
+
+<!-- REAL FILE INPUT -->
+
 <input
     type="file"
     id="cvFile"
-    accept=".pdf,.doc,.docx"
-    required
+    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 >
+
+
+<!-- MOBILE FRIENDLY BUTTON -->
+
+<label
+    for="cvFile"
+    class="cv-select-btn"
+>
+📎 CV / Resume فائل منتخب کریں
+</label>
+
+
+<!-- SELECTED FILE -->
+
+<div
+    id="selectedFile"
+    class="selected-file"
+></div>
 
 
 <div class="file-help">
 
-Allowed formats:
+صرف یہ formats allowed ہیں:
+
 <strong>PDF, DOC, DOCX</strong>
 
 <br>
 
 Maximum file size:
+
 <strong>5 MB</strong>
 
 <br>
 
-آپ کی اصل CV فائل محفوظ کی جائے گی۔
+اوپر والے بٹن پر tap کرکے اپنی CV فائل منتخب کریں۔
 
 </div>
 
+
+<!-- PROGRESS -->
 
 <div
     id="uploadProgress"
@@ -570,10 +656,11 @@ Maximum file size:
     id="progressText"
     class="progress-text"
 >
-Uploading CV...
+CV Uploading...
 </div>
 
 </div>
+
 
 </div>
 
@@ -841,6 +928,12 @@ const cvFileInput =
     );
 
 
+const selectedFile =
+    document.getElementById(
+        "selectedFile"
+    );
+
+
 const uploadProgress =
     document.getElementById(
         "uploadProgress"
@@ -857,7 +950,6 @@ const progressText =
     document.getElementById(
         "progressText"
     );
-
 
 
 let currentJob = null;
@@ -1070,7 +1162,7 @@ ${
 
 
 /* ========================================= */
-/* CV VALIDATION */
+/* CV FILE SELECT */
 /* ========================================= */
 
 cvFileInput.addEventListener(
@@ -1078,10 +1170,17 @@ cvFileInput.addEventListener(
     function(){
 
         const file =
+            this.files &&
             this.files[0];
 
 
         if(!file){
+
+            selectedFile.style.display =
+                "none";
+
+            selectedFile.textContent =
+                "";
 
             return;
 
@@ -1092,30 +1191,22 @@ cvFileInput.addEventListener(
             5 * 1024 * 1024;
 
 
-        const allowedTypes = [
-
-            "application/pdf",
-
-            "application/msword",
-
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-
-        ];
-
-
         const fileName =
             file.name.toLowerCase();
 
 
         const validExtension =
+
             fileName.endsWith(".pdf") ||
+
             fileName.endsWith(".doc") ||
+
             fileName.endsWith(".docx");
 
 
-        if(
-            file.size > maxSize
-        ){
+        /* FILE SIZE */
+
+        if(file.size > maxSize){
 
             showError(
                 "CV file 5 MB سے زیادہ نہیں ہونی چاہیے۔"
@@ -1123,14 +1214,17 @@ cvFileInput.addEventListener(
 
             this.value = "";
 
+            selectedFile.style.display =
+                "none";
+
             return;
 
         }
 
 
-        if(
-            !validExtension
-        ){
+        /* FILE TYPE */
+
+        if(!validExtension){
 
             showError(
                 "صرف PDF, DOC یا DOCX فائل upload کریں۔"
@@ -1138,9 +1232,37 @@ cvFileInput.addEventListener(
 
             this.value = "";
 
+            selectedFile.style.display =
+                "none";
+
             return;
 
         }
+
+
+        /* SHOW SELECTED FILE */
+
+        selectedFile.style.display =
+            "block";
+
+
+        selectedFile.innerHTML =
+
+            "✅ Selected CV:<br>" +
+
+            escapeHtml(
+                file.name
+            ) +
+
+            "<br>" +
+
+            "<small>" +
+
+            formatFileSize(
+                file.size
+            ) +
+
+            "</small>";
 
 
         hideError();
@@ -1176,13 +1298,14 @@ form.addEventListener(
 
 
         const file =
+            cvFileInput.files &&
             cvFileInput.files[0];
 
 
         if(!file){
 
             showError(
-                "CV / Resume upload کرنا لازمی ہے۔"
+                "براہِ کرم پہلے 'CV / Resume فائل منتخب کریں' والے بٹن سے CV منتخب کریں۔"
             );
 
             return;
@@ -1194,9 +1317,7 @@ form.addEventListener(
             5 * 1024 * 1024;
 
 
-        if(
-            file.size > maxSize
-        ){
+        if(file.size > maxSize){
 
             showError(
                 "CV file 5 MB سے زیادہ نہیں ہونی چاہیے۔"
@@ -1226,7 +1347,9 @@ form.addEventListener(
         }
 
 
-        submitBtn.disabled = true;
+        submitBtn.disabled =
+            true;
+
 
         submitBtn.textContent =
             "CV Upload ہو رہی ہے...";
@@ -1248,7 +1371,7 @@ form.addEventListener(
 
 
             /* =============================== */
-            /* CREATE TEMP FILE NAME */
+            /* SAFE FILE NAME */
             /* =============================== */
 
             const safeFileName =
@@ -1306,6 +1429,7 @@ form.addEventListener(
                             function(snapshot){
 
                                 const percent =
+
                                     (
                                         snapshot.bytesTransferred /
                                         snapshot.totalBytes
@@ -1329,11 +1453,13 @@ form.addEventListener(
 
                             },
 
+
                             function(error){
 
                                 reject(error);
 
                             },
+
 
                             async function(){
 
@@ -1558,7 +1684,11 @@ ${escapeHtml(
 
         }catch(error){
 
-            console.error(error);
+            console.error(
+                "APPLICATION ERROR:",
+                error
+            );
+
 
             showError(
                 getFirebaseError(error)
@@ -1580,6 +1710,37 @@ ${escapeHtml(
 
     }
 );
+
+
+
+/* ========================================= */
+/* FILE SIZE FORMAT */
+/* ========================================= */
+
+function formatFileSize(bytes){
+
+    if(bytes < 1024){
+
+        return bytes + " Bytes";
+
+    }
+
+
+    if(bytes < 1024 * 1024){
+
+        return (
+            bytes / 1024
+        ).toFixed(1) + " KB";
+
+    }
+
+
+    return (
+        bytes /
+        (1024 * 1024)
+    ).toFixed(2) + " MB";
+
+}
 
 
 
@@ -1616,6 +1777,10 @@ function hideError(){
 }
 
 
+
+/* ========================================= */
+/* HTML ESCAPE */
+/* ========================================= */
 
 function escapeHtml(value){
 
@@ -1659,6 +1824,10 @@ function escapeHtml(value){
 }
 
 
+
+/* ========================================= */
+/* FIREBASE ERROR */
+/* ========================================= */
 
 function getFirebaseError(error){
 
